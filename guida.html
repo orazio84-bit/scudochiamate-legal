@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Scudo Chiamate — Guida</title>
+<title>Scudo Chiamate — Guida / Guide</title>
 <link rel="icon" type="image/png" href="app-icon.png">
 <style>
   :root {
@@ -43,7 +43,6 @@
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
   .meta { color: var(--fg-secondary); font-size: 0.92rem; }
-  .lang-divider { margin: 64px 0 0; border: 0; border-top: 2px solid var(--rule); }
   code { font: 0.92em/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; background: rgba(127,127,127,.12); padding: 1px 6px; border-radius: 4px; }
   .example {
     background: var(--card);
@@ -74,10 +73,24 @@
   .app-header { display: flex; align-items: center; gap: 16px; margin: 0 0 8px; }
   .app-header h1 { margin: 0; }
   .app-icon { width: 76px; height: 76px; border-radius: 17px; flex-shrink: 0; box-shadow: 0 1px 4px rgba(0,0,0,.18); }
+  .lang-switcher { display: flex; gap: 6px; justify-content: flex-end; max-width: 720px; margin: 0 auto 12px; }
+  .lang-switcher button { font: inherit; font-size: .85rem; font-weight: 600; padding: 4px 13px; border-radius: 999px; border: 1px solid var(--rule); background: transparent; color: var(--fg-secondary); cursor: pointer; }
+  .lang-switcher button.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .lang { display: none; }
+  .lang.active { display: block; }
 </style>
 </head>
 <body>
+
+<div class="lang-switcher" role="group" aria-label="Lingua / Language">
+  <button type="button" data-lang="it" aria-pressed="true">IT</button>
+  <button type="button" data-lang="en" aria-pressed="false">EN</button>
+</div>
+
 <main>
+
+<!-- ==================== ITALIANO ==================== -->
+<div class="lang active" data-lang="it">
 
 <div class="app-header">
   <img class="app-icon" src="app-icon.png" alt="Icona Scudo Chiamate" width="76" height="76">
@@ -129,7 +142,6 @@
   </ul>
 </nav>
 
-<!-- ========== ITALIANO ========== -->
 <h2 id="cosa-fa">Cosa fa Scudo Chiamate</h2>
 <p>Scudo Chiamate ti protegge da chiamate e messaggi indesiderati — telemarketing, truffe, call center molesti. La differenza rispetto a una semplice lista nera è una sola, ma cambia tutto: <strong>l'app non si limita a bloccare i numeri che inserisci, ma li analizza per riconoscere lo schema di chi ti disturba e bloccare in anticipo anche i numeri simili.</strong></p>
 
@@ -137,8 +149,8 @@
 <p>Il punto di partenza sei tu: i numeri da cui hai ricevuto chiamate o messaggi indesiderati. Puoi aggiungerli in diversi modi:</p>
 <ul>
   <li>inserendoli a mano, uno alla volta;</li>
-  <li>importandoli dalla rubrica;</li>
   <li>importandoli da un file <code>CSV</code> o <code>vCard</code>;</li>
+  <li>importandoli da screenshot o foto (OCR);</li>
   <li>reimportando la lista dei numeri già bloccati su iOS.</li>
 </ul>
 <p>Questa è la tua lista bloccati: la base su cui lavora tutto il resto.</p>
@@ -227,8 +239,8 @@
 <p>Sono range che l'app <strong>ha individuato ma ha deciso di non proporti</strong>. Compaiono in un elenco a parte per trasparenza: puoi vederli, ma non vengono attivati automaticamente. L'app li scarta <strong>per evitare range fuorvianti</strong>, cioè blocchi che sembrano plausibili ma rischierebbero di catturare troppi numeri innocenti sulla base di pochi indizi.</p>
 <p>Un range viene scartato quando ricade in uno di questi casi:</p>
 <ul>
-  <li><strong>Troppo esteso</strong> — copre più di <strong>10.000 numeri</strong>. Un intervallo così largo non somiglia a un blocco di un singolo call center, ma a un'intera fascia di numerazione: bloccarlo farebbe più danni che altro.</li>
-  <li><strong>Troppo "diradato"</strong> — è ampio (più di <strong>500 numeri</strong>) ma poggia su <strong>meno di 15 numeri tuoi</strong>. In pratica pretenderebbe di bloccare un intervallo enorme avendo pochissime prove: il classico range fuorviante, che l'app preferisce non proporre.</li>
+  <li><strong>Troppo esteso</strong> — copre più di <strong><span data-num="maxRange">10.000</span> numeri</strong>. Un intervallo così largo non somiglia a un blocco di un singolo call center, ma a un'intera fascia di numerazione: bloccarlo farebbe più danni che altro.</li>
+  <li><strong>Troppo "diradato"</strong> — è ampio (più di <strong><span data-num="sogliaAmpio">500</span> numeri</strong>) ma poggia su <strong>meno di <span data-num="minOrigini">15</span> numeri tuoi</strong>. In pratica pretenderebbe di bloccare un intervallo enorme avendo pochissime prove: il classico range fuorviante, che l'app preferisce non proporre.</li>
   <li><strong>Un solo numero</strong> (in modalità automatica) — l'analisi automatica non trasforma un numero isolato in un range, perché un singolo numero non è uno schema.</li>
 </ul>
 <p>Scartare questi range è una scelta di prudenza: meglio non bloccare un intervallo dubbio piuttosto che rischiare di silenziare numeri legittimi. Se però sei certo che un range scartato vada bloccato, puoi sempre gestirlo a mano dalle liste.</p>
@@ -240,7 +252,7 @@
 <p>L'analisi <strong>propone</strong>, ma l'ultima parola è sempre tua: nessun range diventa attivo finché non lo confermi. Ogni range trovato ha un <strong>interruttore</strong> sulla propria riga, che ti permette di sceglierlo o lasciarlo da parte.</p>
 
 <h4>Applicare i range trovati</h4>
-<p>Attiva l'interruttore dei range che vuoi bloccare — puoi selezionarne quanti vuoi — poi premi la barra <strong>Applica range selezionati</strong> in fondo allo schermo. Da quel momento i range scelti entrano nella tua protezione: passano tra i <a href="#analisi-range">Range già presenti</a> e tutti i numeri al loro interno vengono bloccati.</p>
+<p>Attiva l'interruttore dei range che vuoi bloccare — puoi selezionarne quanti vuoi — poi premi la barra <strong>Applica range selezionati</strong> che compare in alto, sotto il notch. Da quel momento i range scelti entrano nella tua protezione: passano tra i <a href="#analisi-range">Range già presenti</a> e tutti i numeri al loro interno vengono bloccati.</p>
 
 <h4>Lasciar perdere un range</h4>
 <p>Per scartare una proposta basta <strong>non selezionarla</strong>: lasciando l'interruttore spento, quel range semplicemente non viene applicato. Non serve nessuna conferma per "rifiutare" — ciò che non attivi resta inattivo.</p>
@@ -309,21 +321,21 @@
 
 <p><strong>È una funzione Premium.</strong> Si attiva con l'interruttore <strong>“Gestione automatica range”</strong> nel tab <a href="#impostazioni">Impostazioni</a>. Senza Premium attivo l'interruttore resta visibile ma non attivabile, e la gestione automatica è spenta: i range nascono e crescono solo quando sei tu a rilanciare l'analisi e ad applicarli.</p>
 
-<h4>Fin dove arriva l'estensione: i 1000 numeri e il salto di 150</h4>
+<h4>Fin dove arriva l'estensione: i <span data-num="estLato">1000</span> numeri e il salto di <span data-num="salto">150</span></h4>
 <p>L'estensione automatica segue due regole che lavorano insieme:</p>
 <ul>
-  <li><strong>Tetto massimo: 1000 numeri per lato.</strong> Un range può allungarsi al massimo di <strong>1000 numeri prima</strong> del suo inizio e <strong>1000 numeri dopo</strong> la sua fine. Oltre quel limite non va, per quanto numerosi siano i numeri vicini.</li>
-  <li><strong>Salto massimo: 150.</strong> L'estensione procede "a ponte", numero dopo numero: per agganciare il numero successivo, il <strong>salto (gap) tra un numero e quello dopo non deve superare 150</strong>. Se l'app incontra un buco più grande di 150, si ferma lì, anche se non ha ancora raggiunto i 1000.</li>
+  <li><strong>Tetto massimo: <span data-num="estLato">1000</span> numeri per lato.</strong> Un range può allungarsi al massimo di <strong><span data-num="estLato">1000</span> numeri prima</strong> del suo inizio e <strong><span data-num="estLato">1000</span> numeri dopo</strong> la sua fine. Oltre quel limite non va, per quanto numerosi siano i numeri vicini.</li>
+  <li><strong>Salto massimo: <span data-num="salto">150</span>.</strong> L'estensione procede "a ponte", numero dopo numero: per agganciare il numero successivo, il <strong>salto (gap) tra un numero e quello dopo non deve superare <span data-num="salto">150</span></strong>. Se l'app incontra un buco più grande di <span data-num="salto">150</span>, si ferma lì, anche se non ha ancora raggiunto i <span data-num="estLato">1000</span>.</li>
 </ul>
-<p>In parole semplici: <strong>150 è quanto il range può "saltare"</strong> per agganciare il numero vicino successivo; <strong>1000 è il tetto totale</strong> di quanto può allungarsi da ciascun lato. Per arrivare fino a 1000 servono quindi numeri abbastanza fitti, ciascuno entro 150 dal precedente; se a un certo punto c'è un vuoto troppo ampio, l'estensione si interrompe prima.</p>
+<p>In parole semplici: <strong><span data-num="salto">150</span> è quanto il range può "saltare"</strong> per agganciare il numero vicino successivo; <strong><span data-num="estLato">1000</span> è il tetto totale</strong> di quanto può allungarsi da ciascun lato. Per arrivare fino a <span data-num="estLato">1000</span> servono quindi numeri abbastanza fitti, ciascuno entro <span data-num="salto">150</span> dal precedente; se a un certo punto c'è un vuoto troppo ampio, l'estensione si interrompe prima.</p>
 
-<p><strong>Il limite di 1000 vale per ogni singola scansione, non per sempre.</strong> Quel tetto si applica a una volta che l'app analizza; alla scansione successiva — cioè la prossima volta che blocchi numeri e la gestione automatica rigira — il conteggio <strong>riparte da zero a partire dai nuovi confini</strong> già estesi. In pratica un range può continuare a crescere di altri 1000 numeri per lato a ogni passaggio: nel tempo, aggiunta dopo aggiunta, può quindi superare ampiamente i 1000 numeri complessivi, sempre rispettando il salto massimo di 150 a ogni aggancio.</p>
+<p><strong>Il limite di <span data-num="estLato">1000</span> vale per ogni singola scansione, non per sempre.</strong> Quel tetto si applica a una volta che l'app analizza; alla scansione successiva — cioè la prossima volta che blocchi numeri e la gestione automatica rigira — il conteggio <strong>riparte da zero a partire dai nuovi confini</strong> già estesi. In pratica un range può continuare a crescere di altri <span data-num="estLato">1000</span> numeri per lato a ogni passaggio: nel tempo, aggiunta dopo aggiunta, può quindi superare ampiamente i <span data-num="estLato">1000</span> numeri complessivi, sempre rispettando il salto massimo di <span data-num="salto">150</span> a ogni aggancio.</p>
 
 <div class="example">
   <p class="label">Esempio</p>
   <p>Hai un range attivo <code>06 1234 5670</code>–<code>5679</code> e la gestione automatica attiva.</p>
-  <p>Blocchi <code>06 1234 5760</code>: dista poco più di 80 dalla fine del range, cioè <strong>entro il salto di 150</strong> → l'app estende il range fino a includerlo. Se nei dintorni continui a bloccare numeri ravvicinati, il ponte prosegue, fino a un massimo di 1000 numeri oltre i confini originari.</p>
-  <p>Se invece blocchi <code>06 1234 9000</code>, troppo lontano in un solo salto (oltre 150 dal bordo), l'app <strong>non</strong> lo aggancia a questo range: resterà un numero a sé, e semmai potrà dare origine a un <strong>nuovo</strong> range insieme ad altri numeri simili.</p>
+  <p>Blocchi <code>06 1234 5760</code>: dista poco più di 80 dalla fine del range, cioè <strong>entro il salto di <span data-num="salto">150</span></strong> → l'app estende il range fino a includerlo. Se nei dintorni continui a bloccare numeri ravvicinati, il ponte prosegue, fino a un massimo di <span data-num="estLato">1000</span> numeri oltre i confini originari.</p>
+  <p>Se invece blocchi <code>06 1234 9000</code>, troppo lontano in un solo salto (oltre <span data-num="salto">150</span> dal bordo), l'app <strong>non</strong> lo aggancia a questo range: resterà un numero a sé, e semmai potrà dare origine a un <strong>nuovo</strong> range insieme ad altri numeri simili.</p>
 </div>
 
 <p>In sintesi: con la gestione automatica Premium attiva la tua protezione resta "viva", crea nuovi range e allunga quelli esistenti man mano che blocchi numeri; senza, mantieni comunque pieno controllo manuale tramite l'analisi e l'applicazione dei range.</p>
@@ -338,7 +350,7 @@
   <li><strong>Salvati</strong> — quanti numeri hai in lista in tutto.</li>
   <li><strong>Attivi CallKit</strong> — quanti di questi sono davvero attivi nel blocco di iOS.</li>
 </ul>
-<p>La differenza conta per via del <a href="#imp-attivazione">limite della versione Free</a>: il blocco di sistema (CallKit) in Free copre fino a <strong>500 numeri attivi</strong>. Se ne hai salvati di più, quelli in eccesso mostrano l'avviso arancione <em>“Non attivo in CallKit (limite Free)”</em> e non bloccano finché non passi a Premium o liberi spazio.</p>
+<p>La differenza conta per via del <a href="#imp-attivazione">limite della versione Free</a>: il blocco di sistema (CallKit) in Free copre fino a <strong><span data-num="limiteFree">500</span> numeri attivi</strong>. Se ne hai salvati di più, quelli in eccesso mostrano l'avviso arancione <em>“Non attivo in CallKit (limite Free)”</em> e non bloccano finché non passi a Premium o liberi spazio.</p>
 <p>Ogni riga mostra:</p>
 <ul>
   <li>un cerchietto col <strong>tipo</strong>: <strong>S</strong> (blu) = numero singolo, <strong>R</strong> (arancione) = range;</li>
@@ -361,7 +373,7 @@
 <p>Per inserire un numero a mano tocca il pulsante <strong>+</strong> in alto a destra nella lista: si apre il riquadro di aggiunta. In alto puoi scegliere tra due modalità con il selettore <strong>Singolo</strong> / <strong>Range</strong>.</p>
 <ul>
   <li><strong>Singolo</strong> — un campo per il prefisso internazionale e uno per il numero (solo le cifre, senza prefisso). Puoi anche usare il pulsante <strong>fotocamera</strong> (<em>“Scansiona numero dalla fotocamera”</em>) per leggere un numero da una foto invece di digitarlo.</li>
-  <li><strong>Range</strong> — il prefisso più due campi, <strong>inizio</strong> e <strong>fine</strong> dell'intervallo. Un avviso ricorda il limite: <strong>massimo 10.000 numeri per range</strong>.</li>
+  <li><strong>Range</strong> — il prefisso più due campi, <strong>inizio</strong> e <strong>fine</strong> dell'intervallo. Un avviso ricorda il limite: <strong>massimo <span data-num="maxRange">10.000</span> numeri per range</strong>.</li>
 </ul>
 <p>Premi <strong>Aggiungi</strong> per inserire (o <strong>Chiudi</strong> per annullare). Se qualcosa non va, un avviso te lo segnala:</p>
 <ul>
@@ -423,10 +435,11 @@
 </ul>
 <p>La versione gratuita non limita <strong>quanti numeri salvi</strong>: puoi aggiungerne e importarne quanti vuoi, restano tutti nel database. Il limite Free riguarda solo <strong>quanti vengono applicati</strong> al blocco di sistema (CallKit):</p>
 <ul>
-  <li><strong>Free</strong> — vengono applicati i <strong>primi 500</strong> numeri attivi; gli altri restano salvati ma non bloccano, e in lista mostrano l'avviso <em>“Non attivo in CallKit (limite Free)”</em>.</li>
-  <li><strong>Premium</strong> — vengono applicati <strong>tutti</strong>, senza il tetto dei 500.</li>
+  <li><strong>Free</strong> — vengono applicati i <strong>primi <span data-num="limiteFree">500</span></strong> numeri attivi; gli altri restano salvati ma non bloccano, e in lista mostrano l'avviso <em>“Non attivo in CallKit (limite Free)”</em>.</li>
+  <li><strong>Premium</strong> — vengono applicati <strong>tutti</strong>, senza il tetto dei <span data-num="limiteFree">500</span>.</li>
 </ul>
 <p>La conseguenza pratica è comoda: puoi <strong>importare e tenere salvati tutti i tuoi numeri fin da subito</strong>, anche in Free. Quando passi a Premium diventano operativi <strong>tutti insieme</strong>, senza doverli reimportare o rifare alcun lavoro.</p>
+<p>Anche con Premium il blocco non è infinito: ogni lista può contenere fino a <strong><span data-num="maxLista">250.000</span> numeri</strong>. È un tetto molto ampio, pensato per coprire qualsiasi uso reale.</p>
 
 <h3 id="imp-icloud">Sincronizzazione iCloud</h3>
 <p>Con l'interruttore <strong>“Sincronizzazione iCloud”</strong> i tuoi dati — liste e impostazioni — si allineano automaticamente tra i tuoi dispositivi Apple, tramite iCloud. È disponibile per tutti, anche senza Premium. I dati passano dai server Apple e <strong>nessun server di terze parti</strong> vi ha accesso (vedi la <a href="privacy.html">Privacy Policy</a>).</p>
@@ -447,14 +460,14 @@
 <h3 id="imp-premium">Premium</h3>
 <p>La sezione <strong>Servizi Premium</strong> mostra il tuo piano attuale — <strong>“Piano Free”</strong> o <strong>“Premium attivo”</strong> — e cosa comporta. La differenza principale riguarda il blocco di sistema:</p>
 <ul>
-  <li><strong>Free</strong> — iOS applica i <strong>primi 500 numeri attivi</strong> al blocco.</li>
-  <li><strong>Premium</strong> — <strong>tutti</strong> i numeri vengono applicati a CallKit, senza il limite dei 500.</li>
+  <li><strong>Free</strong> — iOS applica i <strong>primi <span data-num="limiteFree">500</span> numeri attivi</strong> al blocco.</li>
+  <li><strong>Premium</strong> — <strong>tutti</strong> i numeri vengono applicati a CallKit, senza il limite dei <span data-num="limiteFree">500</span>.</li>
 </ul>
 <p>Premium sblocca inoltre:</p>
 <ul>
   <li>la <a href="#analisi-autoespansione">Gestione automatica range</a> (auto-espansione);</li>
   <li>i <a href="#liste-filtri">filtri delle liste</a> (data, origine, tipo, nazione);</li>
-  <li>il blocco CallKit illimitato.</li>
+  <li>l'applicazione al blocco di <strong>tutti</strong> i numeri salvati, oltre i <span data-num="limiteFree">500</span> della versione Free.</li>
 </ul>
 <p>I relativi interruttori — <strong>“Gestione automatica range”</strong> e <strong>“Mostra filtri lista”</strong> — restano visibili anche in Free ma disattivati; la tua scelta viene ricordata e ripristinata se torni Premium.</p>
 <p>Per gli acquisti usi <strong>“Vedi piani Premium”</strong> (scegli il pacchetto e completi l'acquisto) e <strong>“Ripristina acquisti”</strong> per recuperare un abbonamento già attivo, ad esempio su un altro dispositivo. <strong>“Aggiorna stato abbonamento”</strong> risincronizza lo stato se non risultasse aggiornato.</p>
@@ -466,7 +479,7 @@
 <p>Con <strong>“Importa bloccati”</strong> / <strong>“Importa consentiti”</strong> scegli un file <code>CSV</code> o <code>vCard</code> (.vcf). L'app lo analizza e ti mostra un riepilogo — quanti numeri nuovi ha trovato, quanti erano già presenti, quanti ne aggiungerà — poi confermi con <strong>Importa</strong>.</p>
 
 <h4>Da screenshot o foto (OCR)</h4>
-<p>Con <strong>“Importa … da immagini”</strong> selezioni fino a <strong>100 immagini</strong> e l'app estrae i numeri automaticamente. Tieni presente che:</p>
+<p>Con <strong>“Importa … da immagini”</strong> selezioni fino a <strong><span data-num="maxImmagini">100</span> immagini</strong> e l'app estrae i numeri automaticamente. Tieni presente che:</p>
 <ul>
   <li>vengono riconosciuti <strong>solo i numeri in formato internazionale, con prefisso (+)</strong>;</li>
   <li>le date e il testo attorno ai numeri vengono ignorati;</li>
@@ -476,7 +489,7 @@
 <h4>Recuperare la lista bloccati di iOS</h4>
 <p>La voce <strong>“Recupera la lista bloccati di iOS”</strong> apre una guida passo-passo per reimportare i contatti che avevi già bloccato in iOS: in sintesi vai in <em>Impostazioni iPhone → Telefono → Contatti bloccati</em>, fai uno o più screenshot dell'elenco, poi torni qui e li carichi con <strong>“Importa bloccati da immagini”</strong>. I numeri vengono estratti via OCR come sopra.</p>
 
-<p><strong>Nota:</strong> l'import non è mai limitato dai 500 della versione Free — tutti i numeri vengono salvati. Quel limite riguarda solo quanti numeri vengono <em>applicati</em> al blocco di iOS: vedi <a href="#imp-limite">Numeri salvati e numeri attivi</a>.</p>
+<p><strong>Nota:</strong> l'import non è mai limitato dai <span data-num="limiteFree">500</span> della versione Free — tutti i numeri vengono salvati. Quel limite riguarda solo quanti numeri vengono <em>applicati</em> al blocco di iOS: vedi <a href="#imp-limite">Numeri salvati e numeri attivi</a>.</p>
 
 <h3 id="imp-condividi">Condividere ed esportare la lista</h3>
 <p>Con <strong>“Esporta bloccati”</strong> / <strong>“Esporta consentiti”</strong> crei un <strong>file CSV</strong> della lista, da salvare o condividere tramite il foglio di condivisione di iOS (per fare un backup, passarlo a un altro dispositivo, aprirlo altrove).</p>
@@ -498,6 +511,504 @@
 </ul>
 <p>È il modo sicuro per ripartire da zero senza perdere i dati per sbaglio.</p>
 
+</div>
+<!-- ==================== /ITALIANO ==================== -->
+
+
+<!-- ==================== ENGLISH ==================== -->
+<div class="lang" data-lang="en">
+
+<div class="app-header">
+  <img class="app-icon" src="app-icon.png" alt="Scudo Chiamate icon" width="76" height="76">
+  <div>
+    <h1>Scudo Chiamate</h1>
+    <p class="meta">User Guide<br>
+    Last updated: May 28, 2026</p>
+  </div>
+</div>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ul>
+    <li><a href="#en-cosa-fa">What Scudo Chiamate does</a></li>
+    <li><a href="#en-analizza"><span class="tab-icon">📊</span>Analyze</a>
+      <ul>
+        <li><a href="#en-analisi-avvio">Running the analysis</a></li>
+        <li><a href="#en-analisi-parametri">The parameters</a></li>
+        <li><a href="#en-analisi-range">Found, discarded and existing ranges</a></li>
+        <li><a href="#en-analisi-applica">Applying or discarding ranges</a></li>
+        <li><a href="#en-analisi-attivi">Reading active ranges</a></li>
+        <li><a href="#en-analisi-elimina">Deleting ranges</a></li>
+        <li><a href="#en-analisi-autoespansione">Auto-expansion (Automatic range management)</a></li>
+      </ul>
+    </li>
+    <li><a href="#en-liste"><span class="tab-icon">🛡️</span>The lists: Blocked and Allowed</a>
+      <ul>
+        <li><a href="#en-liste-bloccati">The Blocked list</a></li>
+        <li><a href="#en-liste-consentiti">The Allowed list</a></li>
+        <li><a href="#en-liste-aggiungere">Adding a number</a></li>
+        <li><a href="#en-liste-importare">Importing numbers (in Settings)</a></li>
+        <li><a href="#en-liste-precedenza">Allowed numbers take precedence</a></li>
+        <li><a href="#en-liste-filtri">Filters</a></li>
+        <li><a href="#en-liste-range">Ranges</a></li>
+      </ul>
+    </li>
+    <li><a href="#en-impostazioni"><span class="tab-icon">⚙️</span>Settings</a>
+      <ul>
+        <li><a href="#en-imp-attivazione">Turning on blocking in iOS</a></li>
+        <li><a href="#en-imp-limite">Saved numbers vs. active numbers</a></li>
+        <li><a href="#en-imp-icloud">iCloud sync</a></li>
+        <li><a href="#en-imp-sms">SMS filter</a></li>
+        <li><a href="#en-imp-premium">Premium</a></li>
+        <li><a href="#en-imp-importa">Importing numbers</a></li>
+        <li><a href="#en-imp-condividi">Sharing and exporting the list</a></li>
+        <li><a href="#en-imp-cache">Cleanup and maintenance</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<h2 id="en-cosa-fa">What Scudo Chiamate does</h2>
+<p>Scudo Chiamate protects you from unwanted calls and messages — telemarketing, scams, nuisance call centers. The difference from a plain blacklist is just one thing, but it changes everything: <strong>the app doesn't only block the numbers you enter, it analyzes them to recognize the pattern of whoever is bothering you and proactively blocks similar numbers too.</strong></p>
+
+<h3>1. It starts from the numbers you block</h3>
+<p>The starting point is you: the numbers you've received unwanted calls or messages from. You can add them in several ways:</p>
+<ul>
+  <li>entering them by hand, one at a time;</li>
+  <li>importing them from a <code>CSV</code> or <code>vCard</code> file;</li>
+  <li>importing them from screenshots or photos (OCR);</li>
+  <li>re-importing the list of numbers you've already blocked in iOS.</li>
+</ul>
+<p>This is your blocked list: the foundation everything else works on.</p>
+
+<h3>2. The app looks for correlations between numbers</h3>
+<p>Spammers almost never call from a single number. Call centers and telemarketing companies use <strong>blocks of consecutive or very similar numbers</strong>: same prefix, same opening digits, with only the last ones changing. When a number gets reported too much, they switch on another nearly identical one and start over.</p>
+<p>Scudo Chiamate takes advantage of exactly this habit. It analyzes the numbers you've blocked and spots these patterns, grouping the look-alike numbers into <strong>ranges</strong> — intervals that in all likelihood belong to the same sender.</p>
+
+<h3>3. Similar numbers are blocked automatically</h3>
+<p>Once a range is recognized, the app doesn't just block the exact numbers you entered, it <strong>covers the whole interval</strong> — including numbers you haven't received a single call from yet. This way, when the spammer changes their number slightly, you're already protected: you don't have to wait for the call, receive it, and only then block it.</p>
+
+<div class="example">
+  <p class="label">Example</p>
+  <p>You received and blocked three numbers: <code>06 1234 5670</code>, <code>06 1234 5674</code> and <code>06 1234 5679</code>.</p>
+  <p>Scudo Chiamate recognizes they belong to the same block and protects the <strong>entire range from the lowest number to the highest</strong> — that is, from <code>06 1234 5670</code> up to <code>06 1234 5679</code>. This also covers all the in-between numbers you've never received (for example <code>06 1234 5672</code> or <code>06 1234 5677</code>), because they most likely belong to the same call center.</p>
+</div>
+
+<p>The result is protection that <strong>anticipates spam instead of chasing it</strong>: the more numbers you report, the more the app learns the pattern of whoever is bothering you, and the better it gets at stopping calls before they even arrive.</p>
+
+
+<h2 id="en-analizza"><span class="tab-icon">📊</span>Analyze</h2>
+<p>The <strong>Analyze</strong> tab is the smart heart of the app: here you examine the numbers you've blocked to spot ranges and decide which ones to activate.</p>
+
+<h3 id="en-analisi-avvio">Running the analysis</h3>
+<p>In the <strong>Analyze</strong> tab you'll find the <strong>Database Analysis</strong> card. Press the <strong>Run Analysis</strong> button to examine your list of blocked numbers: the button will show <em>Analysis in progress…</em> and, when done, <em>Analysis completed</em>. The operation runs entirely on your device and changes nothing until you confirm the results.</p>
+
+<p>During the analysis the app <strong>doesn't look at numbers one by one</strong>, it looks for the patterns connecting them. Specifically it hunts for:</p>
+<ul>
+  <li><strong>numbers that share the same opening digits</strong> (the same prefix), since that's the typical sign of a numbering block assigned to the same call center;</li>
+  <li><strong>groups large enough</strong> not to be a coincidence: a few scattered numbers aren't enough, you need enough similar numbers to make it worth treating them as a single block;</li>
+  <li><strong>the extent of the block</strong>, that is the lowest and highest number of the group, in order to propose the range that encloses them all.</li>
+</ul>
+
+<p>The result of the analysis is a list of <strong>proposed ranges</strong>: intervals of numbers that, based on the patterns found, are worth blocking entirely instead of chasing individual numbers. The analysis <strong>only proposes</strong> — you decide which ranges to apply and which to discard (see <a href="#en-analisi-applica">Applying or discarding ranges</a>). How "aggressive" the analysis is at grouping depends on the <a href="#en-analisi-parametri">parameters</a>, which you can adjust before running it.</p>
+
+<h3 id="en-analisi-parametri">The parameters</h3>
+<p>Before running the analysis you can adjust <strong>three parameters</strong> that decide how cautious or aggressive the app is when grouping numbers. They apply in both manual and automatic mode. You'll find a quick explanation inside the app too, by tapping <em>“How do the 3 parameters work?”</em>.</p>
+
+<h4>Minimum prefix digits</h4>
+<p>Defines <strong>how many opening digits must match</strong> for two numbers to be considered "relatives" and end up in the same range. The count includes the international prefix.</p>
+<ul>
+  <li><strong>High values</strong> (e.g. 9–10): many matching digits are required → <strong>smaller, more specific</strong> ranges, covering fewer numbers.</li>
+  <li><strong>Low values</strong> (e.g. 6–7): a few matching digits are enough → <strong>wider</strong> ranges, covering more numbers.</li>
+</ul>
+
+<h4>Minimum numbers per range</h4>
+<p>This is the <strong>minimum number of numbers</strong> needed to create a new range: if your blocked list doesn't contain at least that many similar numbers, the app won't create the range.</p>
+<ul>
+  <li><strong>Low values</strong> (e.g. 3–5): find <strong>more ranges</strong>, but with lower reliability (a higher risk of risky groupings).</li>
+  <li><strong>High values</strong> (e.g. 6–10): accept only groups <strong>better supported</strong> by the data, so safer.</li>
+</ul>
+
+<h4>Prefer longer prefixes</h4>
+<p>This is the switch that deserves the most attention, because it changes the <em>character</em> of the analysis. When the app examines a group of numbers, it can often describe them in more than one way: with a <strong>short</strong> prefix (few digits in common → a wide range that swallows many numbers) or with a <strong>long</strong> prefix (more digits in common → a narrow, targeted range). This parameter decides which path to favor when both are possible.</p>
+<ul>
+  <li><strong>On</strong> — the analysis picks the <strong>more specific</strong> prefixes: more targeted ranges that block only what really looks like spam. It's the option that reduces the <strong>risk of false positives</strong>, i.e. accidentally blocking legitimate numbers that only share the beginning.</li>
+  <li><strong>Off</strong> — the analysis leans toward <strong>shorter</strong> prefixes: it produces <strong>fewer but wider</strong> ranges. It covers more numbers at once, at the cost of a higher risk of including innocent numbers.</li>
+</ul>
+<p>The difference comes from <strong>where the app starts comparing numbers</strong>:</p>
+<ul>
+  <li><strong>On</strong> — the app starts from the <strong>last digits on the right</strong>: it keeps almost all digits fixed and lets only the final ones vary. It first looks for the tightest groups (a few trailing digits of difference) and only widens its view toward the left if those aren't enough. That's why it surfaces the small, precise blocks first.</li>
+  <li><strong>Off</strong> — the app starts from the <strong>first digits on the left</strong>: it fixes only the beginning of the number and lets everything else vary. Wide groupings form immediately and "claim" the numbers, so broad ranges tend to prevail.</li>
+</ul>
+<p>Order matters too: <strong>whoever groups a number first claims it</strong>. That's why starting from the right (on) surfaces targeted ranges, while starting from the left (off) surfaces extended ones.</p>
+<div class="example">
+  <p class="label">Example</p>
+  <p>Your blocked numbers all start with <code>06 1234 56…</code>, but in reality only the ones continuing with <code>567X</code> are spam.</p>
+  <p>With <strong>“prefer longer prefixes” on</strong>, the app proposes the narrow range <code>06 1234 5670</code>–<code>5679</code>, focused on the actual nuisance block. With the parameter <strong>off</strong>, it might propose a wider range like <code>06 1234 5600</code>–<code>5699</code>: it blocks more, but risks catching numbers that have nothing to do with it.</p>
+</div>
+<p>In short: <strong>on = precision</strong> (recommended if you're worried about blocking good numbers), <strong>off = coverage</strong> (useful if you want wider nets and trust that the band contains only spam).</p>
+
+<p><strong>Tip:</strong> start from the default values and change <strong>one parameter at a time</strong>, re-running the analysis to see the effect on the proposed ranges right away.</p>
+
+<h3 id="en-analisi-range">Found, discarded and existing ranges</h3>
+<p>When the analysis finishes, the results are organized into three separate lists, so you can tell at a glance what the app proposes, what it set aside, and what's already active.</p>
+
+<h4>Potential ranges found</h4>
+<p>These are the <strong>new ranges the app proposes to activate</strong>, marked in green. They passed all the checks and represent blocks that, based on the patterns in your numbers, are worth blocking entirely. They stay mere proposals until you apply them (see <a href="#en-analisi-applica">Applying or discarding ranges</a>).</p>
+<p>Some proposals carry a label that explains how they came about:</p>
+<ul>
+  <li><strong>MERGE</strong> (purple) — the proposed range comes from the <strong>union of several ranges</strong> that overlapped or touched, brought together into a single, wider interval.</li>
+  <li><strong>EXPANDED</strong> (green) — the proposed range is the <strong>extension of a range you already have active</strong>, widened to include the newly found numbers.</li>
+</ul>
+
+<h4>Potential ranges discarded</h4>
+<p>These are ranges the app <strong>spotted but decided not to propose</strong>. They appear in a separate list for transparency: you can see them, but they aren't activated automatically. The app discards them <strong>to avoid misleading ranges</strong> — blocks that look plausible but would risk catching too many innocent numbers based on too little evidence.</p>
+<p>A range is discarded when it falls into one of these cases:</p>
+<ul>
+  <li><strong>Too large</strong> — it covers more than <strong><span data-num="maxRange">10,000</span> numbers</strong>. An interval this wide doesn't look like a single call center's block, but like an entire numbering band: blocking it would do more harm than good.</li>
+  <li><strong>Too "sparse"</strong> — it's wide (more than <strong><span data-num="sogliaAmpio">500</span> numbers</strong>) but rests on <strong>fewer than <span data-num="minOrigini">15</span> of your numbers</strong>. In practice it would try to block a huge interval with very little evidence: the classic misleading range, which the app prefers not to propose.</li>
+  <li><strong>A single number</strong> (in automatic mode) — the automatic analysis doesn't turn an isolated number into a range, because a single number isn't a pattern.</li>
+</ul>
+<p>Discarding these ranges is a cautious choice: better not to block a doubtful interval than to risk silencing legitimate numbers. But if you're sure a discarded range should be blocked, you can always handle it by hand from the lists.</p>
+
+<h4>Existing ranges</h4>
+<p>These are the ranges <strong>already active</strong> in your protection, the result of previous analyses or added by you. They serve as a reference: the analysis takes them into account so it doesn't re-propose what you already have, and when needed it <strong>extends</strong> them when new numbers fall just before or just after (see <a href="#en-analisi-autoespansione">Auto-expansion</a>).</p>
+
+<h3 id="en-analisi-applica">Applying or discarding ranges</h3>
+<p>The analysis <strong>proposes</strong>, but the final word is always yours: no range becomes active until you confirm it. Each found range has a <strong>switch</strong> on its row, letting you select it or set it aside.</p>
+
+<h4>Applying the found ranges</h4>
+<p>Turn on the switch of the ranges you want to block — you can select as many as you like — then press the <strong>Apply selected ranges</strong> bar that appears at the top, below the notch. From that moment the chosen ranges enter your protection: they move into the <a href="#en-analisi-range">Existing ranges</a> and every number inside them gets blocked.</p>
+
+<h4>Leaving a range alone</h4>
+<p>To discard a proposal, just <strong>don't select it</strong>: by leaving the switch off, that range simply isn't applied. No confirmation is needed to "reject" — whatever you don't activate stays inactive.</p>
+
+<h4>Applying a discarded range anyway</h4>
+<p>The <a href="#en-analisi-range">potential discarded ranges</a> are gathered in a separate collapsible section. The app doesn't recommend them, but if you're sure an interval should be blocked you can open the list, turn on the switch of the one you want, and press <strong>Apply discarded ranges</strong>. It's a deliberate choice: you're telling the app to trust your judgment over its own caution.</p>
+
+<h4>Ranges that are too large</h4>
+<p>Ranges judged too big to block safely <strong>can't be selected</strong>: their switch is disabled, precisely to prevent a huge block from being applied by mistake.</p>
+
+<p>At any time you can analyze again, change the <a href="#en-analisi-parametri">parameters</a> and reconsider the proposals: applying ranges is never a permanent operation, and fine-grained management of numbers always remains available from the <a href="#en-liste">lists</a>.</p>
+
+<h3 id="en-analisi-attivi">Reading active ranges</h3>
+<p>In the <a href="#en-analisi-range">Existing ranges</a> list, each row represents an active range. A few indicators tell you at a glance how it's made and where its numbers come from.</p>
+
+<h4>The colored dots: how the range was formed</h4>
+<p>Next to each range, two dots may appear, indicating the origin of the numbers that make it up:</p>
+<ul>
+  <li><span class="dot" style="background:#f5a623"></span><strong>Orange dot — Manual:</strong> numbers that entered the range through <strong>manual range management</strong>, i.e. when <strong>you</strong> applied a range. These aren't numbers typed one by one, but the ones the app filled the interval with as a result of an action you took.</li>
+  <li><span class="dot" style="background:#3fa9f5"></span><strong>Blue dot — Automatic:</strong> numbers that entered the range <strong>automatically</strong>, i.e. added by automatic range expansion, without any direct action from you.</li>
+</ul>
+<p>A range can show <strong>both dots</strong>: it means it filled up partly through your manual applications and partly through automatic expansion. It's the quickest way to tell whether a range grew mostly by your choice or by automation.</p>
+
+<h4>The EXPANDABLE and EXCEPTIONS badges</h4>
+<p>On some rows two colored labels may appear:</p>
+<ul>
+  <li><strong>EXPANDABLE</strong> (green) — the latest analysis spotted a <strong>wider proposal that encompasses this range</strong>: by applying it, the range would extend to cover the newly found numbers too. It's an invitation to take a look, not an automatic action.</li>
+  <li><strong>EXCEPTIONS N</strong> (red) — inside the range's interval there are <strong>N numbers you have in your Allowed list</strong>. Those numbers remain free to call you — they are the exceptions described in <a href="#en-liste-precedenza">Allowed numbers take precedence</a> — while the rest of the range keeps blocking.</li>
+</ul>
+
+<h4>The info icon: the Range Details card</h4>
+<p>Tapping the <strong>ℹ️ info</strong> icon (the blue circle on the row) opens the <strong>Range Details</strong> card, with the full stats of the interval:</p>
+<ul>
+  <li><strong>Blocked numbers</strong> — how many numbers the range covers in total.</li>
+  <li><strong>Origins</strong> — how many real numbers gave rise to the range.</li>
+  <li><strong>Manual</strong> and <strong>Automatic</strong> — the split between numbers that entered the range through a manual application of yours and those added by automatic expansion, the same ones shown by the dots.</li>
+  <li><strong>Allowed exceptions</strong> — any numbers you put in your <a href="#en-liste-consentiti">Allowed</a> list that stay free even though they fall inside the range (see <a href="#en-liste-precedenza">Allowed numbers take precedence</a>).</li>
+</ul>
+<p>The card is read-only: it helps you understand a range's makeup before deciding whether to keep it, extend it, or delete it.</p>
+
+<h3 id="en-analisi-elimina">Deleting ranges</h3>
+<p>An active range isn't forever: you can remove it whenever you want. In the <a href="#en-analisi-range">Existing ranges</a> list, select one or more ranges and press <strong>Delete</strong>. At that point the app asks you <em>how</em> you want to delete them, with two options — and the distinction matters.</p>
+
+<h4>Delete all numbers</h4>
+<p>Removes the range <strong>and all the numbers it contained</strong>, including the ones you had blocked or imported and that gave rise to the range. After this choice, nothing of that interval remains: neither the range nor the numbers inside it. Use it when you want a full cleanup, because that block is no longer of any use to you.</p>
+
+<h4>Keep origin numbers</h4>
+<p>Removes the range <strong>but keeps your "origin" numbers</strong>, i.e. the ones you had actually blocked or imported and from which the range was built. These numbers go back to being blocked <strong>individually</strong>, while coverage stops on the in-between numbers you'd never received. In practice: you keep the real numbers you collected, but give up the automatic extension of the block.</p>
+
+<div class="example">
+  <p class="label">Example</p>
+  <p>You have a range <code>06 1234 5670</code>–<code>5679</code> born from three numbers you had blocked: <code>5670</code>, <code>5674</code> and <code>5679</code>.</p>
+  <p><strong>Delete all numbers</strong> → everything disappears: neither the range nor the three numbers stay blocked.</p>
+  <p><strong>Keep origin numbers</strong> → the range disappears, the in-between numbers (e.g. <code>5672</code>) are no longer blocked, but <code>5670</code>, <code>5674</code> and <code>5679</code> remain blocked as single numbers.</p>
+</div>
+
+<p>The practical rule: choose <strong>Keep origin numbers</strong> if you only want to undo the widening of the block without losing the numbers you collected yourself; choose <strong>Delete all numbers</strong> if you want to wipe every trace of that range.</p>
+
+<h3 id="en-analisi-autoespansione">Auto-expansion (Automatic range management)</h3>
+<p>With automatic management on, every time you block new numbers the app redoes <strong>on its own</strong> the same work as the manual analysis, without you having to open the Analyze tab and apply anything. This means the automation can:</p>
+<ul>
+  <li><strong>extend existing ranges</strong>, latching onto new numbers that fall near their boundaries;</li>
+  <li><strong>create new ranges</strong>, when the just-blocked numbers form a new recognizable block.</li>
+</ul>
+<p>The numbers the app adds automatically are the ones marked with the <a href="#en-analisi-attivi">blue dot (Automatic)</a>.</p>
+
+<p><strong>It's a Premium feature.</strong> You turn it on with the <strong>“Automatic range management”</strong> switch in the <a href="#en-impostazioni">Settings</a> tab. Without Premium active the switch stays visible but can't be turned on, and automatic management is off: ranges are created and grow only when you re-run the analysis and apply them.</p>
+
+<h4>How far the extension reaches: the <span data-num="estLato">1000</span> numbers and the <span data-num="salto">150</span> gap</h4>
+<p>Automatic extension follows two rules that work together:</p>
+<ul>
+  <li><strong>Maximum cap: <span data-num="estLato">1000</span> numbers per side.</strong> A range can grow by at most <strong><span data-num="estLato">1000</span> numbers before</strong> its start and <strong><span data-num="estLato">1000</span> numbers after</strong> its end. It won't go beyond that limit, no matter how many nearby numbers there are.</li>
+  <li><strong>Maximum gap: <span data-num="salto">150</span>.</strong> The extension proceeds "bridge by bridge", number after number: to latch onto the next number, the <strong>gap between one number and the next must not exceed <span data-num="salto">150</span></strong>. If the app hits a gap larger than <span data-num="salto">150</span>, it stops there, even if it hasn't yet reached <span data-num="estLato">1000</span>.</li>
+</ul>
+<p>In simple terms: <strong><span data-num="salto">150</span> is how far the range can "jump"</strong> to latch onto the next nearby number; <strong><span data-num="estLato">1000</span> is the total cap</strong> on how far it can grow on each side. To reach <span data-num="estLato">1000</span> you therefore need fairly dense numbers, each within <span data-num="salto">150</span> of the previous one; if at some point there's too large a gap, the extension stops earlier.</p>
+
+<p><strong>The <span data-num="estLato">1000</span> limit applies to each single scan, not forever.</strong> That cap applies to one analysis run; on the next scan — that is, the next time you block numbers and automatic management runs again — the count <strong>restarts from zero based on the new, already-extended boundaries</strong>. In practice a range can keep growing by another <span data-num="estLato">1000</span> numbers per side at each pass: over time, addition after addition, it can therefore far exceed <span data-num="estLato">1000</span> numbers overall, always respecting the maximum gap of <span data-num="salto">150</span> at each latch.</p>
+
+<div class="example">
+  <p class="label">Example</p>
+  <p>You have an active range <code>06 1234 5670</code>–<code>5679</code> and automatic management on.</p>
+  <p>You block <code>06 1234 5760</code>: it's a little over 80 away from the end of the range, i.e. <strong>within the <span data-num="salto">150</span> gap</strong> → the app extends the range to include it. If you keep blocking nearby numbers, the bridge continues, up to a maximum of <span data-num="estLato">1000</span> numbers beyond the original boundaries.</p>
+  <p>If instead you block <code>06 1234 9000</code>, too far in a single jump (more than <span data-num="salto">150</span> from the edge), the app does <strong>not</strong> latch it to this range: it stays a number on its own, and may at most give rise to a <strong>new</strong> range together with other similar numbers.</p>
+</div>
+
+<p>In short: with Premium automatic management on, your protection stays "alive", creating new ranges and lengthening existing ones as you block numbers; without it, you still keep full manual control through the analysis and the application of ranges.</p>
+
+
+<h2 id="en-liste"><span class="tab-icon">🛡️</span>The lists: Blocked and Allowed</h2>
+<p>Scudo Chiamate manages two complementary lists: the <strong>Blocked</strong>, the numbers that must not reach you, and the <strong>Allowed</strong>, the numbers that must always get through. They work together, and one rule keeps them in balance (see <a href="#en-liste-precedenza">Allowed numbers take precedence</a>).</p>
+
+<h3 id="en-liste-bloccati">The Blocked list</h3>
+<p>The <strong>Blocked</strong> tab (shield with the ✕) gathers all the numbers that must not reach you. At the top there's a summary card; in the free version it shows two distinct figures:</p>
+<ul>
+  <li><strong>Saved</strong> — how many numbers you have in the list in total.</li>
+  <li><strong>Active in CallKit</strong> — how many of those are actually active in iOS blocking.</li>
+</ul>
+<p>The difference matters because of the <a href="#en-imp-attivazione">free-version limit</a>: system blocking (CallKit) in Free covers up to <strong><span data-num="limiteFree">500</span> active numbers</strong>. If you have more saved, the extra ones show the orange warning <em>“Not active in CallKit (Free limit)”</em> and don't block until you switch to Premium or free up space.</p>
+<p>Each row shows:</p>
+<ul>
+  <li>a small circle with the <strong>type</strong>: <strong>S</strong> (blue) = single number, <strong>R</strong> (orange) = range;</li>
+  <li>the <strong>number</strong> in international format (with the <code>+</code>) and the country flag;</li>
+  <li>the <strong>date</strong> it was added and a colored <strong>origin badge</strong> telling how it entered the list.</li>
+</ul>
+<p>There are three origin badges, the same concepts as the <a href="#en-analisi-attivi">range dots</a>:</p>
+<ul>
+  <li><span class="dot" style="background:#5fbf3a"></span><strong>Origin</strong> (green) — numbers you added <strong>directly</strong>, by typing or importing them.</li>
+  <li><span class="dot" style="background:#f5a623"></span><strong>Manual</strong> (orange) — numbers that entered through the <strong>manual application of a range</strong>.</li>
+  <li><span class="dot" style="background:#3fa9f5"></span><strong>Automatic</strong> (blue) — numbers that entered through <strong>automatic expansion</strong>.</li>
+</ul>
+
+<h3 id="en-liste-consentiti">The Allowed list</h3>
+<p>The <strong>Allowed</strong> tab (shield with the ✓) has the same look and the same indicators as the Blocked list, but gathers the numbers that must <strong>always get through</strong>. The summary card at the top shows <strong>Total</strong> and <strong>Total origins</strong>.</p>
+<p>Numbers in this list are never blocked and <strong>take precedence</strong> over any block, ranges included (see <a href="#en-liste-precedenza">Allowed numbers take precedence</a>). They mainly serve as a targeted exception: if a number risks falling inside a blocked range but you want it to reach you anyway, you add it here and it will keep getting through.</p>
+<p>Selecting a number in this list, the app offers to <strong>move it to the Blocked list</strong>: it's the quick way to change your mind about a contact.</p>
+
+<h3 id="en-liste-aggiungere">Adding a number</h3>
+<p>To enter a number by hand, tap the <strong>+</strong> button at the top right of the list: the add panel opens. At the top you can choose between two modes with the <strong>Single</strong> / <strong>Range</strong> selector.</p>
+<ul>
+  <li><strong>Single</strong> — a field for the international prefix and one for the number (just the digits, without the prefix). You can also use the <strong>camera</strong> button (<em>“Scan number from camera”</em>) to read a number from a photo instead of typing it.</li>
+  <li><strong>Range</strong> — the prefix plus two fields, <strong>start</strong> and <strong>end</strong> of the interval. A notice reminds you of the limit: <strong>maximum <span data-num="maxRange">10,000</span> numbers per range</strong>.</li>
+</ul>
+<p>Press <strong>Add</strong> to insert (or <strong>Close</strong> to cancel). If something's wrong, a notice tells you:</p>
+<ul>
+  <li><em>“Number already present: flag updated to Origin”</em> — the number was already in this list; it's marked as yours (Origin).</li>
+  <li><em>“Number already present in the other list”</em> — the same number is in the other list; it must be removed from there first.</li>
+  <li><em>“Invalid number”</em> — the digits entered don't form a valid number.</li>
+</ul>
+
+<h3 id="en-liste-importare">Importing numbers</h3>
+<p>Besides manual entry, you can load numbers in bulk — from CSV/vCard files or from screenshots (OCR) — into both Blocked and Allowed. The import options are in the Settings tab: see <a href="#en-imp-importa">Importing numbers</a> in the Settings section.</p>
+
+<h3 id="en-liste-precedenza">Allowed numbers take precedence</h3>
+<p>The cornerstone everything starts from: <strong>a number is never in both lists</strong>. Every number is <em>either</em> blocked <em>or</em> allowed, never both at once. And when the two lists "contend" for the same number, the <strong>Allowed</strong> always win.</p>
+<p>In practice, during an import:</p>
+<ul>
+  <li>If a number is already in <strong>Allowed</strong> and you <strong>import it into Blocked</strong>, it's <strong>ignored</strong>: it stays in Allowed and doesn't end up among the blocked.</li>
+  <li>If a number is in <strong>Blocked</strong> and you <strong>import it into Allowed</strong>, it <strong>moves</strong>: it disappears from Blocked and goes into Allowed (the app tells you with <em>“Removed from blocked: N”</em>).</li>
+</ul>
+<p>The same goes for moving a number between lists by hand, with the actions <strong>“Unblock (move to allowed)”</strong> from Blocked and <strong>“Block (move to blocked)”</strong> from Allowed: the number changes list, it's never duplicated. If instead you try to <em>add</em> by hand a number that's already in the other list, the app doesn't move it automatically and warns you with <em>“Number already present in the other list”</em>.</p>
+<p>Precedence applies with <strong>ranges</strong> too: if the interval of a blocked range includes a number you have in Allowed, that number stays free to call you — it becomes an <strong>exception</strong> within the range (see <a href="#en-analisi-attivi">the details card</a>), while the rest of the range keeps blocking. The number still lives only in Allowed: the range covers the interval but skips it.</p>
+<p>It's a deliberate protection: no bulk import and no range should be able to silence by mistake a number you want to keep receiving. To actually block a number you have in Allowed, you must move it explicitly into Blocked.</p>
+<div class="example">
+  <p class="label">Example</p>
+  <p>You have an important number in Allowed, <code>06 1234 5675</code>. Later you import a list of spam numbers that generates the range <code>06 1234 5670</code>–<code>5679</code>, whose interval includes that number too.</p>
+  <p>Result: the range is applied, but <code>06 1234 5675</code> keeps getting through as an exception, because it stays in Allowed and is never blocked.</p>
+</div>
+
+<h3 id="en-liste-filtri">Filters</h3>
+<p>When the lists get long, filters help you find and manage numbers. They're a <strong>Premium feature</strong>: once enabled, a strip of "chips" appears under the list header, from which you set and combine four filters.</p>
+<ul>
+  <li><span class="tab-icon">📅</span><strong>Period</strong> — filters by date added, choosing one or more intervals (<em>From / To</em>), up to 3.</li>
+  <li><span class="tab-icon">🏷️</span><strong>Origin</strong> — shows only <em>Manual</em>, <em>Automatic</em> or <em>Origin (import)</em> numbers, the same badges as in the list.</li>
+  <li><span class="tab-icon">▦</span><strong>Type</strong> — distinguishes between <em>Singles</em> and <em>Ranges</em>.</li>
+  <li><span class="tab-icon">🌐</span><strong>Country</strong> — filters by country, searching by name or by prefix, with multiple selection.</li>
+</ul>
+<p>Next to the filters there's also a <strong>sort</strong> chip for the list. Each active filter can be removed with the ✕ on its chip; if you have two or more, <strong>“Clear all”</strong> appears to wipe them in one go. Inside each filter's panel you use <strong>Apply</strong> to confirm or <strong>Clear</strong> to cancel. With a filter or a search active, the top card adds the <strong>Filtered</strong> and <strong>Active filtered</strong> counts.</p>
+
+<h3 id="en-liste-range">Ranges</h3>
+<p>In the list, the numbers belonging to a <strong>range</strong> appear <strong>one per row</strong>, like the other numbers, but you can recognize them at a glance: they have a <strong>green background</strong> and the <strong>R</strong> marker on the left (instead of the <strong>S</strong> of single numbers). So, scrolling the list, you immediately tell which numbers are part of a blocked interval and which are singles.</p>
+<p>You can add a range by hand from the add panel (see <a href="#en-liste-aggiungere">Adding a number</a>), or create it from the analysis (see <a href="#en-analizza">Analyze</a>).</p>
+<p>Full management of active ranges — the <a href="#en-analisi-attivi">formation dots and the details card</a>, the <em>EXPANDABLE</em> and <em>EXCEPTIONS</em> badges, and <a href="#en-analisi-elimina">deletion</a> with or without the origin numbers — is in the <strong>Analyze</strong> tab, under <a href="#en-analisi-range">Existing ranges</a>.</p>
+
+
+<h2 id="en-impostazioni"><span class="tab-icon">⚙️</span>Settings</h2>
+<p>From the <strong>Settings</strong> tab you turn on blocking at the iOS system level and manage sync, subscription and data maintenance.</p>
+
+<h3 id="en-imp-attivazione">Turning on blocking in iOS</h3>
+<p>This is the <strong>essential</strong> step: Scudo Chiamate can block calls only after you've enabled its extension in the iOS settings. Without this activation the app works — you manage lists, analysis and ranges — but numbers <strong>aren't blocked</strong> at the system level.</p>
+<p>To turn it on, go to:</p>
+<p><strong>iOS Settings → Apps → Phone → Call Blocking &amp; Identification</strong> and enable <strong>“Scudo Chiamate”</strong>.</p>
+<p>As long as the extension is off, the app shows a <strong>persistent warning</strong> reminding you of exactly this path. You can also check the status anytime from diagnostics, with <strong>“Call blocking status”</strong>.</p>
+<p>There's then an important distinction to understand — how many of your numbers actually get blocked: we explain it below.</p>
+
+<h3 id="en-imp-limite">Saved numbers vs. active numbers</h3>
+<p>Scudo Chiamate distinguishes between two different things, which you also see in the summary card at the top of the lists:</p>
+<ul>
+  <li><strong>Saved</strong> — all the numbers in your lists, in the app's database.</li>
+  <li><strong>Active in CallKit</strong> — how many of those numbers actually went to iOS for blocking.</li>
+</ul>
+<p>The free version doesn't limit <strong>how many numbers you save</strong>: you can add and import as many as you want, they all stay in the database. The Free limit concerns only <strong>how many get applied</strong> to system blocking (CallKit):</p>
+<ul>
+  <li><strong>Free</strong> — the <strong>first <span data-num="limiteFree">500</span></strong> active numbers get applied; the others stay saved but don't block, and in the list they show the warning <em>“Not active in CallKit (Free limit)”</em>.</li>
+  <li><strong>Premium</strong> — <strong>all</strong> are applied, without the <span data-num="limiteFree">500</span> cap.</li>
+</ul>
+<p>The practical upshot is convenient: you can <strong>import and keep all your numbers saved right away</strong>, even on Free. When you switch to Premium they all become operational <strong>at once</strong>, with no need to re-import or redo any work.</p>
+<p>Even with Premium, blocking isn't infinite: each list can hold up to <strong><span data-num="maxLista">250,000</span> numbers</strong>. It's a very high ceiling, designed to cover any real-world use.</p>
+
+<h3 id="en-imp-icloud">iCloud sync</h3>
+<p>With the <strong>“iCloud sync”</strong> switch, your data — lists and settings — align automatically across your Apple devices, via iCloud. It's available to everyone, even without Premium. Data passes through Apple's servers and <strong>no third-party server</strong> has access to it (see the <a href="privacy.html">Privacy Policy</a>).</p>
+<p>On <strong>first activation</strong> you choose how to initialize the sync, among three modes:</p>
+<ul>
+  <li><strong>Use iCloud</strong> — start from the data already on iCloud (overwrites the local one).</li>
+  <li><strong>Use iPhone</strong> — start from this device's data (upload it to iCloud).</li>
+  <li><strong>Merge data</strong> — combine the two sets; at the end you see a <strong>merge report</strong> with the <em>Local / Cloud / Merged</em> counts and the confirmation that <em>“duplicate data has been merged automatically”</em>.</li>
+</ul>
+<p>You'll also find <strong>“Check iCloud status”</strong> to see the latest status and syncs, and <strong>“Reset Cloud cache (advanced)”</strong> to force a full local resync, if something doesn't add up.</p>
+
+<h3 id="en-imp-sms">SMS filter</h3>
+<p>Besides calls, Scudo Chiamate can filter <strong>SMS/MMS from unknown senders</strong>. You turn the feature on with the <strong>“Message filter”</strong> switch in the preferences. Classification happens <strong>entirely on the device</strong>.</p>
+<p>Here too, as with calls, a second step in iOS is needed for the filter to actually work:</p>
+<p><strong>iOS Settings → Apps → Messages → Unknown &amp; Spam → SMS Filtering → “Scudo Chiamate”</strong>.</p>
+<p>The numbers you have in <a href="#en-liste-consentiti">Allowed</a> are <strong>never</strong> filtered: the allowed whitelist is always respected, so messages from the people you care about still come through.</p>
+
+<h3 id="en-imp-premium">Premium</h3>
+<p>The <strong>Premium Services</strong> section shows your current plan — <strong>“Free plan”</strong> or <strong>“Premium active”</strong> — and what it involves. The main difference concerns system blocking:</p>
+<ul>
+  <li><strong>Free</strong> — iOS applies the <strong>first <span data-num="limiteFree">500</span> active numbers</strong> to blocking.</li>
+  <li><strong>Premium</strong> — <strong>all</strong> numbers are applied to CallKit, without the <span data-num="limiteFree">500</span> limit.</li>
+</ul>
+<p>Premium also unlocks:</p>
+<ul>
+  <li><a href="#en-analisi-autoespansione">Automatic range management</a> (auto-expansion);</li>
+  <li>the <a href="#en-liste-filtri">list filters</a> (date, origin, type, country);</li>
+  <li>applying to blocking <strong>all</strong> saved numbers, beyond the <span data-num="limiteFree">500</span> of the free version.</li>
+</ul>
+<p>The related switches — <strong>“Automatic range management”</strong> and <strong>“Show list filters”</strong> — stay visible on Free too but disabled; your choice is remembered and restored if you go Premium again.</p>
+<p>For purchases you use <strong>“See Premium plans”</strong> (choose the package and complete the purchase) and <strong>“Restore purchases”</strong> to recover a subscription that's already active, for example on another device. <strong>“Refresh subscription status”</strong> resyncs the status if it weren't up to date.</p>
+
+<h3 id="en-imp-importa">Importing numbers</h3>
+<p>From data management you can load numbers in bulk, into both <a href="#en-liste-bloccati">Blocked</a> and <a href="#en-liste-consentiti">Allowed</a>. There are three ways.</p>
+
+<h4>From a CSV or vCard file</h4>
+<p>With <strong>“Import blocked”</strong> / <strong>“Import allowed”</strong> you choose a <code>CSV</code> or <code>vCard</code> (.vcf) file. The app analyzes it and shows you a summary — how many new numbers it found, how many were already present, how many it will add — then you confirm with <strong>Import</strong>.</p>
+
+<h4>From screenshots or photos (OCR)</h4>
+<p>With <strong>“Import … from images”</strong> you select up to <strong><span data-num="maxImmagini">100</span> images</strong> and the app extracts the numbers automatically. Keep in mind that:</p>
+<ul>
+  <li>only numbers in <strong>international format, with a prefix (+)</strong>, are recognized;</li>
+  <li>dates and text around the numbers are ignored;</li>
+  <li>each number must be on <strong>a single line</strong>: if large text on your iPhone wraps it, temporarily reduce the <em>Text Size</em> before taking the screenshot.</li>
+</ul>
+
+<h4>Recovering the iOS blocked list</h4>
+<p>The <strong>“Recover the iOS blocked list”</strong> item opens a step-by-step guide to re-import the contacts you had already blocked in iOS: in short, go to <em>iPhone Settings → Phone → Blocked Contacts</em>, take one or more screenshots of the list, then come back here and load them with <strong>“Import blocked from images”</strong>. The numbers are extracted via OCR as above.</p>
+
+<p><strong>Note:</strong> the import is never limited by the <span data-num="limiteFree">500</span> of the free version — all numbers are saved. That limit only concerns how many numbers get <em>applied</em> to iOS blocking: see <a href="#en-imp-limite">Saved numbers vs. active numbers</a>.</p>
+
+<h3 id="en-imp-condividi">Sharing and exporting the list</h3>
+<p>With <strong>“Export blocked”</strong> / <strong>“Export allowed”</strong> you create a <strong>CSV file</strong> of the list, to save or share via the iOS share sheet (to make a backup, pass it to another device, open it elsewhere).</p>
+<p>When you export you can choose <strong>what</strong> to include:</p>
+<ul>
+  <li><strong>Export all</strong> — all the numbers in the list, including those automatically generated by ranges.</li>
+  <li><strong>Origins only</strong> — only the numbers you added manually or imported, excluding those generated by range expansion.</li>
+</ul>
+
+<h3 id="en-imp-cache">Cleanup and maintenance</h3>
+<h4>Clear app cache</h4>
+<p>From diagnostics, <strong>“Clear app cache”</strong> frees up storage by removing temporary data. <strong>It doesn't touch your lists</strong>: blocked and allowed numbers stay intact.</p>
+<h4>Emptying the lists</h4>
+<p>With <strong>“Empty lists”</strong> you open the emptying actions (a "danger zone") to wipe Blocked or Allowed entirely. Before proceeding the app asks <strong>“Create a backup?”</strong>, with three choices:</p>
+<ul>
+  <li><strong>Backup and empty</strong> — first exports a CSV of the list, then empties it.</li>
+  <li><strong>Empty without backup</strong> — deletes directly (irreversible operation).</li>
+  <li><strong>Cancel</strong> — does nothing.</li>
+</ul>
+<p>It's the safe way to start over without losing data by mistake.</p>
+
+</div>
+<!-- ==================== /ENGLISH ==================== -->
+
 </main>
+
+<script>
+  // ---- Costanti numeriche (fonte unica) ----
+  // I valori riflettono GlobalConstants dell'app. Formattati per lingua via Intl.
+  var NUMERI = {
+    limiteFree: 500,
+    maxLista: 250000,
+    maxRange: 10000,
+    sogliaAmpio: 500,
+    minOrigini: 15,
+    estLato: 1000,
+    salto: 150,
+    maxImmagini: 100
+  };
+
+  function formatNumbers(lang) {
+    var nf = new Intl.NumberFormat(lang === 'en' ? 'en-US' : 'it-IT');
+    var els = document.querySelectorAll('[data-num]');
+    for (var i = 0; i < els.length; i++) {
+      var key = els[i].getAttribute('data-num');
+      if (NUMERI.hasOwnProperty(key)) {
+        els[i].textContent = nf.format(NUMERI[key]);
+      }
+    }
+  }
+
+  // ---- Switch lingua (opzione A) ----
+  var SUPPORTED = ['it', 'en'];
+
+  function pickLang() {
+    try {
+      var url = new URLSearchParams(window.location.search).get('lang');
+      if (url && SUPPORTED.indexOf(url) !== -1) return url;
+    } catch (e) {}
+    try {
+      var saved = window.localStorage.getItem('guidaLang');
+      if (saved && SUPPORTED.indexOf(saved) !== -1) return saved;
+    } catch (e) {}
+    var nav = (navigator.language || 'it').slice(0, 2).toLowerCase();
+    return SUPPORTED.indexOf(nav) !== -1 ? nav : 'it';
+  }
+
+  function setLang(lang) {
+    if (SUPPORTED.indexOf(lang) === -1) lang = 'it';
+    var blocks = document.querySelectorAll('.lang');
+    for (var i = 0; i < blocks.length; i++) {
+      blocks[i].classList.toggle('active', blocks[i].getAttribute('data-lang') === lang);
+    }
+    var btns = document.querySelectorAll('.lang-switcher button');
+    for (var j = 0; j < btns.length; j++) {
+      var on = btns[j].getAttribute('data-lang') === lang;
+      btns[j].classList.toggle('on', on);
+      btns[j].setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+    document.documentElement.lang = lang;
+    try { window.localStorage.setItem('guidaLang', lang); } catch (e) {}
+    formatNumbers(lang);
+  }
+
+  var switcherBtns = document.querySelectorAll('.lang-switcher button');
+  for (var k = 0; k < switcherBtns.length; k++) {
+    switcherBtns[k].addEventListener('click', function () {
+      setLang(this.getAttribute('data-lang'));
+    });
+  }
+
+  setLang(pickLang());
+</script>
+
 </body>
 </html>
