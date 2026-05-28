@@ -76,6 +76,7 @@
   .lang-switcher { display: flex; gap: 6px; justify-content: flex-end; max-width: 720px; margin: 0 auto 12px; }
   .lang-switcher button { font: inherit; font-size: .85rem; font-weight: 600; padding: 4px 13px; border-radius: 999px; border: 1px solid var(--rule); background: transparent; color: var(--fg-secondary); cursor: pointer; }
   .lang-switcher button.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .lang-switcher .flag { font-size: 1.05em; vertical-align: -1px; }
   .lang { display: none; }
   .lang.active { display: block; }
 </style>
@@ -83,8 +84,8 @@
 <body>
 
 <div class="lang-switcher" role="group" aria-label="Lingua / Language">
-  <button type="button" data-lang="it" aria-pressed="true">IT</button>
-  <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  <button type="button" data-lang="it" aria-pressed="true"><span class="flag">🇮🇹</span> IT</button>
+  <button type="button" data-lang="en" aria-pressed="false"><span class="flag">🇬🇧</span> EN</button>
 </div>
 
 <main>
