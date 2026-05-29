@@ -132,6 +132,7 @@
       <ul>
         <li><a href="#imp-attivazione">Attivare il blocco in iOS</a></li>
         <li><a href="#imp-limite">Numeri salvati e numeri attivi</a></li>
+        <li><a href="#imp-aggiornamento">Stato dell'ultimo aggiornamento del blocco</a></li>
         <li><a href="#imp-icloud">Sincronizzazione iCloud</a></li>
         <li><a href="#imp-sms">Filtro SMS</a></li>
         <li><a href="#imp-premium">Premium</a></li>
@@ -442,6 +443,23 @@
 <p>La conseguenza pratica è comoda: puoi <strong>importare e tenere salvati tutti i tuoi numeri fin da subito</strong>, anche in Free. Quando passi a Premium diventano operativi <strong>tutti insieme</strong>, senza doverli reimportare o rifare alcun lavoro.</p>
 <p>Anche con Premium il blocco non è infinito: ogni lista può contenere fino a <strong><span data-num="maxLista">250.000</span> numeri</strong>. È un tetto molto ampio, pensato per coprire qualsiasi uso reale.</p>
 
+<h3 id="imp-aggiornamento">Stato dell'ultimo aggiornamento del blocco</h3>
+<p>Quando modifichi le liste, l'app deve passare a iOS — all'estensione <strong>Call Directory</strong> — l'elenco aggiornato dei numeri da bloccare. Nella diagnostica trovi un riquadro che mostra com'è andato l'<strong>ultimo aggiornamento</strong>, così sai se le tue ultime modifiche sono già attive nel blocco di sistema.</p>
+<p>La riga di stato può indicare:</p>
+<ul>
+  <li><strong>Ultimo aggiornamento riuscito</strong> — l'elenco è stato passato a iOS correttamente;</li>
+  <li><strong>Aggiornamento in corso</strong> — l'operazione è in esecuzione in questo momento;</li>
+  <li><strong>Ultimo aggiornamento non riuscito</strong> — qualcosa è andato storto (con il dettaglio dell'errore);</li>
+  <li><strong>Aggiornamento mai eseguito</strong> — non è ancora stato fatto alcun aggiornamento.</li>
+</ul>
+<p>Quando disponibili, il riquadro mostra anche alcuni dettagli utili:</p>
+<ul>
+  <li><strong>Numeri applicati</strong> — quanti numeri sono stati effettivamente passati a iOS;</li>
+  <li><strong>Ultima esecuzione</strong> — data e ora dell'ultimo aggiornamento;</li>
+  <li><strong>Modalità</strong> — <em>incrementale</em> (vengono applicate solo le differenze) oppure <em>ricarica completa</em> (l'intero elenco viene riscritto).</li>
+</ul>
+<p>Se un aggiornamento non è riuscito, l'app suggerisce di <strong>riaprire l'app per forzare un nuovo aggiornamento</strong>. È un riquadro di sola lettura: serve a darti la conferma che la protezione rispecchia le tue liste più recenti.</p>
+
 <h3 id="imp-icloud">Sincronizzazione iCloud</h3>
 <p>Con l'interruttore <strong>“Sincronizzazione iCloud”</strong> i tuoi dati — liste e impostazioni — si allineano automaticamente tra i tuoi dispositivi Apple, tramite iCloud. È disponibile per tutti, anche senza Premium. I dati passano dai server Apple e <strong>nessun server di terze parti</strong> vi ha accesso (vedi la <a href="privacy.html">Privacy Policy</a>).</p>
 <p>Alla <strong>prima attivazione</strong> scegli come inizializzare la sincronizzazione, tra tre modalità:</p>
@@ -558,6 +576,7 @@
       <ul>
         <li><a href="#en-imp-attivazione">Turning on blocking in iOS</a></li>
         <li><a href="#en-imp-limite">Saved numbers vs. active numbers</a></li>
+        <li><a href="#en-imp-aggiornamento">Last update status</a></li>
         <li><a href="#en-imp-icloud">iCloud sync</a></li>
         <li><a href="#en-imp-sms">SMS filter</a></li>
         <li><a href="#en-imp-premium">Premium</a></li>
@@ -867,6 +886,23 @@
 </ul>
 <p>The practical upshot is convenient: you can <strong>import and keep all your numbers saved right away</strong>, even on Free. When you switch to Premium they all become operational <strong>at once</strong>, with no need to re-import or redo any work.</p>
 <p>Even with Premium, blocking isn't infinite: each list can hold up to <strong><span data-num="maxLista">250,000</span> numbers</strong>. It's a very high ceiling, designed to cover any real-world use.</p>
+
+<h3 id="en-imp-aggiornamento">Last update status</h3>
+<p>When you change the lists, the app has to hand iOS — the <strong>Call Directory</strong> extension — the updated list of numbers to block. In diagnostics you'll find a panel showing how the <strong>last update</strong> went, so you know whether your latest changes are already active in system blocking.</p>
+<p>The status line can read:</p>
+<ul>
+  <li><strong>Last update succeeded</strong> — the list was handed to iOS correctly;</li>
+  <li><strong>Update in progress</strong> — the operation is running right now;</li>
+  <li><strong>Last update failed</strong> — something went wrong (with the error details);</li>
+  <li><strong>Update never run</strong> — no update has been done yet.</li>
+</ul>
+<p>When available, the panel also shows a few useful details:</p>
+<ul>
+  <li><strong>Applied numbers</strong> — how many numbers were actually handed to iOS;</li>
+  <li><strong>Last run</strong> — date and time of the last update;</li>
+  <li><strong>Mode</strong> — <em>incremental</em> (only the differences are applied) or <em>full reload</em> (the whole list is rewritten).</li>
+</ul>
+<p>If an update failed, the app suggests <strong>reopening the app to force a new update</strong>. It's a read-only panel: it's there to confirm that your protection reflects your most recent lists.</p>
 
 <h3 id="en-imp-icloud">iCloud sync</h3>
 <p>With the <strong>“iCloud sync”</strong> switch, your data — lists and settings — align automatically across your Apple devices, via iCloud. It's available to everyone, even without Premium. Data passes through Apple's servers and <strong>no third-party server</strong> has access to it (see the <a href="privacy.html">Privacy Policy</a>).</p>
