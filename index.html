@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Scudo Chiamate — Privacy Policy</title>
+<link rel="icon" type="image/png" href="app-icon.png">
 <style>
   :root {
     --fg: #1c1c1e;
@@ -39,19 +40,31 @@
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
   .meta { color: var(--fg-secondary); font-size: 0.92rem; }
-  .lang-divider { margin: 64px 0 0; border: 0; border-top: 2px solid var(--rule); }
   code { font: 0.92em/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; background: rgba(127,127,127,.12); padding: 1px 6px; border-radius: 4px; }
+  .lang-switcher { display: flex; gap: 6px; justify-content: flex-end; max-width: 720px; margin: 0 auto 12px; }
+  .lang-switcher button { font: inherit; font-size: .85rem; font-weight: 600; padding: 4px 13px; border-radius: 999px; border: 1px solid var(--rule); background: transparent; color: var(--fg-secondary); cursor: pointer; }
+  .lang-switcher button.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .lang-switcher .flag { font-size: 1.05em; vertical-align: -1px; }
+  .lang { display: none; }
+  .lang.active { display: block; }
 </style>
 </head>
 <body>
+
+<div class="lang-switcher" role="group" aria-label="Lingua / Language">
+  <button type="button" data-lang="it" aria-pressed="true"><span class="flag">🇮🇹</span> IT</button>
+  <button type="button" data-lang="en" aria-pressed="false"><span class="flag">🇬🇧</span> EN</button>
+</div>
+
 <main>
 
-<h1>Scudo Chiamate</h1>
-<p class="meta">Informativa sulla Privacy / Privacy Policy<br>
-Ultimo aggiornamento / Last updated: 9 maggio 2026 / May 9, 2026</p>
+<!-- ==================== ITALIANO ==================== -->
+<div class="lang active" data-lang="it">
 
-<!-- ========== ITALIANO ========== -->
-<h2>🇮🇹 Informativa sulla Privacy</h2>
+<h1>Scudo Chiamate</h1>
+<p class="meta">Informativa sulla Privacy<br>
+Ultimo aggiornamento: 29 maggio 2026</p>
+
 <p>La presente Informativa descrive come l'applicazione <strong>Scudo Chiamate</strong> tratta i dati personali degli utenti. L'app è progettata secondo il principio del <em>privacy-by-design</em>: i dati restano sul dispositivo dell'utente, non vengono raccolti dal Titolare né trasmessi a server di terze parti, fatta eccezione per i casi esplicitamente indicati di seguito.</p>
 
 <h3>1. Titolare del Trattamento</h3>
@@ -80,7 +93,16 @@ Email: <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a></p
 <h3>5. Permesso "Rete locale"</h3>
 <p>All'avvio iOS può chiedere il permesso di accesso alla <strong>Rete locale</strong>. Tale permesso è richiesto da iOS per il funzionamento del framework CloudKit: il sistema operativo lo utilizza per la <em>discovery</em> dei dispositivi Apple dell'utente sulla stessa rete locale e per accelerare la sincronizzazione tra dispositivi via iCloud. Scudo Chiamate non utilizza la rete locale per scopi propri, non effettua scansioni di dispositivi o servizi e non invia o riceve dati direttamente da altri dispositivi sulla LAN. Il permesso può essere revocato in qualsiasi momento da <em>Impostazioni → Privacy e sicurezza → Rete locale</em>; la revoca disattiva esclusivamente l'ottimizzazione di sincronizzazione iCloud, senza impatti sulle funzioni di blocco.</p>
 
-<h3>6. Acquisti in-app e abbonamenti — RevenueCat</h3>
+<h3>6. Foto, Contatti e fotocamera (selettori di sistema)</h3>
+<p>Le funzioni opzionali di importazione si basano <strong>interamente sui selettori di sistema di Apple</strong>. Di conseguenza l'app <strong>non richiede l'accesso</strong> alla tua libreria foto, alla rubrica o alla fotocamera, e <strong>non compare</strong> nelle relative voci di <em>Impostazioni → Privacy e sicurezza</em>: riceve soltanto gli elementi che selezioni di volta in volta, e nient'altro.</p>
+<ul>
+  <li><strong>Foto</strong> — per l'importazione tramite riconoscimento testo (OCR) usi il selettore foto di sistema: l'app riceve solo gli screenshot o le foto che scegli, non l'intera libreria, e ne estrae i numeri interamente sul dispositivo.</li>
+  <li><strong>Contatti</strong> — per l'importazione dalla rubrica usi il selettore contatti di sistema: l'app riceve solo i contatti che scegli, ne legge i numeri di telefono sul dispositivo e non accede al resto della rubrica.</li>
+  <li><strong>Fotocamera</strong> — la funzione "scansiona numero dalla fotocamera" usa lo strumento di acquisizione testo integrato in iOS: l'app riceve soltanto il testo riconosciuto, gestito dal sistema.</li>
+</ul>
+<p>In tutti i casi nessuna immagine, contatto o ripresa viene trasmessa ad alcun server: l'elaborazione avviene esclusivamente sul dispositivo.</p>
+
+<h3>7. Acquisti in-app e abbonamenti — RevenueCat</h3>
 <p>La gestione degli acquisti in-app e degli abbonamenti è affidata al servizio <strong>RevenueCat</strong>. Per erogare il servizio, RevenueCat tratta:</p>
 <ul>
   <li>Identificativo utente anonimo (UUID) o ID dispositivo</li>
@@ -89,30 +111,35 @@ Email: <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a></p
 </ul>
 <p>I dati sono utilizzati esclusivamente per verificare lo stato dell'abbonamento e abilitare le funzionalità premium. Non vengono utilizzati per scopi pubblicitari, di profilazione o di tracciamento cross-app. Maggiori informazioni: <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">Privacy Policy di RevenueCat</a>.</p>
 
-<h3>7. Assenza di analytics, tracciamento e pubblicità</h3>
+<h3>8. Assenza di analytics, tracciamento e pubblicità</h3>
 <p>Scudo Chiamate <strong>non integra SDK di analytics, tracciamento, advertising o profilazione di alcun tipo</strong>. Non vengono raccolte metriche di utilizzo, eventi di interazione, identificatori pubblicitari (IDFA) o telemetria su crash al di fuori di quella aggregata e anonima fornita opzionalmente da Apple via App Store Connect.</p>
 
-<h3>8. Base giuridica</h3>
+<h3>9. Base giuridica</h3>
 <p>Il trattamento dei dati relativi agli acquisti avviene per esecuzione del contratto (Art. 6, par. 1, lett. b GDPR). I dati gestiti localmente sul dispositivo non costituiscono trattamento ai sensi del GDPR da parte del Titolare, in quanto non accessibili da quest'ultimo.</p>
 
-<h3>9. Conservazione</h3>
+<h3>10. Conservazione</h3>
 <p>I dati sul dispositivo sono conservati fino alla disinstallazione dell'app o alla cancellazione manuale (funzione "Pulisci cache" e gestione liste). I dati su CloudKit seguono il ciclo di vita dell'account iCloud dell'utente. I dati gestiti da RevenueCat sono conservati secondo le rispettive politiche.</p>
 
-<h3>10. Diritti dell'utente</h3>
+<h3>11. Diritti dell'utente</h3>
 <p>L'utente può in qualsiasi momento accedere, rettificare, cancellare i propri dati o opporsi al trattamento, agendo direttamente nell'app (gestione liste, disabilitazione iCloud, disinstallazione) o scrivendo a <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a>. È inoltre possibile proporre reclamo all'Autorità Garante per la Protezione dei Dati Personali.</p>
 
-<h3>11. Modifiche all'informativa</h3>
+<h3>12. Modifiche all'informativa</h3>
 <p>La presente Informativa può essere aggiornata. La versione corrente è sempre disponibile a questo URL, con la data di ultimo aggiornamento indicata in apertura.</p>
 
-<h3>12. Contatti</h3>
+<h3>13. Contatti</h3>
 <p>Per qualsiasi domanda: <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a></p>
 
+</div>
+<!-- ==================== /ITALIANO ==================== -->
 
-<hr class="lang-divider">
 
+<!-- ==================== ENGLISH ==================== -->
+<div class="lang" data-lang="en">
 
-<!-- ========== ENGLISH ========== -->
-<h2>🇬🇧 Privacy Policy</h2>
+<h1>Scudo Chiamate</h1>
+<p class="meta">Privacy Policy<br>
+Last updated: May 29, 2026</p>
+
 <p>This Privacy Policy describes how the <strong>Scudo Chiamate</strong> application processes personal data. The app follows a <em>privacy-by-design</em> approach: data stays on the user's device and is not collected by the Data Controller or transmitted to third-party servers, except in the cases explicitly listed below.</p>
 
 <h3>1. Data Controller</h3>
@@ -141,7 +168,16 @@ Email: <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a></p
 <h3>5. "Local Network" permission</h3>
 <p>iOS may request <strong>Local Network</strong> access on first launch. This permission is required by iOS itself for the CloudKit framework: the operating system uses it to <em>discover</em> the user's other Apple devices on the same local network and to speed up iCloud sync. Scudo Chiamate does not use the local network for any of its own purposes, does not scan for devices or services, and does not send or receive data directly to or from other devices on the LAN. The permission can be revoked at any time in <em>Settings → Privacy &amp; Security → Local Network</em>; revoking it only disables the iCloud sync optimization and has no impact on call-blocking features.</p>
 
-<h3>6. In-app purchases and subscriptions — RevenueCat</h3>
+<h3>6. Photos, Contacts, and camera (system pickers)</h3>
+<p>The optional import features rely <strong>entirely on Apple's system pickers</strong>. As a result, the app <strong>does not request access</strong> to your photo library, contacts, or camera, and <strong>does not appear</strong> under those entries in <em>Settings → Privacy &amp; Security</em>: it only receives the specific items you select each time, and nothing else.</p>
+<ul>
+  <li><strong>Photos</strong> — for text-recognition (OCR) import you use the system photo picker: the app receives only the screenshots or photos you choose, not your whole library, and extracts the numbers entirely on the device.</li>
+  <li><strong>Contacts</strong> — for importing from your address book you use the system contact picker: the app receives only the contacts you choose, reads their phone numbers on the device, and does not access the rest of your address book.</li>
+  <li><strong>Camera</strong> — the "scan number from camera" feature uses iOS's built-in text-capture tool: the app only receives the recognized text, handled by the system.</li>
+</ul>
+<p>In all cases, no image, contact, or capture is transmitted to any server: processing happens only on the device.</p>
+
+<h3>7. In-app purchases and subscriptions — RevenueCat</h3>
 <p>In-app purchases and subscription management are handled by <strong>RevenueCat</strong>. To deliver the service, RevenueCat processes:</p>
 <ul>
   <li>Anonymous user identifier (UUID) or device ID</li>
@@ -150,24 +186,70 @@ Email: <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a></p
 </ul>
 <p>This data is used solely to verify subscription status and unlock premium features. It is not used for advertising, profiling, or cross-app tracking. See <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat's Privacy Policy</a> for details.</p>
 
-<h3>7. No analytics, tracking, or advertising</h3>
+<h3>8. No analytics, tracking, or advertising</h3>
 <p>Scudo Chiamate <strong>does not integrate any analytics, tracking, advertising, or profiling SDK</strong>. No usage metrics, interaction events, advertising identifiers (IDFA), or crash telemetry are collected beyond the optional, aggregated and anonymous reports provided by Apple via App Store Connect.</p>
 
-<h3>8. Legal basis</h3>
+<h3>9. Legal basis</h3>
 <p>Processing of purchase-related data is based on contractual performance (Art. 6(1)(b) GDPR). Data managed locally on the device does not constitute processing by the Data Controller under the GDPR, as it is not accessible to them.</p>
 
-<h3>9. Retention</h3>
+<h3>10. Retention</h3>
 <p>On-device data is retained until the app is uninstalled or manually cleared (via the in-app "Clear cache" function and list management). CloudKit-synced data follows the lifecycle of the user's iCloud account. RevenueCat-managed data is retained according to RevenueCat's own policies.</p>
 
-<h3>10. User rights</h3>
+<h3>11. User rights</h3>
 <p>Users can at any time access, rectify, delete, or object to the processing of their data — directly in the app (list management, disabling iCloud, uninstall) or by writing to <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a>. Users may also lodge a complaint with their national Data Protection Authority.</p>
 
-<h3>11. Changes to this policy</h3>
+<h3>12. Changes to this policy</h3>
 <p>This Privacy Policy may be updated. The current version is always available at this URL, with the last-updated date shown at the top.</p>
 
-<h3>12. Contact</h3>
+<h3>13. Contact</h3>
 <p>For any questions: <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a></p>
 
+</div>
+<!-- ==================== /ENGLISH ==================== -->
+
 </main>
+
+<script>
+  var SUPPORTED = ['it', 'en'];
+
+  function pickLang() {
+    try {
+      var url = new URLSearchParams(window.location.search).get('lang');
+      if (url && SUPPORTED.indexOf(url) !== -1) return url;
+    } catch (e) {}
+    try {
+      var saved = window.localStorage.getItem('guidaLang');
+      if (saved && SUPPORTED.indexOf(saved) !== -1) return saved;
+    } catch (e) {}
+    var nav = (navigator.language || 'it').slice(0, 2).toLowerCase();
+    return SUPPORTED.indexOf(nav) !== -1 ? nav : 'it';
+  }
+
+  function setLang(lang) {
+    if (SUPPORTED.indexOf(lang) === -1) lang = 'it';
+    var blocks = document.querySelectorAll('.lang');
+    for (var i = 0; i < blocks.length; i++) {
+      blocks[i].classList.toggle('active', blocks[i].getAttribute('data-lang') === lang);
+    }
+    var btns = document.querySelectorAll('.lang-switcher button');
+    for (var j = 0; j < btns.length; j++) {
+      var on = btns[j].getAttribute('data-lang') === lang;
+      btns[j].classList.toggle('on', on);
+      btns[j].setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+    document.documentElement.lang = lang;
+    try { window.localStorage.setItem('guidaLang', lang); } catch (e) {}
+  }
+
+  var switcherBtns = document.querySelectorAll('.lang-switcher button');
+  for (var k = 0; k < switcherBtns.length; k++) {
+    switcherBtns[k].addEventListener('click', function () {
+      setLang(this.getAttribute('data-lang'));
+    });
+  }
+
+  setLang(pickLang());
+</script>
+
 </body>
 </html>
