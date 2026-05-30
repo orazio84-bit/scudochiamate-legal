@@ -47,6 +47,9 @@
   .lang-switcher .flag { font-size: 1.05em; vertical-align: -1px; }
   .lang { display: none; }
   .lang.active { display: block; }
+  .app-header { display: flex; align-items: center; gap: 16px; margin: 0 0 8px; }
+  .app-header h1 { margin: 0; }
+  .app-icon { width: 76px; height: 76px; border-radius: 17px; flex-shrink: 0; box-shadow: 0 1px 4px rgba(0,0,0,.18); }
 </style>
 </head>
 <body>
@@ -61,9 +64,14 @@
 <!-- ==================== ITALIANO ==================== -->
 <div class="lang active" data-lang="it">
 
-<h1>Scudo Chiamate</h1>
-<p class="meta">Informativa sulla Privacy<br>
-Ultimo aggiornamento: 29 maggio 2026</p>
+<div class="app-header">
+  <img class="app-icon" src="app-icon.png" alt="Icona Scudo Chiamate" width="76" height="76">
+  <div>
+    <h1>Scudo Chiamate</h1>
+    <p class="meta">Informativa sulla Privacy<br>
+    Ultimo aggiornamento: 29 maggio 2026</p>
+  </div>
+</div>
 
 <p>La presente Informativa descrive come l'applicazione <strong>Scudo Chiamate</strong> tratta i dati personali degli utenti. L'app è progettata secondo il principio del <em>privacy-by-design</em>: i dati restano sul dispositivo dell'utente, non vengono raccolti dal Titolare né trasmessi a server di terze parti, fatta eccezione per i casi esplicitamente indicati di seguito.</p>
 
@@ -136,9 +144,14 @@ Email: <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a></p
 <!-- ==================== ENGLISH ==================== -->
 <div class="lang" data-lang="en">
 
-<h1>Scudo Chiamate</h1>
-<p class="meta">Privacy Policy<br>
-Last updated: May 29, 2026</p>
+<div class="app-header">
+  <img class="app-icon" src="app-icon.png" alt="Scudo Chiamate icon" width="76" height="76">
+  <div>
+    <h1>Scudo Chiamate</h1>
+    <p class="meta">Privacy Policy<br>
+    Last updated: May 29, 2026</p>
+  </div>
+</div>
 
 <p>This Privacy Policy describes how the <strong>Scudo Chiamate</strong> application processes personal data. The app follows a <em>privacy-by-design</em> approach: data stays on the user's device and is not collected by the Data Controller or transmitted to third-party servers, except in the cases explicitly listed below.</p>
 
