@@ -52,6 +52,9 @@
   }
   .example p { margin: 6px 0; }
   .example .label { color: var(--fg-secondary); font-size: 0.85rem; text-transform: uppercase; letter-spacing: .03em; margin-bottom: 4px; }
+  table.refs { border-collapse: collapse; margin: 10px 0 2px; font-size: 0.95rem; }
+  table.refs th, table.refs td { text-align: left; padding: 4px 18px 4px 0; border-bottom: 1px solid var(--rule); font-variant-numeric: tabular-nums; }
+  table.refs th { color: var(--fg-secondary); font-weight: 600; }
   .toc {
     background: var(--card);
     border-radius: 12px;
@@ -243,13 +246,41 @@
 <p>Un range viene scartato quando ricade in uno di questi casi:</p>
 <ul>
   <li><strong>Troppo esteso</strong> — copre più di <strong><span data-num="maxRange">10.000</span> numeri</strong>. Un intervallo così largo non somiglia a un blocco di un singolo call center, ma a un'intera fascia di numerazione: bloccarlo farebbe più danni che altro.</li>
-  <li><strong>Troppo "diradato"</strong> — è ampio (più di <strong><span data-num="sogliaAmpio">500</span> numeri</strong>) ma poggia su <strong>meno di <span data-num="minOrigini">15</span> numeri tuoi</strong>. In pratica pretenderebbe di bloccare un intervallo enorme avendo pochissime prove: il classico range fuorviante, che l'app preferisce non proporre.</li>
+  <li><strong>Troppo "diradato" (poca densità)</strong> — contiene troppi pochi numeri <em>tuoi</em> rispetto a quanto è largo. Per essere proposto, un range deve poggiare su almeno lo <strong>0,65% di numeri reali</strong> (le origini) rispetto a quanti numeri copre: più è largo, più prove servono. Se le origini non bastano per la sua ampiezza, il range viene scartato, perché bloccherebbe un intervallo grande sulla base di pochi indizi — il classico range fuorviante.</li>
   <li><strong>Un solo numero</strong> (in modalità automatica) — l'analisi automatica non trasforma un numero isolato in un range, perché un singolo numero non è uno schema.</li>
 </ul>
+<div class="example">
+  <p class="label">Origini minime per essere proposto</p>
+  <table class="refs">
+    <tr><th>Ampiezza del range</th><th>Origini minime</th></tr>
+    <tr><td>250</td><td>2</td></tr>
+    <tr><td>500</td><td>4</td></tr>
+    <tr><td>1.000</td><td>7</td></tr>
+    <tr><td>1.500</td><td>10</td></tr>
+    <tr><td>2.000</td><td>13</td></tr>
+    <tr><td>2.500</td><td>17</td></tr>
+    <tr><td>3.000</td><td>20</td></tr>
+    <tr><td>3.500</td><td>23</td></tr>
+    <tr><td>4.000</td><td>26</td></tr>
+    <tr><td>4.500</td><td>30</td></tr>
+    <tr><td>5.000</td><td>33</td></tr>
+    <tr><td>5.500</td><td>36</td></tr>
+    <tr><td>6.000</td><td>39</td></tr>
+    <tr><td>6.500</td><td>43</td></tr>
+    <tr><td>7.000</td><td>46</td></tr>
+    <tr><td>7.500</td><td>49</td></tr>
+    <tr><td>8.000</td><td>52</td></tr>
+    <tr><td>8.500</td><td>56</td></tr>
+    <tr><td>9.000</td><td>59</td></tr>
+    <tr><td>9.500</td><td>62</td></tr>
+    <tr><td>10.000</td><td>65</td></tr>
+  </table>
+</div>
 <p>Scartare questi range è una scelta di prudenza: meglio non bloccare un intervallo dubbio piuttosto che rischiare di silenziare numeri legittimi. Se però sei certo che un range scartato vada bloccato, puoi sempre gestirlo a mano dalle liste.</p>
 
 <h4>Range già presenti</h4>
 <p>Sono i range <strong>già attivi</strong> nella tua protezione, frutto di analisi precedenti o aggiunti da te. Servono da riferimento: l'analisi li tiene in conto per non riproporti ciò che hai già, e all'occorrenza li <strong>estende</strong> quando nuovi numeri ricadono appena prima o appena dopo (vedi <a href="#analisi-autoespansione">Auto-espansione</a>).</p>
+<p>Toccando l'icona <strong>ℹ️ info</strong> su una riga ne vedi i <strong>dettagli completi</strong> — numeri coperti, origini, composizione ed eventuali eccezioni (vedi <a href="#analisi-attivi">Leggere i range attivi</a>).</p>
 
 <h3 id="analisi-applica">Applicare o scartare i range</h3>
 <p>L'analisi <strong>propone</strong>, ma l'ultima parola è sempre tua: nessun range diventa attivo finché non lo confermi. Ogni range trovato ha un <strong>interruttore</strong> sulla propria riga, che ti permette di sceglierlo o lasciarlo da parte.</p>
@@ -691,13 +722,41 @@
 <p>A range is discarded when it falls into one of these cases:</p>
 <ul>
   <li><strong>Too large</strong> — it covers more than <strong><span data-num="maxRange">10,000</span> numbers</strong>. An interval this wide doesn't look like a single call center's block, but like an entire numbering band: blocking it would do more harm than good.</li>
-  <li><strong>Too "sparse"</strong> — it's wide (more than <strong><span data-num="sogliaAmpio">500</span> numbers</strong>) but rests on <strong>fewer than <span data-num="minOrigini">15</span> of your numbers</strong>. In practice it would try to block a huge interval with very little evidence: the classic misleading range, which the app prefers not to propose.</li>
+  <li><strong>Too "sparse" (low density)</strong> — it contains too few of <em>your own</em> numbers relative to how wide it is. To be proposed, a range must rest on at least <strong>0.65% real numbers</strong> (the origins) compared to how many numbers it covers: the wider it is, the more evidence it needs. If the origins aren't enough for its width, the range is discarded, because it would block a large interval on too little evidence — the classic misleading range.</li>
   <li><strong>A single number</strong> (in automatic mode) — the automatic analysis doesn't turn an isolated number into a range, because a single number isn't a pattern.</li>
 </ul>
+<div class="example">
+  <p class="label">Minimum origins to be proposed</p>
+  <table class="refs">
+    <tr><th>Range width</th><th>Minimum origins</th></tr>
+    <tr><td>250</td><td>2</td></tr>
+    <tr><td>500</td><td>4</td></tr>
+    <tr><td>1,000</td><td>7</td></tr>
+    <tr><td>1,500</td><td>10</td></tr>
+    <tr><td>2,000</td><td>13</td></tr>
+    <tr><td>2,500</td><td>17</td></tr>
+    <tr><td>3,000</td><td>20</td></tr>
+    <tr><td>3,500</td><td>23</td></tr>
+    <tr><td>4,000</td><td>26</td></tr>
+    <tr><td>4,500</td><td>30</td></tr>
+    <tr><td>5,000</td><td>33</td></tr>
+    <tr><td>5,500</td><td>36</td></tr>
+    <tr><td>6,000</td><td>39</td></tr>
+    <tr><td>6,500</td><td>43</td></tr>
+    <tr><td>7,000</td><td>46</td></tr>
+    <tr><td>7,500</td><td>49</td></tr>
+    <tr><td>8,000</td><td>52</td></tr>
+    <tr><td>8,500</td><td>56</td></tr>
+    <tr><td>9,000</td><td>59</td></tr>
+    <tr><td>9,500</td><td>62</td></tr>
+    <tr><td>10,000</td><td>65</td></tr>
+  </table>
+</div>
 <p>Discarding these ranges is a cautious choice: better not to block a doubtful interval than to risk silencing legitimate numbers. But if you're sure a discarded range should be blocked, you can always handle it by hand from the lists.</p>
 
 <h4>Existing ranges</h4>
 <p>These are the ranges <strong>already active</strong> in your protection, the result of previous analyses or added by you. They serve as a reference: the analysis takes them into account so it doesn't re-propose what you already have, and when needed it <strong>extends</strong> them when new numbers fall just before or just after (see <a href="#en-analisi-autoespansione">Auto-expansion</a>).</p>
+<p>Tapping the <strong>ℹ️ info</strong> icon on a row shows its <strong>full details</strong> — covered numbers, origins, makeup, and any exceptions (see <a href="#en-analisi-attivi">Reading active ranges</a>).</p>
 
 <h3 id="en-analisi-applica">Applying or discarding ranges</h3>
 <p>The analysis <strong>proposes</strong>, but the final word is always yours: no range becomes active until you confirm it. Each found range has a <strong>switch</strong> on its row, letting you select it or set it aside.</p>
@@ -994,8 +1053,6 @@
     limiteFree: 500,
     maxLista: 250000,
     maxRange: 10000,
-    sogliaAmpio: 500,
-    minOrigini: 15,
     estLato: 1000,
     salto: 150,
     maxImmagini: 100
