@@ -60,6 +60,9 @@
 <div class="lang-switcher" role="group" aria-label="Lingua / Language">
   <button type="button" data-lang="it" aria-pressed="true"><span class="flag">🇮🇹</span> IT</button>
   <button type="button" data-lang="en" aria-pressed="false"><span class="flag">🇬🇧</span> EN</button>
+  <button type="button" data-lang="es" aria-pressed="false"><span class="flag">🇪🇸</span> ES</button>
+  <button type="button" data-lang="fr" aria-pressed="false"><span class="flag">🇫🇷</span> FR</button>
+  <button type="button" data-lang="de" aria-pressed="false"><span class="flag">🇩🇪</span> DE</button>
 </div>
 
 <main>
@@ -235,10 +238,268 @@ Email: <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a></p
 </div>
 <!-- ==================== /ENGLISH ==================== -->
 
+
+<!-- ==================== ESPAÑOL ==================== -->
+<div class="lang" data-lang="es">
+
+<div class="app-header">
+  <img class="app-icon" src="app-icon.png" alt="Icono de Scudo Chiamate" width="76" height="76">
+  <div>
+    <h1>Scudo Chiamate</h1>
+    <p class="meta">Política de Privacidad<br>
+    Última actualización: 29 de mayo de 2026</p>
+  </div>
+</div>
+
+<p>Esta Política de Privacidad describe cómo la aplicación <strong>Scudo Chiamate</strong> trata los datos personales. La app sigue un enfoque de <em>privacy-by-design</em>: los datos permanecen en el dispositivo del usuario y no son recopilados por el Responsable del Tratamiento ni transmitidos a servidores de terceros, salvo en los casos expresamente indicados a continuación.</p>
+
+<h3>1. Responsable del Tratamiento</h3>
+<p>Orazio Dell'Osa<br>
+Email: <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a></p>
+
+<h3>2. Datos almacenados en tu dispositivo</h3>
+<p>Los siguientes datos se almacenan exclusivamente en el dispositivo del usuario, dentro del sandbox de la app, y no se transmiten al Responsable del Tratamiento:</p>
+<ul>
+  <li>Listas de números bloqueados y permitidos, incluidas las entradas importadas desde los contactos o desde archivos CSV/vCard.</li>
+  <li>Rangos numéricos personalizados y los ajustes de bloqueo correspondientes.</li>
+  <li>Preferencias, ajustes de la app y caché de estado.</li>
+</ul>
+<p>La app <strong>no registra ni almacena ningún historial de las llamadas recibidas</strong>. La extensión Call Directory de iOS solo proporciona al sistema la lista de números que deben bloquearse o identificarse; no recibe notificaciones sobre las llamadas individuales.</p>
+
+<h3>3. Extensiones del sistema (Call Directory y Message Filter)</h3>
+<p>La app incorpora dos extensiones de iOS aisladas (sandboxed):</p>
+<ul>
+  <li><strong>Call Directory Extension</strong> — proporciona a iOS la lista de números que deben bloquearse o identificarse. El sandbox de Apple no permite a la extensión rastrear las llamadas reales ni transmitir datos a través de la red.</li>
+  <li><strong>Message Filter Extension</strong> — clasifica los SMS/MMS de remitentes desconocidos como Promoción o Basura. La evaluación se realiza <em>íntegramente en el dispositivo</em>; el contenido del mensaje nunca se transmite a ningún servidor externo.</li>
+</ul>
+
+<h3>4. Sincronización mediante iCloud (CloudKit)</h3>
+<p>Si el usuario ha iniciado sesión en iCloud y ha activado la sincronización, los datos de las listas y los ajustes se replican entre los dispositivos Apple del usuario mediante el servicio <strong>CloudKit</strong> de Apple. Los datos se transmiten y se almacenan en los servidores de Apple, conforme a la <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Política de Privacidad de Apple</a>. El Responsable del Tratamiento <strong>no tiene acceso</strong> a los datos sincronizados mediante CloudKit.</p>
+
+<h3>5. Permiso de "Red local"</h3>
+<p>iOS puede solicitar el acceso a la <strong>Red local</strong> en el primer inicio. Este permiso es requerido por el propio iOS para el framework CloudKit: el sistema operativo lo utiliza para <em>descubrir</em> los demás dispositivos Apple del usuario en la misma red local y para acelerar la sincronización con iCloud. Scudo Chiamate no utiliza la red local para ningún fin propio, no realiza escaneos de dispositivos ni de servicios, y no envía ni recibe datos directamente hacia o desde otros dispositivos de la LAN. El permiso puede revocarse en cualquier momento en <em>Ajustes → Privacidad y seguridad → Red local</em>; su revocación solo desactiva la optimización de la sincronización con iCloud y no afecta a las funciones de bloqueo de llamadas.</p>
+
+<h3>6. Fotos, Contactos y cámara (selectores del sistema)</h3>
+<p>Las funciones opcionales de importación se basan <strong>íntegramente en los selectores del sistema de Apple</strong>. Como consecuencia, la app <strong>no solicita acceso</strong> a tu fototeca, a tus contactos ni a tu cámara, y <strong>no aparece</strong> bajo esas entradas en <em>Ajustes → Privacidad y seguridad</em>: solo recibe los elementos concretos que seleccionas cada vez, y nada más.</p>
+<ul>
+  <li><strong>Fotos</strong> — para la importación mediante reconocimiento de texto (OCR) utilizas el selector de fotos del sistema: la app recibe únicamente las capturas de pantalla o las fotos que eliges, no toda tu fototeca, y extrae los números íntegramente en el dispositivo.</li>
+  <li><strong>Contactos</strong> — para la importación desde tu agenda utilizas el selector de contactos del sistema: la app recibe únicamente los contactos que eliges, lee sus números de teléfono en el dispositivo y no accede al resto de tu agenda.</li>
+  <li><strong>Cámara</strong> — la función "escanear número con la cámara" utiliza la herramienta de captura de texto integrada en iOS: la app solo recibe el texto reconocido, gestionado por el sistema.</li>
+</ul>
+<p>En todos los casos, ninguna imagen, contacto o captura se transmite a ningún servidor: el procesamiento se realiza únicamente en el dispositivo.</p>
+
+<h3>7. Compras dentro de la app y suscripciones — RevenueCat</h3>
+<p>La gestión de las compras dentro de la app y de las suscripciones está a cargo de <strong>RevenueCat</strong>. Para prestar el servicio, RevenueCat trata:</p>
+<ul>
+  <li>Identificador de usuario anónimo (UUID) o ID del dispositivo</li>
+  <li>Historial de compras y de suscripciones</li>
+  <li>Tipo de suscripción activa y fecha de vencimiento</li>
+</ul>
+<p>Estos datos se utilizan únicamente para verificar el estado de la suscripción y desbloquear las funciones premium. No se utilizan con fines publicitarios, de elaboración de perfiles ni de seguimiento entre apps. Para más información, consulta la <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">Política de Privacidad de RevenueCat</a>.</p>
+
+<h3>8. Sin analíticas, seguimiento ni publicidad</h3>
+<p>Scudo Chiamate <strong>no integra ningún SDK de analíticas, seguimiento, publicidad o elaboración de perfiles</strong>. No se recopilan métricas de uso, eventos de interacción, identificadores publicitarios (IDFA) ni telemetría de fallos, más allá de los informes opcionales, agregados y anónimos que Apple proporciona a través de App Store Connect.</p>
+
+<h3>9. Base jurídica</h3>
+<p>El tratamiento de los datos relativos a las compras se basa en la ejecución del contrato (Art. 6, ap. 1, letra b GDPR). Los datos gestionados localmente en el dispositivo no constituyen un tratamiento por parte del Responsable del Tratamiento conforme al GDPR, ya que este no puede acceder a ellos.</p>
+
+<h3>10. Conservación</h3>
+<p>Los datos del dispositivo se conservan hasta que la app se desinstala o se borran manualmente (mediante la función "Limpiar caché" dentro de la app y la gestión de listas). Los datos sincronizados con CloudKit siguen el ciclo de vida de la cuenta de iCloud del usuario. Los datos gestionados por RevenueCat se conservan conforme a las políticas propias de RevenueCat.</p>
+
+<h3>11. Derechos del usuario</h3>
+<p>El usuario puede en cualquier momento acceder, rectificar, suprimir u oponerse al tratamiento de sus datos, ya sea directamente en la app (gestión de listas, desactivación de iCloud, desinstalación) o escribiendo a <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a>. El usuario también puede presentar una reclamación ante la Autoridad de Control en materia de Protección de Datos de su país.</p>
+
+<h3>12. Cambios en esta política</h3>
+<p>Esta Política de Privacidad puede ser actualizada. La versión vigente está siempre disponible en esta URL, con la fecha de última actualización indicada al inicio.</p>
+
+<h3>13. Contacto</h3>
+<p>Para cualquier consulta: <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a></p>
+
+<nav class="doc-nav">
+  <a href="guida.html">Guía</a>
+  <span class="current">Privacidad</span>
+  <a href="changelog.html">Novedades</a>
+</nav>
+
+</div>
+<!-- ==================== /ESPAÑOL ==================== -->
+
+
+<!-- ==================== FRANÇAIS ==================== -->
+<div class="lang" data-lang="fr">
+
+<div class="app-header">
+  <img class="app-icon" src="app-icon.png" alt="Icône de Scudo Chiamate" width="76" height="76">
+  <div>
+    <h1>Scudo Chiamate</h1>
+    <p class="meta">Politique de confidentialité<br>
+    Dernière mise à jour : 29 mai 2026</p>
+  </div>
+</div>
+
+<p>Cette politique de confidentialité décrit la manière dont l'application <strong>Scudo Chiamate</strong> traite les données personnelles. L'application adopte une approche <em>privacy-by-design</em> : les données restent sur l'appareil de l'utilisateur et ne sont ni collectées par le responsable du traitement ni transmises à des serveurs tiers, sauf dans les cas explicitement énumérés ci-dessous.</p>
+
+<h3>1. Responsable du traitement</h3>
+<p>Orazio Dell'Osa<br>
+E-mail : <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a></p>
+
+<h3>2. Données stockées sur votre appareil</h3>
+<p>Les données suivantes sont stockées exclusivement sur l'appareil de l'utilisateur, à l'intérieur du sandbox de l'application, et ne sont pas transmises au responsable du traitement :</p>
+<ul>
+  <li>Listes de numéros de téléphone bloqués et autorisés, y compris les entrées importées depuis les contacts ou depuis des fichiers CSV/vCard.</li>
+  <li>Plages de numéros personnalisées et paramètres de blocage associés.</li>
+  <li>Préférences, réglages et état mis en cache de l'application.</li>
+</ul>
+<p>L'application <strong>ne journalise ni ne stocke aucun historique des appels reçus</strong>. L'extension iOS Call Directory se contente de fournir au système la liste des numéros à bloquer ou à identifier ; elle ne reçoit aucune notification concernant les appels individuels.</p>
+
+<h3>3. Extensions système (Call Directory et Message Filter)</h3>
+<p>L'application intègre deux extensions iOS isolées en sandbox :</p>
+<ul>
+  <li><strong>Call Directory Extension</strong> — fournit à iOS la liste des numéros à bloquer ou à identifier. Le sandbox d'Apple ne permet pas à l'extension de suivre les appels réels ni de transmettre des données sur le réseau.</li>
+  <li><strong>Message Filter Extension</strong> — classe les SMS/MMS provenant d'expéditeurs inconnus comme Promotion ou Indésirable. L'évaluation est réalisée <em>entièrement sur l'appareil</em> ; le contenu des messages n'est jamais transmis à un serveur externe.</li>
+</ul>
+
+<h3>4. Synchronisation via iCloud (CloudKit)</h3>
+<p>Si l'utilisateur est connecté à iCloud et a activé la synchronisation, les données des listes et les réglages sont répliqués sur les appareils Apple de l'utilisateur via le service <strong>CloudKit</strong> d'Apple. Les données sont transmises et stockées sur les serveurs d'Apple conformément à la <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">politique de confidentialité d'Apple</a>. Le responsable du traitement n'a <strong>aucun accès</strong> aux données synchronisées via CloudKit.</p>
+
+<h3>5. Autorisation « Réseau local »</h3>
+<p>iOS peut demander l'accès au <strong>Réseau local</strong> lors du premier lancement. Cette autorisation est requise par iOS lui-même pour le framework CloudKit : le système d'exploitation l'utilise pour <em>découvrir</em> les autres appareils Apple de l'utilisateur sur le même réseau local et pour accélérer la synchronisation iCloud. Scudo Chiamate n'utilise le réseau local à aucune de ses propres fins, n'effectue aucune recherche d'appareils ou de services, et n'envoie ni ne reçoit de données directement vers ou depuis d'autres appareils du réseau local. L'autorisation peut être révoquée à tout moment dans <em>Réglages → Confidentialité et sécurité → Réseau local</em> ; sa révocation désactive uniquement l'optimisation de la synchronisation iCloud et n'a aucun impact sur les fonctions de blocage d'appels.</p>
+
+<h3>6. Photos, contacts et appareil photo (sélecteurs système)</h3>
+<p>Les fonctions d'import optionnelles reposent <strong>entièrement sur les sélecteurs système d'Apple</strong>. Par conséquent, l'application <strong>ne demande aucun accès</strong> à votre photothèque, à vos contacts ou à votre appareil photo, et <strong>n'apparaît pas</strong> sous ces entrées dans <em>Réglages → Confidentialité et sécurité</em> : elle ne reçoit que les éléments spécifiques que vous sélectionnez à chaque fois, et rien d'autre.</p>
+<ul>
+  <li><strong>Photos</strong> — pour l'import par reconnaissance de texte (OCR), vous utilisez le sélecteur de photos système : l'application ne reçoit que les captures d'écran ou les photos que vous choisissez, et non l'intégralité de votre photothèque, et extrait les numéros entièrement sur l'appareil.</li>
+  <li><strong>Contacts</strong> — pour l'import depuis votre carnet d'adresses, vous utilisez le sélecteur de contacts système : l'application ne reçoit que les contacts que vous choisissez, lit leurs numéros de téléphone sur l'appareil et n'accède pas au reste de votre carnet d'adresses.</li>
+  <li><strong>Appareil photo</strong> — la fonction « scanner un numéro depuis l'appareil photo » utilise l'outil de capture de texte intégré à iOS : l'application ne reçoit que le texte reconnu, traité par le système.</li>
+</ul>
+<p>Dans tous les cas, aucune image, aucun contact ni aucune capture n'est transmis à un serveur : le traitement a lieu uniquement sur l'appareil.</p>
+
+<h3>7. Achats intégrés et abonnements — RevenueCat</h3>
+<p>Les achats intégrés et la gestion des abonnements sont assurés par <strong>RevenueCat</strong>. Pour fournir le service, RevenueCat traite :</p>
+<ul>
+  <li>Un identifiant utilisateur anonyme (UUID) ou un identifiant d'appareil</li>
+  <li>L'historique des achats et des abonnements</li>
+  <li>Le type d'abonnement actif et sa date d'expiration</li>
+</ul>
+<p>Ces données sont utilisées uniquement pour vérifier le statut de l'abonnement et débloquer les fonctions premium. Elles ne sont pas utilisées à des fins publicitaires, de profilage ou de suivi inter-applications. Consultez la <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">politique de confidentialité de RevenueCat</a> pour plus de détails.</p>
+
+<h3>8. Aucune analyse, aucun suivi, aucune publicité</h3>
+<p>Scudo Chiamate <strong>n'intègre aucun SDK d'analyse, de suivi, de publicité ou de profilage</strong>. Aucune mesure d'utilisation, aucun événement d'interaction, aucun identifiant publicitaire (IDFA) ni aucune télémétrie de plantage n'est collecté, au-delà des rapports optionnels, agrégés et anonymes fournis par Apple via App Store Connect.</p>
+
+<h3>9. Base légale</h3>
+<p>Le traitement des données liées aux achats repose sur l'exécution d'un contrat (art. 6, par. 1, point b) du RGPD). Les données gérées localement sur l'appareil ne constituent pas un traitement par le responsable du traitement au sens du RGPD, dans la mesure où elles ne lui sont pas accessibles.</p>
+
+<h3>10. Conservation</h3>
+<p>Les données présentes sur l'appareil sont conservées jusqu'à la désinstallation de l'application ou leur suppression manuelle (via la fonction « Vider le cache » dans l'application et la gestion des listes). Les données synchronisées via CloudKit suivent le cycle de vie du compte iCloud de l'utilisateur. Les données gérées par RevenueCat sont conservées conformément aux propres règles de RevenueCat.</p>
+
+<h3>11. Droits des utilisateurs</h3>
+<p>Les utilisateurs peuvent à tout moment accéder à leurs données, les rectifier, les supprimer ou s'opposer à leur traitement — directement dans l'application (gestion des listes, désactivation d'iCloud, désinstallation) ou en écrivant à <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a>. Les utilisateurs peuvent également introduire une réclamation auprès de l'autorité de contrôle compétente (CNIL).</p>
+
+<h3>12. Modifications de la présente politique</h3>
+<p>Cette politique de confidentialité peut être mise à jour. La version en vigueur est toujours disponible à cette adresse URL, la date de dernière mise à jour étant indiquée en haut de la page.</p>
+
+<h3>13. Contact</h3>
+<p>Pour toute question : <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a></p>
+
+<nav class="doc-nav">
+  <a href="guida.html">Guide</a>
+  <span class="current">Confidentialité</span>
+  <a href="changelog.html">Nouveautés</a>
+</nav>
+
+</div>
+<!-- ==================== /FRANÇAIS ==================== -->
+
+
+<!-- ==================== DEUTSCH ==================== -->
+<div class="lang" data-lang="de">
+
+<div class="app-header">
+  <img class="app-icon" src="app-icon.png" alt="Scudo Chiamate Symbol" width="76" height="76">
+  <div>
+    <h1>Scudo Chiamate</h1>
+    <p class="meta">Datenschutzerklärung<br>
+    Zuletzt aktualisiert: 29. Mai 2026</p>
+  </div>
+</div>
+
+<p>Diese Datenschutzerklärung beschreibt, wie die Anwendung <strong>Scudo Chiamate</strong> personenbezogene Daten verarbeitet. Die App verfolgt einen <em>Privacy-by-Design</em>-Ansatz: Die Daten verbleiben auf dem Gerät des Nutzers und werden weder vom Verantwortlichen erhoben noch an Server Dritter übermittelt, mit Ausnahme der nachfolgend ausdrücklich aufgeführten Fälle.</p>
+
+<h3>1. Verantwortlicher</h3>
+<p>Orazio Dell'Osa<br>
+E-Mail: <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a></p>
+
+<h3>2. Auf Ihrem Gerät gespeicherte Daten</h3>
+<p>Die folgenden Daten werden ausschließlich auf dem Gerät des Nutzers innerhalb der App-Sandbox gespeichert und nicht an den Verantwortlichen übermittelt:</p>
+<ul>
+  <li>Listen blockierter und erlaubter Rufnummern, einschließlich der aus Kontakten oder CSV-/vCard-Dateien importierten Einträge.</li>
+  <li>Benutzerdefinierte Nummernbereiche und zugehörige Blockierungseinstellungen.</li>
+  <li>App-Präferenzen, Einstellungen und zwischengespeicherter Zustand.</li>
+</ul>
+<p>Die App <strong>protokolliert oder speichert keinerlei Verlauf eingegangener Anrufe</strong>. Die iOS-Erweiterung Call Directory stellt dem System lediglich die Liste der zu blockierenden/identifizierenden Nummern bereit; sie erhält keine Benachrichtigungen über einzelne Anrufe.</p>
+
+<h3>3. Systemerweiterungen (Call Directory und Message Filter)</h3>
+<p>Die App liefert zwei in einer Sandbox isolierte iOS-Erweiterungen aus:</p>
+<ul>
+  <li><strong>Call Directory Extension</strong> — stellt iOS die Liste der zu blockierenden oder zu identifizierenden Nummern bereit. Die Sandbox von Apple erlaubt es der Erweiterung nicht, reale Anrufe zu verfolgen oder Daten über das Netzwerk zu übertragen.</li>
+  <li><strong>Message Filter Extension</strong> — klassifiziert SMS/MMS von unbekannten Absendern als Werbung oder Spam. Die Auswertung erfolgt <em>vollständig auf dem Gerät</em>; der Nachrichteninhalt wird niemals an einen externen Server übermittelt.</li>
+</ul>
+
+<h3>4. Synchronisierung über iCloud (CloudKit)</h3>
+<p>Wenn der Nutzer bei iCloud angemeldet ist und die Synchronisierung aktiviert hat, werden Listendaten und Einstellungen über den Dienst <strong>CloudKit</strong> von Apple auf die Apple-Geräte des Nutzers repliziert. Die Daten werden gemäß der <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Datenschutzerklärung von Apple</a> an Apples Server übermittelt und dort gespeichert. Der Verantwortliche hat <strong>keinen Zugriff</strong> auf die über CloudKit synchronisierten Daten.</p>
+
+<h3>5. Berechtigung „Lokales Netzwerk“</h3>
+<p>iOS kann beim ersten Start den Zugriff auf das <strong>lokale Netzwerk</strong> anfordern. Diese Berechtigung wird von iOS selbst für das CloudKit-Framework benötigt: Das Betriebssystem nutzt sie, um die anderen Apple-Geräte des Nutzers im selben lokalen Netzwerk zu <em>erkennen</em> und die iCloud-Synchronisierung zu beschleunigen. Scudo Chiamate verwendet das lokale Netzwerk für keinerlei eigene Zwecke, sucht nicht nach Geräten oder Diensten und sendet oder empfängt keine Daten direkt an oder von anderen Geräten im LAN. Die Berechtigung kann jederzeit unter <em>Einstellungen → Datenschutz &amp; Sicherheit → Lokales Netzwerk</em> widerrufen werden; ein Widerruf deaktiviert lediglich die Optimierung der iCloud-Synchronisierung und hat keine Auswirkungen auf die Funktionen zur Anrufblockierung.</p>
+
+<h3>6. Fotos, Kontakte und Kamera (System-Auswahldialoge)</h3>
+<p>Die optionalen Importfunktionen stützen sich <strong>vollständig auf die System-Auswahldialoge von Apple</strong>. Daher <strong>fordert die App keinen Zugriff</strong> auf Ihre Fotomediathek, Ihre Kontakte oder Ihre Kamera an und <strong>erscheint nicht</strong> unter diesen Einträgen in <em>Einstellungen → Datenschutz &amp; Sicherheit</em>: Sie erhält jeweils nur die von Ihnen ausgewählten Elemente und nichts anderes.</p>
+<ul>
+  <li><strong>Fotos</strong> — für den Import per Texterkennung (OCR) verwenden Sie den System-Fotoauswahldialog: Die App erhält nur die von Ihnen ausgewählten Screenshots oder Fotos, nicht Ihre gesamte Mediathek, und extrahiert die Nummern vollständig auf dem Gerät.</li>
+  <li><strong>Kontakte</strong> — für den Import aus Ihrem Adressbuch verwenden Sie den System-Kontaktauswahldialog: Die App erhält nur die von Ihnen ausgewählten Kontakte, liest deren Rufnummern auf dem Gerät und greift nicht auf den Rest Ihres Adressbuchs zu.</li>
+  <li><strong>Kamera</strong> — die Funktion „Nummer mit der Kamera scannen“ nutzt das in iOS integrierte Werkzeug zur Texterfassung: Die App erhält nur den erkannten Text, der vom System verarbeitet wird.</li>
+</ul>
+<p>In allen Fällen wird kein Bild, kein Kontakt und keine Aufnahme an einen Server übermittelt: Die Verarbeitung findet ausschließlich auf dem Gerät statt.</p>
+
+<h3>7. In-App-Käufe und Abonnements — RevenueCat</h3>
+<p>In-App-Käufe und die Verwaltung von Abonnements werden von <strong>RevenueCat</strong> abgewickelt. Zur Erbringung des Dienstes verarbeitet RevenueCat:</p>
+<ul>
+  <li>Anonyme Nutzerkennung (UUID) oder Gerätekennung</li>
+  <li>Kauf- und Abonnementverlauf</li>
+  <li>Art und Ablauf des aktiven Abonnements</li>
+</ul>
+<p>Diese Daten werden ausschließlich verwendet, um den Abonnementstatus zu überprüfen und Premium-Funktionen freizuschalten. Sie werden nicht für Werbung, Profilbildung oder app-übergreifendes Tracking genutzt. Einzelheiten finden Sie in der <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">Datenschutzerklärung von RevenueCat</a>.</p>
+
+<h3>8. Keine Analyse, kein Tracking, keine Werbung</h3>
+<p>Scudo Chiamate <strong>integriert kein SDK für Analyse, Tracking, Werbung oder Profilbildung</strong>. Es werden keine Nutzungsmetriken, Interaktionsereignisse, Werbekennungen (IDFA) oder Absturz-Telemetriedaten erhoben, abgesehen von den optionalen, aggregierten und anonymen Berichten, die Apple über App Store Connect bereitstellt.</p>
+
+<h3>9. Rechtsgrundlage</h3>
+<p>Die Verarbeitung kaufbezogener Daten beruht auf der Erfüllung eines Vertrags (Art. 6 Abs. 1 lit. b DSGVO). Die lokal auf dem Gerät verwalteten Daten stellen keine Verarbeitung durch den Verantwortlichen im Sinne der DSGVO dar, da sie für ihn nicht zugänglich sind.</p>
+
+<h3>10. Speicherdauer</h3>
+<p>Auf dem Gerät gespeicherte Daten werden aufbewahrt, bis die App deinstalliert oder manuell gelöscht wird (über die App-Funktion „Cache leeren“ und die Listenverwaltung). Über CloudKit synchronisierte Daten folgen dem Lebenszyklus des iCloud-Kontos des Nutzers. Von RevenueCat verwaltete Daten werden gemäß den eigenen Richtlinien von RevenueCat aufbewahrt.</p>
+
+<h3>11. Rechte der Nutzer</h3>
+<p>Nutzer können jederzeit auf die Verarbeitung ihrer Daten zugreifen, diese berichtigen, löschen oder ihr widersprechen — direkt in der App (Listenverwaltung, Deaktivierung von iCloud, Deinstallation) oder durch eine Nachricht an <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a>. Nutzer können zudem eine Beschwerde bei der zuständigen Datenschutz-Aufsichtsbehörde einreichen.</p>
+
+<h3>12. Änderungen dieser Erklärung</h3>
+<p>Diese Datenschutzerklärung kann aktualisiert werden. Die aktuelle Version ist stets unter dieser URL verfügbar, wobei das Datum der letzten Aktualisierung oben angezeigt wird.</p>
+
+<h3>13. Kontakt</h3>
+<p>Bei Fragen jeglicher Art: <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a></p>
+
+<nav class="doc-nav">
+  <a href="guida.html">Anleitung</a>
+  <span class="current">Datenschutz</span>
+  <a href="changelog.html">Neuigkeiten</a>
+</nav>
+
+</div>
+<!-- ==================== /DEUTSCH ==================== -->
+
 </main>
 
 <script>
-  var SUPPORTED = ['it', 'en'];
+  var SUPPORTED = ['it', 'en', 'es', 'fr', 'de'];
 
   function pickLang() {
     try {
