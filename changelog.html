@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scudo Chiamate — Changelog</title>
+<link rel="icon" type="image/png" href="app-icon.png">
+<style>
+  :root {
+    --fg: #1c1c1e;
+    --fg-secondary: #6e6e73;
+    --bg: #ffffff;
+    --accent: #0a84ff;
+    --rule: #e5e5ea;
+    --card: #f5f5f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fg: #f5f5f7;
+      --fg-secondary: #a1a1a6;
+      --bg: #1c1c1e;
+      --accent: #0a84ff;
+      --rule: #3a3a3c;
+      --card: #2c2c2e;
+    }
+  }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+    margin: 0;
+    padding: 32px 20px 80px;
+  }
+  main { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 8px; }
+  h2 { font-size: 1.4rem; margin: 40px 0 4px; padding-top: 24px; border-top: 1px solid var(--rule); }
+  p, ul { margin: 8px 0; }
+  ul { padding-left: 22px; }
+  li { margin: 10px 0; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .meta { color: var(--fg-secondary); font-size: 0.92rem; }
+  .ver-date { color: var(--fg-secondary); font-size: 0.9rem; margin: 0 0 8px; }
+  code { font: 0.92em/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; background: rgba(127,127,127,.12); padding: 1px 6px; border-radius: 4px; }
+  .lang-switcher { display: flex; gap: 6px; justify-content: flex-end; max-width: 720px; margin: 0 auto 12px; }
+  .lang-switcher button { font: inherit; font-size: .85rem; font-weight: 600; padding: 4px 13px; border-radius: 999px; border: 1px solid var(--rule); background: transparent; color: var(--fg-secondary); cursor: pointer; }
+  .lang-switcher button.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .lang-switcher .flag { font-size: 1.05em; vertical-align: -1px; }
+  .lang { display: none; }
+  .lang.active { display: block; }
+  .app-header { display: flex; align-items: center; gap: 16px; margin: 0 0 8px; }
+  .app-header h1 { margin: 0; }
+  .app-icon { width: 76px; height: 76px; border-radius: 17px; flex-shrink: 0; box-shadow: 0 1px 4px rgba(0,0,0,.18); }
+  .doc-nav { display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: center; margin: 48px 0 0; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 0.95rem; }
+  .doc-nav a { color: var(--accent); }
+  .doc-nav .current { color: var(--fg-secondary); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="lang-switcher" role="group" aria-label="Lingua / Language">
+  <button type="button" data-lang="it" aria-pressed="true"><span class="flag">🇮🇹</span> IT</button>
+  <button type="button" data-lang="en" aria-pressed="false"><span class="flag">🇬🇧</span> EN</button>
+</div>
+
+<main>
+
+<!-- ==================== ITALIANO ==================== -->
+<div class="lang active" data-lang="it">
+
+<div class="app-header">
+  <img class="app-icon" src="app-icon.png" alt="Icona Scudo Chiamate" width="76" height="76">
+  <div>
+    <h1>Scudo Chiamate</h1>
+    <p class="meta">Note di versione (Changelog)</p>
+  </div>
+</div>
+
+<h2>Versione 1.2</h2>
+<ul>
+  <li><strong>Migliorie all'interfaccia</strong> e correzione di un fastidioso bug che poteva causare il crash dell'app in background.</li>
+  <li><strong>Reload di CallKit rifattorizzato</strong> con una nuova tecnica, che ha permesso di portare il limite del database a <strong>500.000 numeri</strong>, il doppio rispetto alla versione precedente. Le misurazioni non evidenziano problemi nemmeno sui dispositivi più datati.</li>
+  <li><strong>Logica dei range scartati completamente rivista.</strong> Si è passati dal criterio a soglia fissa (range oltre 500 numeri con meno di 15 origini) a un criterio per <strong>densità</strong>: un range viene scartato quando i numeri Origine non raggiungono almeno lo <strong>0,65%</strong> dei numeri coperti (esempi nella <a href="guida.html">guida online</a>).</li>
+  <li><strong>Aggiunta l'opzione per importare i contatti dalla rubrica.</strong> La gamma di metodi di importazione è ora davvero completa.</li>
+  <li><strong>Aggiunto il recupero dei numeri dagli screenshot (OCR).</strong> Reimportare la lista dei bloccati di iOS è ora semplice e rapido, con una guida passo-passo che spiega come fare.</li>
+  <li><strong>Aggiunta una guida online completa</strong> per chiarimenti su tutte le funzioni dell'app.</li>
+  <li><strong>Sezione Analisi rivista</strong> per rendere ben visibile la spiegazione dei parametri di ricerca, ora unificata con quella dei range; le informazioni hanno un pulsante dedicato.</li>
+  <li><strong>Lista Consentiti rivista.</strong> Non avendo la logica dei range, sono stati adeguati i filtri e la legenda del relativo popup, in precedenza identico a quello dei Bloccati.</li>
+</ul>
+
+<nav class="doc-nav">
+  <a href="guida.html">Guida</a>
+  <a href="privacy.html">Privacy</a>
+  <span class="current">Novità</span>
+</nav>
+
+</div>
+<!-- ==================== /ITALIANO ==================== -->
+
+
+<!-- ==================== ENGLISH ==================== -->
+<div class="lang" data-lang="en">
+
+<div class="app-header">
+  <img class="app-icon" src="app-icon.png" alt="Scudo Chiamate icon" width="76" height="76">
+  <div>
+    <h1>Scudo Chiamate</h1>
+    <p class="meta">Release notes (Changelog)</p>
+  </div>
+</div>
+
+<h2>Version 1.2</h2>
+<ul>
+  <li><strong>UI improvements</strong> and the fix of an annoying bug that could cause the app to crash in the background.</li>
+  <li><strong>Refactored the CallKit reload</strong> with a new technique, which made it possible to raise the database limit to <strong>500,000 numbers</strong> — double the previous version. Measurements show no issues even on older devices.</li>
+  <li><strong>Completely reworked the logic for discarded ranges.</strong> It moved from a fixed-threshold criterion (ranges over 500 numbers with fewer than 15 origins) to a <strong>density</strong>-based one: a range is discarded when its Origin numbers don't reach at least <strong>0.65%</strong> of the covered numbers (examples in the <a href="guida.html">online guide</a>).</li>
+  <li><strong>Added the option to import contacts from your address book.</strong> The range of import methods is now truly complete.</li>
+  <li><strong>Added number recovery from screenshots (OCR).</strong> Re-importing the iOS blocked list is now quick and easy, with a step-by-step guide explaining how.</li>
+  <li><strong>Added a comprehensive online guide</strong> for clarifications on every feature of the app.</li>
+  <li><strong>Reworked the Analyze section</strong> to make the explanation of the search parameters clearly visible, now unified with the ranges explanation; the info has its own dedicated button.</li>
+  <li><strong>Reworked the Allowed list.</strong> Since it has no range logic, the filters and the legend in its popup — previously identical to the Blocked one — were adjusted.</li>
+</ul>
+
+<nav class="doc-nav">
+  <a href="guida.html">Guide</a>
+  <a href="privacy.html">Privacy</a>
+  <span class="current">What's new</span>
+</nav>
+
+</div>
+<!-- ==================== /ENGLISH ==================== -->
+
+</main>
+
+<script>
+  var SUPPORTED = ['it', 'en'];
+
+  function pickLang() {
+    try {
+      var url = new URLSearchParams(window.location.search).get('lang');
+      if (url && SUPPORTED.indexOf(url) !== -1) return url;
+    } catch (e) {}
+    try {
+      var saved = window.localStorage.getItem('guidaLang');
+      if (saved && SUPPORTED.indexOf(saved) !== -1) return saved;
+    } catch (e) {}
+    var nav = (navigator.language || 'it').slice(0, 2).toLowerCase();
+    return SUPPORTED.indexOf(nav) !== -1 ? nav : 'it';
+  }
+
+  function setLang(lang) {
+    if (SUPPORTED.indexOf(lang) === -1) lang = 'it';
+    var blocks = document.querySelectorAll('.lang');
+    for (var i = 0; i < blocks.length; i++) {
+      blocks[i].classList.toggle('active', blocks[i].getAttribute('data-lang') === lang);
+    }
+    var btns = document.querySelectorAll('.lang-switcher button');
+    for (var j = 0; j < btns.length; j++) {
+      var on = btns[j].getAttribute('data-lang') === lang;
+      btns[j].classList.toggle('on', on);
+      btns[j].setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+    document.documentElement.lang = lang;
+    try { window.localStorage.setItem('guidaLang', lang); } catch (e) {}
+  }
+
+  var switcherBtns = document.querySelectorAll('.lang-switcher button');
+  for (var k = 0; k < switcherBtns.length; k++) {
+    switcherBtns[k].addEventListener('click', function () {
+      setLang(this.getAttribute('data-lang'));
+    });
+  }
+
+  setLang(pickLang());
+</script>
+
+</body>
+</html>

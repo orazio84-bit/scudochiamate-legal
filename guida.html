@@ -76,6 +76,9 @@
   .app-header { display: flex; align-items: center; gap: 16px; margin: 0 0 8px; }
   .app-header h1 { margin: 0; }
   .app-icon { width: 76px; height: 76px; border-radius: 17px; flex-shrink: 0; box-shadow: 0 1px 4px rgba(0,0,0,.18); }
+  .doc-nav { display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: center; margin: 48px 0 0; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 0.95rem; }
+  .doc-nav a { color: var(--accent); }
+  .doc-nav .current { color: var(--fg-secondary); font-weight: 600; }
   .lang-switcher { display: flex; gap: 6px; justify-content: flex-end; max-width: 720px; margin: 0 auto 12px; }
   .lang-switcher button { font: inherit; font-size: .85rem; font-weight: 600; padding: 4px 13px; border-radius: 999px; border: 1px solid var(--rule); background: transparent; color: var(--fg-secondary); cursor: pointer; }
   .lang-switcher button.on { background: var(--accent); color: #fff; border-color: var(--accent); }
@@ -566,6 +569,12 @@
 </ul>
 <p>È il modo sicuro per ripartire da zero senza perdere i dati per sbaglio.</p>
 
+<nav class="doc-nav">
+  <span class="current">Guida</span>
+  <a href="privacy.html">Privacy</a>
+  <a href="changelog.html">Novità</a>
+</nav>
+
 </div>
 <!-- ==================== /ITALIANO ==================== -->
 
@@ -1042,6 +1051,12 @@
   <li><strong>Cancel</strong> — does nothing.</li>
 </ul>
 <p>It's the safe way to start over without losing data by mistake.</p>
+
+<nav class="doc-nav">
+  <span class="current">Guide</span>
+  <a href="privacy.html">Privacy</a>
+  <a href="changelog.html">What's new</a>
+</nav>
 
 </div>
 <!-- ==================== /ENGLISH ==================== -->

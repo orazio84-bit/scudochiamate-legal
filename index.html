@@ -50,6 +50,9 @@
   .app-header { display: flex; align-items: center; gap: 16px; margin: 0 0 8px; }
   .app-header h1 { margin: 0; }
   .app-icon { width: 76px; height: 76px; border-radius: 17px; flex-shrink: 0; box-shadow: 0 1px 4px rgba(0,0,0,.18); }
+  .doc-nav { display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: center; margin: 48px 0 0; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 0.95rem; }
+  .doc-nav a { color: var(--accent); }
+  .doc-nav .current { color: var(--fg-secondary); font-weight: 600; }
 </style>
 </head>
 <body>
@@ -137,6 +140,12 @@ Email: <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a></p
 <h3>13. Contatti</h3>
 <p>Per qualsiasi domanda: <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a></p>
 
+<nav class="doc-nav">
+  <a href="guida.html">Guida</a>
+  <span class="current">Privacy</span>
+  <a href="changelog.html">Novità</a>
+</nav>
+
 </div>
 <!-- ==================== /ITALIANO ==================== -->
 
@@ -216,6 +225,12 @@ Email: <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a></p
 
 <h3>13. Contact</h3>
 <p>For any questions: <a href="mailto:scudochiamate@icloud.com">scudochiamate@icloud.com</a></p>
+
+<nav class="doc-nav">
+  <a href="guida.html">Guide</a>
+  <span class="current">Privacy</span>
+  <a href="changelog.html">What's new</a>
+</nav>
 
 </div>
 <!-- ==================== /ENGLISH ==================== -->
