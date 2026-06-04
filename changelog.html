@@ -62,6 +62,9 @@
 <div class="lang-switcher" role="group" aria-label="Lingua / Language">
   <button type="button" data-lang="it" aria-pressed="true"><span class="flag">🇮🇹</span> IT</button>
   <button type="button" data-lang="en" aria-pressed="false"><span class="flag">🇬🇧</span> EN</button>
+  <button type="button" data-lang="es" aria-pressed="false"><span class="flag">🇪🇸</span> ES</button>
+  <button type="button" data-lang="fr" aria-pressed="false"><span class="flag">🇫🇷</span> FR</button>
+  <button type="button" data-lang="de" aria-pressed="false"><span class="flag">🇩🇪</span> DE</button>
 </div>
 
 <main>
@@ -133,10 +136,112 @@
 </div>
 <!-- ==================== /ENGLISH ==================== -->
 
+
+<!-- ==================== ESPAÑOL ==================== -->
+<div class="lang" data-lang="es">
+
+<div class="app-header">
+  <img class="app-icon" src="app-icon.png" alt="Icono de Scudo Chiamate" width="76" height="76">
+  <div>
+    <h1>Scudo Chiamate</h1>
+    <p class="meta">Notas de la versión (Registro de cambios)</p>
+  </div>
+</div>
+
+<h2>Versión 1.2</h2>
+<ul>
+  <li><strong>Mejoras en la interfaz</strong> y corrección de un molesto error que podía provocar el cierre inesperado de la app en segundo plano.</li>
+  <li><strong>Recarga de CallKit rediseñada</strong> con una nueva técnica, que ha permitido elevar el límite de la base de datos a <strong>500.000 números</strong>, el doble que en la versión anterior. Las mediciones no muestran problemas ni siquiera en los dispositivos más antiguos.</li>
+  <li><strong>Límite de la versión gratuita ampliado a 500 números</strong> activos en el bloqueo de iOS.</li>
+  <li><strong>Lógica de los rangos descartados completamente revisada.</strong> Se ha pasado de un criterio de umbral fijo (rangos de más de 500 números con menos de 15 orígenes) a un criterio por <strong>densidad</strong>: un rango se descarta cuando los números Origen no alcanzan al menos el <strong>0,65 %</strong> de los números cubiertos (ejemplos en la <a href="guida.html">guía en línea</a>).</li>
+  <li><strong>Añadida la opción de importar contactos desde la agenda.</strong> La variedad de métodos de importación es ahora realmente completa.</li>
+  <li><strong>Añadida la recuperación de números desde capturas de pantalla (OCR).</strong> Reimportar la lista de bloqueados de iOS es ahora sencillo y rápido, con una guía paso a paso que explica cómo hacerlo.</li>
+  <li><strong>Añadida una guía en línea completa</strong> para resolver dudas sobre todas las funciones de la app.</li>
+  <li><strong>Sección Análisis revisada</strong> para que la explicación de los parámetros de búsqueda sea bien visible, ahora unificada con la de los rangos; la información tiene un botón propio.</li>
+  <li><strong>Lista de Permitidos revisada.</strong> Al no tener la lógica de rangos, se han adaptado los filtros y la leyenda de su ventana emergente, antes idéntica a la de Bloqueados.</li>
+</ul>
+
+<nav class="doc-nav">
+  <a href="guida.html">Guía</a>
+  <a href="privacy.html">Privacidad</a>
+  <span class="current">Novedades</span>
+</nav>
+
+</div>
+<!-- ==================== /ESPAÑOL ==================== -->
+
+
+<!-- ==================== FRANÇAIS ==================== -->
+<div class="lang" data-lang="fr">
+
+<div class="app-header">
+  <img class="app-icon" src="app-icon.png" alt="Icône de Scudo Chiamate" width="76" height="76">
+  <div>
+    <h1>Scudo Chiamate</h1>
+    <p class="meta">Notes de version (Journal des modifications)</p>
+  </div>
+</div>
+
+<h2>Version 1.2</h2>
+<ul>
+  <li><strong>Améliorations de l'interface</strong> et correction d'un bug gênant qui pouvait provoquer le plantage de l'app en arrière-plan.</li>
+  <li><strong>Rechargement de CallKit refondu</strong> avec une nouvelle technique, qui a permis de porter la limite de la base de données à <strong>500 000 numéros</strong>, le double de la version précédente. Les mesures ne révèlent aucun problème, même sur les appareils plus anciens.</li>
+  <li><strong>Limite de la version gratuite portée à 500 numéros</strong> actifs dans le blocage iOS.</li>
+  <li><strong>Logique des plages écartées entièrement revue.</strong> On est passé d'un critère à seuil fixe (plages de plus de 500 numéros avec moins de 15 sources) à un critère de <strong>densité</strong> : une plage est écartée lorsque les numéros Source n'atteignent pas au moins <strong>0,65 %</strong> des numéros couverts (exemples dans le <a href="guida.html">guide en ligne</a>).</li>
+  <li><strong>Ajout de l'option d'importer les contacts depuis le répertoire.</strong> L'éventail des méthodes d'importation est désormais vraiment complet.</li>
+  <li><strong>Ajout de la récupération des numéros à partir de captures d'écran (OCR).</strong> Réimporter la liste des numéros bloqués d'iOS est désormais simple et rapide, avec un guide pas à pas qui explique comment faire.</li>
+  <li><strong>Ajout d'un guide en ligne complet</strong> pour toute question sur les fonctionnalités de l'app.</li>
+  <li><strong>Section Analyse revue</strong> pour rendre bien visible l'explication des paramètres de recherche, désormais unifiée avec celle des plages ; les informations disposent d'un bouton dédié.</li>
+  <li><strong>Liste des Autorisés revue.</strong> N'ayant pas la logique des plages, les filtres et la légende de sa fenêtre — auparavant identiques à ceux des Bloqués — ont été adaptés.</li>
+</ul>
+
+<nav class="doc-nav">
+  <a href="guida.html">Guide</a>
+  <a href="privacy.html">Confidentialité</a>
+  <span class="current">Nouveautés</span>
+</nav>
+
+</div>
+<!-- ==================== /FRANÇAIS ==================== -->
+
+
+<!-- ==================== DEUTSCH ==================== -->
+<div class="lang" data-lang="de">
+
+<div class="app-header">
+  <img class="app-icon" src="app-icon.png" alt="Scudo Chiamate Symbol" width="76" height="76">
+  <div>
+    <h1>Scudo Chiamate</h1>
+    <p class="meta">Versionshinweise (Änderungsprotokoll)</p>
+  </div>
+</div>
+
+<h2>Version 1.2</h2>
+<ul>
+  <li><strong>Verbesserungen an der Oberfläche</strong> und Behebung eines lästigen Fehlers, der zum Absturz der App im Hintergrund führen konnte.</li>
+  <li><strong>CallKit-Neuladen überarbeitet</strong> mit einer neuen Technik, wodurch das Datenbanklimit auf <strong>500.000 Nummern</strong> angehoben werden konnte – doppelt so viel wie in der vorherigen Version. Die Messungen zeigen auch auf älteren Geräten keine Probleme.</li>
+  <li><strong>Limit der kostenlosen Version auf 500 Nummern</strong> erhöht, die in der iOS-Sperre aktiv sind.</li>
+  <li><strong>Logik der verworfenen Bereiche vollständig überarbeitet.</strong> Vom festen Schwellenwert-Kriterium (Bereiche über 500 Nummern mit weniger als 15 Quellen) wurde auf ein <strong>Dichte</strong>-Kriterium umgestellt: Ein Bereich wird verworfen, wenn die Quell-Nummern nicht mindestens <strong>0,65 %</strong> der abgedeckten Nummern erreichen (Beispiele in der <a href="guida.html">Online-Anleitung</a>).</li>
+  <li><strong>Option zum Importieren von Kontakten aus dem Adressbuch hinzugefügt.</strong> Die Auswahl an Importmethoden ist nun wirklich vollständig.</li>
+  <li><strong>Wiederherstellung von Nummern aus Screenshots (OCR) hinzugefügt.</strong> Die iOS-Sperrliste erneut zu importieren ist jetzt einfach und schnell, mit einer Schritt-für-Schritt-Anleitung.</li>
+  <li><strong>Umfassende Online-Anleitung hinzugefügt</strong> für Fragen zu allen Funktionen der App.</li>
+  <li><strong>Bereich Analyse überarbeitet</strong>, damit die Erklärung der Suchparameter gut sichtbar ist, jetzt mit der Erklärung der Bereiche vereint; die Informationen haben eine eigene Schaltfläche.</li>
+  <li><strong>Liste der Erlaubten überarbeitet.</strong> Da sie keine Bereichslogik hat, wurden die Filter und die Legende ihres Pop-ups – zuvor identisch mit der der Blockierten – angepasst.</li>
+</ul>
+
+<nav class="doc-nav">
+  <a href="guida.html">Anleitung</a>
+  <a href="privacy.html">Datenschutz</a>
+  <span class="current">Neuigkeiten</span>
+</nav>
+
+</div>
+<!-- ==================== /DEUTSCH ==================== -->
+
 </main>
 
 <script>
-  var SUPPORTED = ['it', 'en'];
+  var SUPPORTED = ['it', 'en', 'es', 'fr', 'de'];
 
   function pickLang() {
     try {
