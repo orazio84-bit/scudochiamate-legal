@@ -92,6 +92,9 @@
 <div class="lang-switcher" role="group" aria-label="Lingua / Language">
   <button type="button" data-lang="it" aria-pressed="true"><span class="flag">🇮🇹</span> IT</button>
   <button type="button" data-lang="en" aria-pressed="false"><span class="flag">🇬🇧</span> EN</button>
+  <button type="button" data-lang="es" aria-pressed="false"><span class="flag">🇪🇸</span> ES</button>
+  <button type="button" data-lang="fr" aria-pressed="false"><span class="flag">🇫🇷</span> FR</button>
+  <button type="button" data-lang="de" aria-pressed="false"><span class="flag">🇩🇪</span> DE</button>
 </div>
 
 <main>
@@ -1063,6 +1066,1458 @@
 </div>
 <!-- ==================== /ENGLISH ==================== -->
 
+
+<!-- ==================== ESPAÑOL ==================== -->
+<div class="lang" data-lang="es">
+
+<div class="app-header">
+  <img class="app-icon" src="app-icon.png" alt="Icono de Scudo Chiamate" width="76" height="76">
+  <div>
+    <h1>Scudo Chiamate</h1>
+    <p class="meta">Guía de uso<br>
+    Última actualización: 28 de mayo de 2026</p>
+  </div>
+</div>
+
+<nav class="toc">
+  <h2>Índice</h2>
+  <ul>
+    <li><a href="#es-cosa-fa">Qué hace Scudo Chiamate</a></li>
+    <li><a href="#es-analizza"><span class="tab-icon">📊</span>Analizar</a>
+      <ul>
+        <li><a href="#es-analisi-avvio">Ejecutar el análisis</a></li>
+        <li><a href="#es-analisi-parametri">Los parámetros</a></li>
+        <li><a href="#es-analisi-range">Rangos encontrados, descartados y existentes</a></li>
+        <li><a href="#es-analisi-applica">Aplicar o descartar los rangos</a></li>
+        <li><a href="#es-analisi-attivi">Leer los rangos activos</a></li>
+        <li><a href="#es-analisi-elimina">Eliminar los rangos</a></li>
+        <li><a href="#es-analisi-autoespansione">Autoexpansión (Gestión automática de rangos)</a></li>
+      </ul>
+    </li>
+    <li><a href="#es-liste"><span class="tab-icon">🛡️</span>Las listas: Bloqueados y Permitidos</a>
+      <ul>
+        <li><a href="#es-liste-bloccati">La lista de Bloqueados</a></li>
+        <li><a href="#es-liste-consentiti">La lista de Permitidos</a></li>
+        <li><a href="#es-liste-aggiungere">Añadir un número</a></li>
+        <li><a href="#es-liste-importare">Importar números (en Ajustes)</a></li>
+        <li><a href="#es-liste-precedenza">Los Permitidos tienen prioridad</a></li>
+        <li><a href="#es-liste-filtri">Los filtros</a></li>
+        <li><a href="#es-liste-range">Los rangos</a></li>
+      </ul>
+    </li>
+    <li><a href="#es-impostazioni"><span class="tab-icon">⚙️</span>Ajustes</a>
+      <ul>
+        <li><a href="#es-imp-attivazione">Activar el bloqueo en iOS</a></li>
+        <li><a href="#es-imp-limite">Números guardados y números activos</a></li>
+        <li><a href="#es-imp-aggiornamento">Estado de la última actualización del bloqueo</a></li>
+        <li><a href="#es-imp-icloud">Sincronización con iCloud</a></li>
+        <li><a href="#es-imp-sms">Filtro de SMS</a></li>
+        <li><a href="#es-imp-premium">Premium</a></li>
+        <li><a href="#es-imp-importa">Importar números</a></li>
+        <li><a href="#es-imp-condividi">Compartir y exportar la lista</a></li>
+        <li><a href="#es-imp-cache">Limpieza y mantenimiento</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<h2 id="es-cosa-fa">Qué hace Scudo Chiamate</h2>
+<p>Scudo Chiamate te protege de llamadas y mensajes no deseados — telemarketing, estafas, centros de llamadas molestos. La diferencia respecto a una simple lista negra es solo una, pero lo cambia todo: <strong>la app no se limita a bloquear los números que introduces, sino que los analiza para reconocer el patrón de quien te molesta y bloquear de antemano también los números similares.</strong></p>
+
+<h3>1. Se parte de los números que bloqueas tú</h3>
+<p>El punto de partida eres tú: los números de los que has recibido llamadas o mensajes no deseados. Puedes añadirlos de varias maneras:</p>
+<ul>
+  <li>introduciéndolos a mano, uno a uno;</li>
+  <li>importándolos desde un archivo <code>CSV</code> o <code>vCard</code>;</li>
+  <li>importándolos desde capturas de pantalla o fotos (OCR);</li>
+  <li>eligiéndolos de tus contactos;</li>
+  <li>reimportando la lista de números que ya has bloqueado en iOS.</li>
+</ul>
+<p>Esta es tu lista de bloqueados: la base sobre la que trabaja todo lo demás.</p>
+
+<h3>2. La app busca las correlaciones entre los números</h3>
+<p>Quien hace spam casi nunca llama desde un solo número. Los centros de llamadas y las empresas de telemarketing usan <strong>bloques de números consecutivos o muy parecidos entre sí</strong>: el mismo prefijo, las mismas cifras iniciales, y solo cambian las últimas. Cuando un número se denuncia demasiado, activan otro casi idéntico y vuelven a empezar.</p>
+<p>Scudo Chiamate aprovecha precisamente esta costumbre. Analiza los números que has bloqueado e identifica estos patrones, agrupando los números que se parecen en <strong>rangos</strong>, es decir, intervalos que con toda probabilidad pertenecen al mismo remitente.</p>
+
+<h3>3. Los números similares se bloquean automáticamente</h3>
+<p>Una vez reconocido un rango, la app no bloquea solo los números exactos que has introducido, sino que <strong>cubre todo el intervalo</strong> — incluidos los números de los que todavía no has recibido ni una sola llamada. De este modo, cuando el spammer cambia su número ligeramente, ya estás protegido: no tienes que esperar la llamada, recibirla y solo después bloquearla.</p>
+
+<div class="example">
+  <p class="label">Ejemplo</p>
+  <p>Has recibido y bloqueado tres números: <code>06 1234 5670</code>, <code>06 1234 5674</code> y <code>06 1234 5679</code>.</p>
+  <p>Scudo Chiamate reconoce que pertenecen al mismo bloque y protege el <strong>rango entero, del número más bajo al más alto</strong> — es decir, desde <code>06 1234 5670</code> hasta <code>06 1234 5679</code>. Así también quedan cubiertos todos los números intermedios que nunca has recibido (por ejemplo <code>06 1234 5672</code> o <code>06 1234 5677</code>), porque con toda probabilidad pertenecen al mismo centro de llamadas.</p>
+</div>
+
+<p>El resultado es una protección que <strong>se anticipa al spam en lugar de perseguirlo</strong>: cuantos más números denuncias, más aprende la app el patrón de quien te molesta y más eficaz se vuelve para detener las llamadas antes incluso de que lleguen.</p>
+
+
+<h2 id="es-analizza"><span class="tab-icon">📊</span>Analizar</h2>
+<p>La pestaña <strong>Analizar</strong> es el corazón inteligente de la app: aquí examinas los números que has bloqueado para identificar los rangos y decidir cuáles activar.</p>
+
+<h3 id="es-analisi-avvio">Ejecutar el análisis</h3>
+<p>En la pestaña <strong>Analizar</strong> encontrarás la tarjeta <strong>Análisis de la base de datos</strong>. Pulsa el botón <strong>Iniciar análisis</strong> para examinar tu lista de números bloqueados: mientras trabaja, el botón muestra el <strong>porcentaje de avance</strong> y, al terminar, se vuelve <strong>verde con una marca de verificación</strong>. La operación se ejecuta por completo en tu dispositivo y no cambia nada hasta que tú confirmes los resultados.</p>
+<p>A su izquierda, el botón <strong>Info</strong> abre — directamente en la app — la explicación completa de los <a href="#es-analisi-parametri">parámetros</a> y de las reglas de los rangos.</p>
+
+<p>Durante el análisis, la app <strong>no mira los números uno por uno</strong>, sino que busca los patrones que los relacionan. En concreto, va a la caza de:</p>
+<ul>
+  <li><strong>números que comparten las mismas cifras iniciales</strong> (el mismo prefijo), porque es la señal típica de una numeración asignada al mismo centro de llamadas;</li>
+  <li><strong>grupos lo bastante numerosos</strong> como para no ser una coincidencia: unos pocos números dispersos no bastan, hacen falta suficientes números similares para que valga la pena tratarlos como un único bloque;</li>
+  <li><strong>la extensión del bloque</strong>, es decir, cuál es el número más bajo y el más alto del grupo, para proponer el rango que los engloba a todos.</li>
+</ul>
+
+<p>El resultado del análisis es una lista de <strong>rangos propuestos</strong>: intervalos de números que, según los patrones encontrados, conviene bloquear por completo en lugar de perseguir los números uno a uno. El análisis <strong>solo propone</strong> — eres tú quien decide qué rangos aplicar y cuáles descartar (consulta <a href="#es-analisi-applica">Aplicar o descartar los rangos</a>). Lo "agresiva" que sea la app al agrupar depende de los <a href="#es-analisi-parametri">parámetros</a>, que puedes ajustar antes de iniciarlo.</p>
+
+<h3 id="es-analisi-parametri">Los parámetros</h3>
+<p>Antes de iniciar el análisis puedes ajustar <strong>tres parámetros</strong> que deciden lo prudente o agresiva que es la app al agrupar los números. Valen tanto en modo manual como automático. Una explicación completa de estos parámetros — y de las reglas con las que los rangos se crean, descartan y extienden — está disponible en la app: toca el botón <strong>Info</strong> junto a <em>Iniciar análisis</em>.</p>
+
+<h4>Cifras de prefijo mínimas</h4>
+<p>Define <strong>cuántas cifras iniciales deben coincidir</strong> para que dos números se consideren "parientes" y acaben en el mismo rango. El recuento incluye el prefijo internacional.</p>
+<ul>
+  <li><strong>Valores altos</strong> (p. ej. 9–10): hacen falta muchas cifras iguales → rangos <strong>más pequeños y específicos</strong>, que cubren menos números.</li>
+  <li><strong>Valores bajos</strong> (p. ej. 6–7): bastan pocas cifras iguales → rangos <strong>más amplios</strong>, que cubren más números.</li>
+</ul>
+
+<h4>Números mínimos por rango</h4>
+<p>Es el <strong>umbral mínimo de números</strong> necesarios para crear un nuevo rango: si en tu lista de bloqueados no hay al menos esa cantidad de números similares, la app no crea el rango.</p>
+<ul>
+  <li><strong>Valores bajos</strong> (p. ej. 3–5): encuentran <strong>más rangos</strong>, pero con menor fiabilidad (más riesgo de agrupaciones arriesgadas).</li>
+  <li><strong>Valores altos</strong> (p. ej. 6–10): aceptan solo grupos <strong>mejor respaldados</strong> por los datos, así que más seguros.</li>
+</ul>
+
+<h4>Activar prefijos más largos</h4>
+<p>Este es el interruptor que más atención merece, porque cambia el <em>carácter</em> del análisis. Cuando la app examina un grupo de números, a menudo puede describirlo de más de una manera: con un prefijo <strong>corto</strong> (pocas cifras en común → rango amplio que engloba muchos números) o con un prefijo <strong>largo</strong> (más cifras en común → rango estrecho y específico). Este parámetro decide qué camino privilegiar cuando ambos son posibles.</p>
+<ul>
+  <li><strong>Activado</strong> — el análisis elige los prefijos <strong>más específicos</strong>: rangos más dirigidos, que bloquean solo lo que de verdad se parece al spam. Es la opción que reduce el <strong>riesgo de falsos positivos</strong>, es decir, de bloquear por error números legítimos que solo comparten el inicio.</li>
+  <li><strong>Desactivado</strong> — el análisis tiende a los prefijos <strong>más cortos</strong>: genera <strong>menos rangos, pero más amplios</strong>. Cubre más números de una sola vez, a costa de un mayor riesgo de incluir números inocentes.</li>
+</ul>
+<p>La diferencia nace de <strong>dónde empieza la app a comparar los números</strong>:</p>
+<ul>
+  <li><strong>Activado</strong> — la app parte de las <strong>últimas cifras de la derecha</strong>: mantiene fijas casi todas las cifras y deja variar solo las finales. Primero busca los grupos más estrechos (pocas cifras de diferencia al final) y solo amplía la mirada hacia la izquierda si no bastan. Por eso encuentra primero los bloques pequeños y precisos.</li>
+  <li><strong>Desactivado</strong> — la app parte de las <strong>primeras cifras de la izquierda</strong>: fija solo el inicio del número y deja variar todo lo demás. Las agrupaciones amplias se forman enseguida y "se quedan" con los números, por lo que tienden a prevalecer los rangos amplios.</li>
+</ul>
+<p>El orden también cuenta: <strong>quien agrupa primero un número se lo adjudica</strong>. Por eso, partir de la derecha (activado) hace emerger los rangos específicos, mientras que partir de la izquierda (desactivado) hace emerger los extensos.</p>
+<div class="example">
+  <p class="label">Ejemplo</p>
+  <p>Tus números bloqueados empiezan todos por <code>06 1234 56…</code>, pero en realidad solo los que continúan con <code>567X</code> son spam.</p>
+  <p>Con <strong>“prefijos más largos” activado</strong>, la app propone el rango estrecho <code>06 1234 5670</code>–<code>5679</code>, centrado en el verdadero bloque molesto. Con el parámetro <strong>desactivado</strong>, podría proponer un rango más amplio como <code>06 1234 5600</code>–<code>5699</code>: bloquea más, pero corre el riesgo de pescar también números que no tienen nada que ver.</p>
+</div>
+<p>En resumen: <strong>activado = precisión</strong> (recomendado si temes bloquear números buenos), <strong>desactivado = cobertura</strong> (útil si quieres redes más amplias y confías en que en esa franja solo hay spam).</p>
+
+<p><strong>Consejo:</strong> parte de los valores predeterminados y cambia <strong>un parámetro a la vez</strong>, reiniciando el análisis para ver enseguida el efecto en los rangos propuestos.</p>
+
+<h3 id="es-analisi-range">Rangos encontrados, descartados y existentes</h3>
+<p>Al terminar el análisis, los resultados se organizan en tres listas distintas, para que entiendas de un vistazo qué propone la app, qué ha apartado y qué ya está activo.</p>
+
+<h4>Rangos potenciales encontrados</h4>
+<p>Son los <strong>nuevos rangos que la app te propone activar</strong>, marcados en verde. Han superado todos los controles y representan bloques que, según los patrones de tus números, vale la pena bloquear por completo. Siguen siendo simples propuestas hasta que los apliques tú (consulta <a href="#es-analisi-applica">Aplicar o descartar los rangos</a>).</p>
+<p>Algunas propuestas llevan una etiqueta que explica cómo han nacido:</p>
+<ul>
+  <li><strong>FUSIÓN</strong> (violeta) — el rango propuesto nace de la <strong>unión de varios rangos</strong> que se solapaban o se tocaban, reunidos en un único intervalo más amplio.</li>
+  <li><strong>EXPANDIDO</strong> (verde) — el rango propuesto es la <strong>extensión de un rango que ya tienes activo</strong>, ampliado para incluir los nuevos números encontrados.</li>
+</ul>
+
+<h4>Rangos potenciales descartados</h4>
+<p>Son rangos que la app <strong>ha identificado pero ha decidido no proponerte</strong>. Aparecen en una lista aparte por transparencia: puedes verlos, pero no se activan automáticamente. La app los descarta <strong>para evitar rangos engañosos</strong>, es decir, bloques que parecen plausibles pero que correrían el riesgo de capturar demasiados números inocentes a partir de pocos indicios.</p>
+<p>Un rango se descarta cuando entra en uno de estos casos:</p>
+<ul>
+  <li><strong>Demasiado extenso</strong> — cubre más de <strong><span data-num="maxRange">10.000</span> números</strong>. Un intervalo tan amplio no se parece al bloque de un solo centro de llamadas, sino a toda una franja de numeración: bloquearlo haría más daño que otra cosa.</li>
+  <li><strong>Demasiado "disperso" (poca densidad)</strong> — contiene demasiados pocos números <em>tuyos</em> en relación con lo ancho que es. Para ser propuesto, un rango debe apoyarse en al menos un <strong>0,65 % de números reales</strong> (los orígenes) respecto a cuántos números cubre: cuanto más ancho es, más pruebas hacen falta. Si los orígenes no bastan para su amplitud, el rango se descarta, porque bloquearía un intervalo grande a partir de pocos indicios — el clásico rango engañoso.</li>
+  <li><strong>Un solo número</strong> (en modo automático) — el análisis automático no convierte un número aislado en un rango, porque un solo número no es un patrón.</li>
+</ul>
+<div class="example">
+  <p class="label">Orígenes mínimos para ser propuesto</p>
+  <table class="refs">
+    <tr><th>Amplitud del rango</th><th>Orígenes mínimos</th></tr>
+    <tr><td>250</td><td>2</td></tr>
+    <tr><td>500</td><td>4</td></tr>
+    <tr><td>1.000</td><td>7</td></tr>
+    <tr><td>1.500</td><td>10</td></tr>
+    <tr><td>2.000</td><td>13</td></tr>
+    <tr><td>2.500</td><td>17</td></tr>
+    <tr><td>3.000</td><td>20</td></tr>
+    <tr><td>3.500</td><td>23</td></tr>
+    <tr><td>4.000</td><td>26</td></tr>
+    <tr><td>4.500</td><td>30</td></tr>
+    <tr><td>5.000</td><td>33</td></tr>
+    <tr><td>5.500</td><td>36</td></tr>
+    <tr><td>6.000</td><td>39</td></tr>
+    <tr><td>6.500</td><td>43</td></tr>
+    <tr><td>7.000</td><td>46</td></tr>
+    <tr><td>7.500</td><td>49</td></tr>
+    <tr><td>8.000</td><td>52</td></tr>
+    <tr><td>8.500</td><td>56</td></tr>
+    <tr><td>9.000</td><td>59</td></tr>
+    <tr><td>9.500</td><td>62</td></tr>
+    <tr><td>10.000</td><td>65</td></tr>
+  </table>
+</div>
+<p>Descartar estos rangos es una decisión de prudencia: mejor no bloquear un intervalo dudoso que arriesgarse a silenciar números legítimos. Pero si estás seguro de que un rango descartado debe bloquearse, siempre puedes gestionarlo a mano desde las listas.</p>
+
+<h4>Rangos ya existentes</h4>
+<p>Son los rangos <strong>ya activos</strong> en tu protección, fruto de análisis anteriores o añadidos por ti. Sirven de referencia: el análisis los tiene en cuenta para no volver a proponerte lo que ya tienes, y cuando hace falta los <strong>extiende</strong> cuando nuevos números caen justo antes o justo después (consulta <a href="#es-analisi-autoespansione">Autoexpansión</a>).</p>
+<p>Al tocar el icono <strong>ℹ️ info</strong> de una fila ves sus <strong>detalles completos</strong> — números cubiertos, orígenes, composición y posibles excepciones (consulta <a href="#es-analisi-attivi">Leer los rangos activos</a>).</p>
+
+<h3 id="es-analisi-applica">Aplicar o descartar los rangos</h3>
+<p>El análisis <strong>propone</strong>, pero la última palabra siempre es tuya: ningún rango se activa hasta que lo confirmes. Cada rango encontrado tiene un <strong>interruptor</strong> en su fila, que te permite elegirlo o dejarlo de lado.</p>
+
+<h4>Aplicar los rangos encontrados</h4>
+<p>Activa el interruptor de los rangos que quieras bloquear — puedes seleccionar todos los que quieras — y luego pulsa la barra <strong>Aplicar rangos seleccionados</strong> que aparece arriba, bajo el notch. A partir de ese momento, los rangos elegidos entran en tu protección: pasan a los <a href="#es-analisi-range">Rangos ya existentes</a> y todos los números que contienen quedan bloqueados.</p>
+
+<h4>Dejar pasar un rango</h4>
+<p>Para descartar una propuesta basta con <strong>no seleccionarla</strong>: al dejar el interruptor apagado, ese rango simplemente no se aplica. No hace falta ninguna confirmación para "rechazar" — lo que no actives queda inactivo.</p>
+
+<h4>Aplicar de todos modos un rango descartado</h4>
+<p>Los <a href="#es-analisi-range">rangos potenciales descartados</a> se recogen en una sección plegable aparte. La app no los recomienda, pero si tienes la certeza de que un intervalo debe bloquearse puedes abrir su lista, activar el interruptor del que te interese y pulsar <strong>Aplicar rangos descartados</strong>. Es una decisión consciente: le estás diciendo a la app que confíe en tu criterio en lugar de en su prudencia.</p>
+
+<h4>Rangos demasiado extensos</h4>
+<p>Los rangos considerados demasiado grandes para bloquearse con seguridad <strong>no se pueden seleccionar</strong>: su interruptor está desactivado, precisamente para impedir que un bloque enorme se aplique por error.</p>
+
+<p>En cualquier momento puedes volver a analizar, cambiar los <a href="#es-analisi-parametri">parámetros</a> y reconsiderar las propuestas: aplicar los rangos nunca es una operación definitiva, y la gestión detallada de los números siempre está disponible desde las <a href="#es-liste">listas</a>.</p>
+
+<h3 id="es-analisi-attivi">Leer los rangos activos</h3>
+<p>En la lista de <a href="#es-analisi-range">Rangos ya existentes</a>, cada fila representa un rango activo. Algunos indicadores te dicen de un vistazo cómo está formado y de dónde vienen sus números.</p>
+
+<h4>Los puntos de colores: cómo se formó el rango</h4>
+<p>Junto a cada rango pueden aparecer dos puntos, que indican el origen de los números que lo componen:</p>
+<ul>
+  <li><span class="dot" style="background:#f5a623"></span><strong>Punto naranja — Manuales:</strong> los números que entraron en el rango mediante la <strong>gestión manual de rangos</strong>, es decir, cuando fuiste <strong>tú</strong> quien aplicó un rango. No se trata de números tecleados uno a uno, sino de aquellos con los que la app rellenó el intervalo a raíz de una acción de aplicación tuya.</li>
+  <li><span class="dot" style="background:#3fa9f5"></span><strong>Punto azul — Automáticos:</strong> los números que entraron en el rango de forma <strong>automática</strong>, es decir, añadidos por la expansión automática de los rangos, sin intervención directa tuya.</li>
+</ul>
+<p>Un rango puede mostrar <strong>ambos puntos</strong>: significa que se rellenó en parte con tus aplicaciones manuales y en parte con la expansión automática. Es la forma más rápida de saber si un rango ha crecido sobre todo por decisión tuya o por automatismo.</p>
+
+<h4>Las etiquetas AMPLIABLE y EXCEPCIONES</h4>
+<p>En algunas filas pueden aparecer dos etiquetas de color:</p>
+<ul>
+  <li><strong>AMPLIABLE</strong> (verde) — el último análisis ha identificado una propuesta <strong>más amplia que engloba este rango</strong>: al aplicarla, el rango se extendería para cubrir también los nuevos números encontrados. Es una invitación a echar un vistazo, no una acción automática.</li>
+  <li><strong>EXCEPCIONES N</strong> (rojo) — dentro del intervalo del rango hay <strong>N números que tienes en los Permitidos</strong>. Esos números siguen siendo libres de llamarte — son las excepciones de las que habla <a href="#es-liste-precedenza">la prioridad de los Permitidos</a> — mientras que el resto del rango sigue bloqueando.</li>
+</ul>
+
+<h4>El icono info: la tarjeta Detalles del rango</h4>
+<p>Al tocar el icono <strong>ℹ️ info</strong> (el círculo azul de la fila) abres la tarjeta <strong>Detalles del rango</strong>, con las estadísticas completas del intervalo:</p>
+<ul>
+  <li><strong>Números bloqueados</strong> — cuántos números cubre el rango en su conjunto.</li>
+  <li><strong>Orígenes</strong> — cuántos números reales dieron origen al rango.</li>
+  <li><strong>Manuales</strong> y <strong>Automáticos</strong> — el reparto entre los números que entraron en el rango con una aplicación manual tuya y los añadidos por la expansión automática, los mismos que indican los puntos.</li>
+  <li><strong>Excepciones permitidas</strong> — posibles números que has puesto en los <a href="#es-liste-consentiti">Permitidos</a> y que siguen libres aunque caigan dentro del rango (consulta <a href="#es-liste-precedenza">Los Permitidos tienen prioridad</a>).</li>
+</ul>
+<p>La tarjeta es solo de consulta: sirve para entender la composición de un rango antes de decidir si conservarlo, extenderlo o eliminarlo.</p>
+
+<h3 id="es-analisi-elimina">Eliminar los rangos</h3>
+<p>Un rango activo no es para siempre: puedes quitarlo cuando quieras. En la lista de <a href="#es-analisi-range">Rangos ya existentes</a> selecciona uno o varios rangos y pulsa <strong>Eliminar</strong>. En ese momento la app te pregunta <em>cómo</em> quieres eliminarlos, con dos opciones — y es una distinción importante.</p>
+
+<h4>Eliminar todos los números</h4>
+<p>Quita el rango <strong>y todos los números que contenía</strong>, incluidos los que habías bloqueado o importado y que dieron origen al rango. Tras esta elección, de ese intervalo no queda nada: ni el rango ni los números que contiene. Úsala cuando quieras hacer una limpieza completa, porque ese bloque ya no te sirve de ninguna forma.</p>
+
+<h4>Mantener los números de origen</h4>
+<p>Quita el rango <strong>pero conserva tus números "de origen"</strong>, es decir, los que habías bloqueado o importado realmente y a partir de los cuales se había construido el rango. Estos números vuelven a quedar bloqueados <strong>individualmente</strong>, mientras que cesa la cobertura sobre los números intermedios que nunca habías recibido. En la práctica: conservas los números reales que recopilaste, pero renuncias a la extensión automática del bloqueo.</p>
+
+<div class="example">
+  <p class="label">Ejemplo</p>
+  <p>Tienes un rango <code>06 1234 5670</code>–<code>5679</code> nacido de tres números que habías bloqueado: <code>5670</code>, <code>5674</code> y <code>5679</code>.</p>
+  <p><strong>Eliminar todos los números</strong> → desaparece todo: ni el rango ni los tres números quedan bloqueados.</p>
+  <p><strong>Mantener los números de origen</strong> → el rango desaparece, los números intermedios (p. ej. <code>5672</code>) ya no están bloqueados, pero <code>5670</code>, <code>5674</code> y <code>5679</code> siguen bloqueados como números sueltos.</p>
+</div>
+
+<p>La regla práctica: elige <strong>Mantener los números de origen</strong> si solo quieres anular la ampliación del bloqueo sin perder los números que recopilaste tú; elige <strong>Eliminar todos los números</strong> si quieres borrar todo rastro de ese rango.</p>
+
+<h3 id="es-analisi-autoespansione">Autoexpansión (Gestión automática de rangos)</h3>
+<p>Con la gestión automática activa, cada vez que bloqueas nuevos números la app rehace <strong>por sí sola</strong> el mismo trabajo del análisis manual, sin que tengas que abrir la pestaña Analizar ni aplicar nada. Esto significa que el automatismo puede:</p>
+<ul>
+  <li><strong>extender los rangos existentes</strong>, enganchando los números nuevos que caen cerca de sus límites;</li>
+  <li><strong>crear nuevos rangos</strong>, cuando los números recién bloqueados forman un nuevo bloque reconocible.</li>
+</ul>
+<p>Los números que la app añade automáticamente son los marcados con el <a href="#es-analisi-attivi">punto azul (Automáticos)</a>.</p>
+
+<p><strong>Es una función Premium.</strong> Se activa con el interruptor <strong>“Gestión automática de rangos”</strong> en la pestaña <a href="#es-impostazioni">Ajustes</a>. Sin Premium activo, el interruptor permanece visible pero no se puede activar, y la gestión automática está apagada: los rangos nacen y crecen solo cuando eres tú quien vuelve a lanzar el análisis y a aplicarlos.</p>
+
+<h4>Hasta dónde llega la extensión: los <span data-num="estLato">1.000</span> números y el salto de <span data-num="salto">150</span></h4>
+<p>La extensión automática sigue dos reglas que trabajan juntas:</p>
+<ul>
+  <li><strong>Tope máximo: <span data-num="estLato">1.000</span> números por lado.</strong> Un rango puede alargarse como máximo <strong><span data-num="estLato">1.000</span> números antes</strong> de su inicio y <strong><span data-num="estLato">1.000</span> números después</strong> de su fin. Más allá de ese límite no va, por muchos que sean los números cercanos.</li>
+  <li><strong>Salto máximo: <span data-num="salto">150</span>.</strong> La extensión avanza "puente a puente", número tras número: para enganchar el número siguiente, el <strong>salto (hueco) entre un número y el siguiente no debe superar <span data-num="salto">150</span></strong>. Si la app encuentra un hueco mayor de <span data-num="salto">150</span>, se detiene ahí, aunque todavía no haya alcanzado los <span data-num="estLato">1.000</span>.</li>
+</ul>
+<p>En palabras sencillas: <strong><span data-num="salto">150</span> es cuánto puede "saltar" el rango</strong> para enganchar el siguiente número cercano; <strong><span data-num="estLato">1.000</span> es el tope total</strong> de cuánto puede alargarse por cada lado. Para llegar hasta <span data-num="estLato">1.000</span> hacen falta, por tanto, números bastante densos, cada uno dentro de los <span data-num="salto">150</span> del anterior; si en algún punto hay un vacío demasiado amplio, la extensión se detiene antes.</p>
+
+<p><strong>El límite de <span data-num="estLato">1.000</span> vale para cada escaneo individual, no para siempre.</strong> Ese tope se aplica a una sola vez que la app analiza; en el escaneo siguiente — es decir, la próxima vez que bloqueas números y la gestión automática se vuelve a ejecutar — el recuento <strong>se reinicia desde cero a partir de los nuevos límites</strong> ya extendidos. En la práctica, un rango puede seguir creciendo otros <span data-num="estLato">1.000</span> números por lado en cada pasada: con el tiempo, suma tras suma, puede por tanto superar con creces los <span data-num="estLato">1.000</span> números en total, respetando siempre el salto máximo de <span data-num="salto">150</span> en cada enganche.</p>
+
+<div class="example">
+  <p class="label">Ejemplo</p>
+  <p>Tienes un rango activo <code>06 1234 5670</code>–<code>5679</code> y la gestión automática activa.</p>
+  <p>Bloqueas <code>06 1234 5760</code>: dista poco más de 80 del final del rango, es decir, <strong>dentro del salto de <span data-num="salto">150</span></strong> → la app extiende el rango para incluirlo. Si en los alrededores sigues bloqueando números cercanos, el puente continúa, hasta un máximo de <span data-num="estLato">1.000</span> números más allá de los límites originales.</p>
+  <p>Si en cambio bloqueas <code>06 1234 9000</code>, demasiado lejos en un solo salto (más de <span data-num="salto">150</span> desde el borde), la app <strong>no</strong> lo engancha a este rango: quedará como un número aparte, y como mucho podrá dar origen a un <strong>nuevo</strong> rango junto con otros números similares.</p>
+</div>
+
+<p>En resumen: con la gestión automática Premium activa, tu protección se mantiene "viva", crea nuevos rangos y alarga los existentes a medida que bloqueas números; sin ella, conservas igualmente el control manual completo mediante el análisis y la aplicación de los rangos.</p>
+
+
+<h2 id="es-liste"><span class="tab-icon">🛡️</span>Las listas: Bloqueados y Permitidos</h2>
+<p>Scudo Chiamate gestiona dos listas complementarias: los <strong>Bloqueados</strong>, los números que no deben llegarte, y los <strong>Permitidos</strong>, los números que siempre deben pasar. Funcionan juntas y una regla las mantiene en equilibrio (consulta <a href="#es-liste-precedenza">Los Permitidos tienen prioridad</a>).</p>
+
+<h3 id="es-liste-bloccati">La lista de Bloqueados</h3>
+<p>La pestaña <strong>Bloqueados</strong> (escudo con la ✕) reúne todos los números que no deben llegarte. Arriba hay una tarjeta de resumen; en la versión gratuita muestra dos datos distintos:</p>
+<ul>
+  <li><strong>Guardados</strong> — cuántos números tienes en la lista en total.</li>
+  <li><strong>Activos en CallKit</strong> — cuántos de ellos están realmente activos en el bloqueo de iOS.</li>
+</ul>
+<p>La diferencia cuenta por el <a href="#es-imp-attivazione">límite de la versión Free</a>: el bloqueo del sistema (CallKit) en Free cubre hasta <strong><span data-num="limiteFree">500</span> números activos</strong>. Si tienes más guardados, los que sobran muestran el aviso naranja <em>“No activo en CallKit (límite Free)”</em> y no bloquean hasta que pases a Premium o liberes espacio.</p>
+<p>Cada fila muestra:</p>
+<ul>
+  <li>un círculo con el <strong>tipo</strong>: <strong>S</strong> (azul) = número suelto, <strong>R</strong> (naranja) = rango;</li>
+  <li>el <strong>número</strong> en formato internacional (con el <code>+</code>) y la banderita del país;</li>
+  <li>la <strong>fecha</strong> de inserción y una <strong>etiqueta de origen</strong> de color que indica cómo entró en la lista.</li>
+</ul>
+<p>Hay tres etiquetas de origen, los mismos conceptos que los <a href="#es-analisi-attivi">puntos de los rangos</a>:</p>
+<ul>
+  <li><span class="dot" style="background:#5fbf3a"></span><strong>Origen</strong> (verde) — números que has añadido <strong>directamente</strong>, tecleándolos o importándolos.</li>
+  <li><span class="dot" style="background:#f5a623"></span><strong>Manual</strong> (naranja) — números que entraron mediante la <strong>aplicación manual de un rango</strong>.</li>
+  <li><span class="dot" style="background:#3fa9f5"></span><strong>Automático</strong> (azul) — números que entraron mediante la <strong>expansión automática</strong>.</li>
+</ul>
+
+<h3 id="es-liste-consentiti">La lista de Permitidos</h3>
+<p>La pestaña <strong>Permitidos</strong> (escudo con la ✓) tiene el mismo aspecto y los mismos indicadores que la lista de Bloqueados, pero reúne los números que deben <strong>pasar siempre</strong>. La tarjeta de resumen de arriba muestra <strong>Total</strong> y <strong>Total de orígenes</strong>.</p>
+<p>A diferencia de los Bloqueados, <strong>la lista de Permitidos no contiene rangos</strong>: los números que añades son siempre <strong>sueltos</strong> (marcador <strong>S</strong>) y con etiqueta <strong>Origen</strong> (verde), porque los introduces o importas tú directamente. La única excepción son los números marcados con <strong>R</strong>: son los permitidos que caen <strong>dentro del intervalo de un rango bloqueado</strong>. Se marcan con R para señalar que se encuentran en una franja bloqueada, pero aun así siguen pasando — son exactamente las <a href="#es-liste-precedenza">excepciones</a> de las que habla la prioridad.</p>
+<p>Los números de esta lista nunca se bloquean y <strong>tienen prioridad</strong> sobre cualquier bloqueo, rangos incluidos (consulta <a href="#es-liste-precedenza">Los Permitidos tienen prioridad</a>). Sirven sobre todo como excepción específica: si un número corre el riesgo de caer en un rango bloqueado pero quieres que te llegue de todos modos, lo añades aquí y seguirá pasando.</p>
+<p>Al seleccionar un número de esta lista, la app te propone <strong>moverlo a los Bloqueados</strong>: es la forma rápida de cambiar de idea sobre un contacto.</p>
+
+<h3 id="es-liste-aggiungere">Añadir un número</h3>
+<p>Para introducir un número a mano, toca el botón <strong>+</strong> arriba a la derecha de la lista: se abre el recuadro para añadir. Arriba puedes elegir entre dos modos con el selector <strong>Suelto</strong> / <strong>Rango</strong>.</p>
+<ul>
+  <li><strong>Suelto</strong> — un campo para el prefijo internacional y otro para el número (solo las cifras, sin el prefijo). También puedes usar el botón de <strong>cámara</strong> (<em>“Escanear número con la cámara”</em>) para leer un número de una foto en lugar de teclearlo.</li>
+  <li><strong>Rango</strong> — el prefijo más dos campos, <strong>inicio</strong> y <strong>fin</strong> del intervalo. Un aviso te recuerda el límite: <strong>máximo <span data-num="maxRange">10.000</span> números por rango</strong>.</li>
+</ul>
+<p>Pulsa <strong>Añadir</strong> para insertar (o <strong>Cerrar</strong> para cancelar). Si algo no va bien, un aviso te lo indica:</p>
+<ul>
+  <li><em>“Número ya presente: marca actualizada a Origen”</em> — el número ya estaba en esta lista; se marca como tuyo (Origen).</li>
+  <li><em>“Número ya presente en la otra lista”</em> — el mismo número está en la otra lista; antes hay que quitarlo de allí.</li>
+  <li><em>“Número no válido”</em> — las cifras introducidas no forman un número válido.</li>
+</ul>
+
+<h3 id="es-liste-importare">Importar números</h3>
+<p>Además de la introducción manual, puedes cargar números en bloque — desde archivos CSV/vCard o desde capturas de pantalla (OCR) — tanto en los Bloqueados como en los Permitidos. Las opciones de importación están en la pestaña Ajustes: consulta <a href="#es-imp-importa">Importar números</a> en la sección Ajustes.</p>
+
+<h3 id="es-liste-precedenza">Los Permitidos tienen prioridad</h3>
+<p>Punto fijo del que parte todo: <strong>un número nunca está en ambas listas</strong>. Cada número está <em>o</em> bloqueado <em>o</em> permitido, nunca los dos a la vez. Y cuando las dos listas "se disputan" el mismo número, ganan siempre los <strong>Permitidos</strong>.</p>
+<p>En la práctica, durante una importación:</p>
+<ul>
+  <li>Si un número ya está en los <strong>Permitidos</strong> y lo <strong>importas a los Bloqueados</strong>, se <strong>ignora</strong>: permanece en los Permitidos y no acaba entre los bloqueados.</li>
+  <li>Si un número está en los <strong>Bloqueados</strong> y lo <strong>importas a los Permitidos</strong>, se <strong>mueve</strong>: desaparece de los Bloqueados y pasa a los Permitidos (la app te lo indica con <em>“Eliminados de bloqueados: N”</em>).</li>
+</ul>
+<p>Lo mismo vale para el traslado manual entre listas, con las acciones <strong>“Desbloquear (mover a permitidos)”</strong> desde los Bloqueados y <strong>“Bloquear (mover a bloqueados)”</strong> desde los Permitidos: el número cambia de lista, nunca se duplica. Si en cambio intentas <em>añadir</em> a mano un número que ya está en la otra lista, la app no lo mueve automáticamente y te avisa con <em>“Número ya presente en la otra lista”</em>.</p>
+<p>La prioridad vale también con los <strong>rangos</strong>: si el intervalo de un rango bloqueado incluye un número que tienes en los Permitidos, ese número sigue siendo libre de llamarte — se convierte en una <strong>excepción</strong> dentro del rango (consulta <a href="#es-analisi-attivi">la tarjeta de detalles</a>), mientras que el resto del rango sigue bloqueando. El número vive de todos modos solo en los Permitidos: el rango cubre el intervalo pero lo salta.</p>
+<p>Es una protección deliberada: ninguna importación masiva ni ningún rango debe poder silenciar por error un número que quieres seguir recibiendo. Para bloquear de verdad un número que tienes en los Permitidos, debes moverlo explícitamente a los Bloqueados.</p>
+<div class="example">
+  <p class="label">Ejemplo</p>
+  <p>Tienes en los Permitidos un número importante, <code>06 1234 5675</code>. Más tarde importas una lista de números de spam que genera el rango <code>06 1234 5670</code>–<code>5679</code>, cuyo intervalo incluye también ese número.</p>
+  <p>Resultado: el rango se aplica, pero <code>06 1234 5675</code> sigue pasando como excepción, porque permanece en los Permitidos y nunca se bloquea.</p>
+</div>
+
+<h3 id="es-liste-filtri">Los filtros</h3>
+<p>Cuando las listas se alargan, los filtros te ayudan a encontrar y gestionar los números. Son una <strong>función Premium</strong>: una vez activos, bajo el encabezado de la lista aparece una tira de "chips" desde la que configuras y combinas cuatro filtros.</p>
+<ul>
+  <li><span class="tab-icon">📅</span><strong>Periodo</strong> — filtra por fecha de inserción, eligiendo uno o varios intervalos (<em>Desde / Hasta</em>), hasta 3.</li>
+  <li><span class="tab-icon">🏷️</span><strong>Origen</strong> — muestra solo los números <em>Manual</em>, <em>Automático</em> u <em>Origen (importación)</em>, las mismas etiquetas de la lista.</li>
+  <li><span class="tab-icon">▦</span><strong>Tipo</strong> — distingue entre <em>Sueltos</em> y <em>Rangos</em>.</li>
+  <li><span class="tab-icon">🌐</span><strong>País</strong> — filtra por país, buscándolo por nombre o por prefijo, con selección múltiple.</li>
+</ul>
+<p>Junto a los filtros hay también un chip de <strong>ordenación</strong> de la lista. Cada filtro activo se puede quitar con la ✕ de su chip; si tienes dos o más, aparece <strong>“Borrar todo”</strong> para limpiarlos de una vez. Dentro del panel de cada filtro usas <strong>Aplicar</strong> para confirmar o <strong>Borrar</strong> para cancelar. Con un filtro o una búsqueda activos, la tarjeta de arriba añade los recuentos <strong>Filtrados</strong> y <strong>Activos filtrados</strong>.</p>
+
+<h3 id="es-liste-range">Los rangos</h3>
+<p>En la lista, los números que pertenecen a un <strong>rango</strong> aparecen <strong>uno por fila</strong>, como los demás números, pero se reconocen de un vistazo: tienen el <strong>fondo verde</strong> y el marcador <strong>R</strong> a la izquierda (en lugar de la <strong>S</strong> de los números sueltos). Así, al recorrer la lista, distingues enseguida qué números forman parte de un intervalo bloqueado y cuáles son sueltos.</p>
+<p>Puedes añadir un rango a mano desde el recuadro para añadir (consulta <a href="#es-liste-aggiungere">Añadir un número</a>), o crearlo desde el análisis (consulta <a href="#es-analizza">Analizar</a>).</p>
+<p>La gestión completa de los rangos activos — los <a href="#es-analisi-attivi">puntos de formación y la tarjeta de detalles</a>, las etiquetas <em>AMPLIABLE</em> y <em>EXCEPCIONES</em>, y la <a href="#es-analisi-elimina">eliminación</a> con o sin los números de origen — se encuentra en la pestaña <strong>Analizar</strong>, bajo <a href="#es-analisi-range">Rangos ya existentes</a>.</p>
+
+
+<h2 id="es-impostazioni"><span class="tab-icon">⚙️</span>Ajustes</h2>
+<p>Desde la pestaña <strong>Ajustes</strong> activas el bloqueo a nivel del sistema iOS y gestionas la sincronización, la suscripción y el mantenimiento de los datos.</p>
+
+<h3 id="es-imp-attivazione">Activar el bloqueo en iOS</h3>
+<p>Este es el paso <strong>imprescindible</strong>: Scudo Chiamate solo puede bloquear las llamadas después de que hayas habilitado su extensión en los ajustes de iOS. Sin esta activación la app funciona — gestionas listas, análisis y rangos — pero los números <strong>no se bloquean</strong> a nivel del sistema.</p>
+<p>Para activarlo ve a:</p>
+<p><strong>Ajustes de iOS → Apps → Teléfono → Bloqueo e identificación de llamadas</strong> y activa <strong>“Scudo Chiamate”</strong>.</p>
+<p>Mientras la extensión esté apagada, la app muestra un <strong>aviso persistente</strong> que te recuerda precisamente esta ruta. Además, puedes comprobar el estado en cualquier momento desde el diagnóstico, con <strong>“Estado del bloqueo de llamadas”</strong>.</p>
+<p>Hay después una distinción importante que entender — cuántos de tus números se bloquean realmente: la explicamos a continuación.</p>
+
+<h3 id="es-imp-limite">Números guardados y números activos</h3>
+<p>Scudo Chiamate distingue entre dos cosas diferentes, que también ves en la tarjeta de resumen en la parte superior de las listas:</p>
+<ul>
+  <li><strong>Guardados</strong> — todos los números presentes en tus listas, en la base de datos de la app.</li>
+  <li><strong>Activos en CallKit</strong> — cuántos de esos números han pasado realmente a iOS para el bloqueo.</li>
+</ul>
+<p>La versión gratuita no limita <strong>cuántos números guardas</strong>: puedes añadir e importar todos los que quieras, todos se quedan en la base de datos. El límite Free afecta solo a <strong>cuántos se aplican</strong> al bloqueo del sistema (CallKit):</p>
+<ul>
+  <li><strong>Free</strong> — se aplican los <strong>primeros <span data-num="limiteFree">500</span></strong> números activos; los demás quedan guardados pero no bloquean, y en la lista muestran el aviso <em>“No activo en CallKit (límite Free)”</em>.</li>
+  <li><strong>Premium</strong> — se aplican <strong>todos</strong>, sin el tope de <span data-num="limiteFree">500</span>.</li>
+</ul>
+<p>La consecuencia práctica es cómoda: puedes <strong>importar y mantener guardados todos tus números desde el primer momento</strong>, incluso en Free. Cuando pasas a Premium se vuelven operativos <strong>todos a la vez</strong>, sin tener que reimportarlos ni rehacer ningún trabajo.</p>
+<p>Incluso con Premium el bloqueo no es infinito: cada lista puede contener hasta <strong><span data-num="maxLista">500.000</span> números</strong>. Es un tope muy amplio, pensado para cubrir cualquier uso real.</p>
+
+<h3 id="es-imp-aggiornamento">Estado de la última actualización del bloqueo</h3>
+<p>Cuando modificas las listas, la app debe pasar a iOS — a la extensión <strong>Call Directory</strong> — la lista actualizada de los números que bloquear. En el diagnóstico encuentras un recuadro que muestra cómo fue la <strong>última actualización</strong>, para que sepas si tus últimos cambios ya están activos en el bloqueo del sistema.</p>
+<p>La línea de estado puede indicar:</p>
+<ul>
+  <li><strong>Última actualización correcta</strong> — la lista se pasó a iOS correctamente;</li>
+  <li><strong>Actualización en curso</strong> — la operación se está ejecutando en este momento;</li>
+  <li><strong>Última actualización fallida</strong> — algo salió mal (con el detalle del error);</li>
+  <li><strong>Actualización nunca ejecutada</strong> — todavía no se ha hecho ninguna actualización.</li>
+</ul>
+<p>Cuando están disponibles, el recuadro también muestra algunos detalles útiles:</p>
+<ul>
+  <li><strong>Números aplicados</strong> — cuántos números se pasaron realmente a iOS;</li>
+  <li><strong>Última ejecución</strong> — fecha y hora de la última actualización;</li>
+  <li><strong>Modo</strong> — <em>incremental</em> (solo se aplican las diferencias) o <em>recarga completa</em> (se reescribe toda la lista).</li>
+</ul>
+<p>Si una actualización falló, la app sugiere <strong>reabrir la app para forzar una nueva actualización</strong>. Es un recuadro de solo lectura: sirve para darte la confirmación de que la protección refleja tus listas más recientes.</p>
+
+<h3 id="es-imp-icloud">Sincronización con iCloud</h3>
+<p>Con el interruptor <strong>“Sincronización con iCloud”</strong> tus datos — listas y ajustes — se alinean automáticamente entre tus dispositivos Apple, a través de iCloud. Está disponible para todos, incluso sin Premium. Los datos pasan por los servidores de Apple y <strong>ningún servidor de terceros</strong> tiene acceso a ellos (consulta la <a href="privacy.html">Política de privacidad</a>).</p>
+<p>En la <strong>primera activación</strong> eliges cómo inicializar la sincronización, entre tres modos:</p>
+<ul>
+  <li><strong>Usar iCloud</strong> — parte de los datos que ya hay en iCloud (sobrescribe los locales).</li>
+  <li><strong>Usar iPhone</strong> — parte de los datos de este dispositivo (los subes a iCloud).</li>
+  <li><strong>Combinar datos</strong> — combina los dos conjuntos; al final ves un <strong>informe de combinación</strong> con los recuentos <em>Local / Cloud / Combinados</em> y la confirmación de que <em>“los datos duplicados se han combinado automáticamente”</em>.</li>
+</ul>
+<p>También encuentras <strong>“Comprobar estado de iCloud”</strong> para ver el último estado y las últimas sincronizaciones, y <strong>“Restablecer caché de Cloud (avanzado)”</strong> para forzar una resincronización completa en local, si algo no cuadra.</p>
+
+<h3 id="es-imp-sms">Filtro de SMS</h3>
+<p>Además de las llamadas, Scudo Chiamate puede filtrar los <strong>SMS/MMS de remitentes desconocidos</strong>. Activas la función con el interruptor <strong>“Filtro de mensajes”</strong> en las preferencias. La clasificación se realiza <strong>por completo en el dispositivo</strong>.</p>
+<p>También aquí, como con las llamadas, hace falta un segundo paso en iOS para que el filtro funcione de verdad:</p>
+<p><strong>Ajustes de iOS → Apps → Mensajes → Remitentes desconocidos y spam → Filtrado de SMS → “Scudo Chiamate”</strong>.</p>
+<p>Los números que tienes en los <a href="#es-liste-consentiti">Permitidos</a> <strong>nunca</strong> se filtran: la lista blanca de permitidos siempre se respeta, así que los mensajes de las personas que te interesan llegan de todos modos.</p>
+
+<h3 id="es-imp-premium">Premium</h3>
+<p>La sección <strong>Servicios Premium</strong> muestra tu plan actual — <strong>“Plan Free”</strong> o <strong>“Premium activo”</strong> — y lo que implica. La diferencia principal afecta al bloqueo del sistema:</p>
+<ul>
+  <li><strong>Free</strong> — iOS aplica los <strong>primeros <span data-num="limiteFree">500</span> números activos</strong> al bloqueo.</li>
+  <li><strong>Premium</strong> — <strong>todos</strong> los números se aplican a CallKit, sin el límite de <span data-num="limiteFree">500</span>.</li>
+</ul>
+<p>Premium también desbloquea:</p>
+<ul>
+  <li>la <a href="#es-analisi-autoespansione">Gestión automática de rangos</a> (autoexpansión);</li>
+  <li>los <a href="#es-liste-filtri">filtros de las listas</a> (fecha, origen, tipo, país);</li>
+  <li>la aplicación al bloqueo de <strong>todos</strong> los números guardados, más allá de los <span data-num="limiteFree">500</span> de la versión Free.</li>
+</ul>
+<p>Los interruptores correspondientes — <strong>“Gestión automática de rangos”</strong> y <strong>“Mostrar filtros de lista”</strong> — permanecen visibles también en Free pero desactivados; tu elección se recuerda y se restaura si vuelves a Premium.</p>
+<p>Para las compras usas <strong>“Ver planes Premium”</strong> (eliges el paquete y completas la compra) y <strong>“Restaurar compras”</strong> para recuperar una suscripción que ya esté activa, por ejemplo en otro dispositivo. <strong>“Actualizar estado de la suscripción”</strong> resincroniza el estado si no estuviera al día.</p>
+
+<h3 id="es-imp-importa">Importar números</h3>
+<p>Desde la gestión de datos puedes cargar números en bloque, tanto en los <a href="#es-liste-bloccati">Bloqueados</a> como en los <a href="#es-liste-consentiti">Permitidos</a>. Hay varias maneras.</p>
+
+<h4>Desde un archivo CSV o vCard</h4>
+<p>Con <strong>“Importar bloqueados”</strong> / <strong>“Importar permitidos”</strong> eliges un archivo <code>CSV</code> o <code>vCard</code> (.vcf). La app lo analiza y te muestra un resumen — cuántos números nuevos ha encontrado, cuántos ya estaban presentes, cuántos va a añadir — y luego confirmas con <strong>Importar</strong>.</p>
+
+<h4>Desde capturas de pantalla o fotos (OCR)</h4>
+<p>Con <strong>“Importar … desde imágenes”</strong> seleccionas hasta <strong><span data-num="maxImmagini">100</span> imágenes</strong> y la app extrae los números automáticamente. Ten en cuenta que:</p>
+<ul>
+  <li>solo se reconocen los números en <strong>formato internacional, con prefijo (+)</strong>;</li>
+  <li>las fechas y el texto alrededor de los números se ignoran;</li>
+  <li>cada número debe estar en <strong>una sola línea</strong>: si en tu iPhone el texto grande lo parte en dos, reduce temporalmente el <em>Tamaño del texto</em> antes de hacer la captura de pantalla.</li>
+</ul>
+
+<h4>Desde tus contactos</h4>
+<p>Con <strong>“Importar bloqueados desde contactos”</strong> / <strong>“Importar permitidos desde contactos”</strong> se abre el selector de contactos de iOS: elige los contactos que bloquear (o permitir) y la app importa sus números de teléfono. Solo se toman los números en <strong>formato internacional, con prefijo (+)</strong>; si los contactos elegidos no tienen ninguno, la app te lo indica y no importa nada.</p>
+
+<h4>Recuperar la lista de bloqueados de iOS</h4>
+<p>La opción <strong>“Recuperar la lista de bloqueados de iOS”</strong> abre una guía paso a paso para reimportar los contactos que ya habías bloqueado en iOS: en resumen, ve a <em>Ajustes del iPhone → Teléfono → Contactos bloqueados</em>, haz una o varias capturas de pantalla de la lista, luego vuelve aquí y cárgalas con <strong>“Importar bloqueados desde imágenes”</strong>. Los números se extraen por OCR como arriba.</p>
+
+<p><strong>Nota:</strong> la importación nunca está limitada por los <span data-num="limiteFree">500</span> de la versión Free — todos los números se guardan. Ese límite solo afecta a cuántos números se <em>aplican</em> al bloqueo de iOS: consulta <a href="#es-imp-limite">Números guardados y números activos</a>.</p>
+
+<h3 id="es-imp-condividi">Compartir y exportar la lista</h3>
+<p>Con <strong>“Exportar bloqueados”</strong> / <strong>“Exportar permitidos”</strong> creas un <strong>archivo CSV</strong> de la lista, para guardarlo o compartirlo mediante la hoja de compartir de iOS (para hacer una copia de seguridad, pasarlo a otro dispositivo, abrirlo en otro sitio).</p>
+<p>Al exportar puedes elegir <strong>qué</strong> incluir:</p>
+<ul>
+  <li><strong>Exportar todo</strong> — todos los números de la lista, incluidos los generados automáticamente por los rangos.</li>
+  <li><strong>Solo orígenes</strong> — solo los números que has añadido manualmente o importado, excluyendo los generados por la expansión de los rangos.</li>
+</ul>
+
+<h3 id="es-imp-cache">Limpieza y mantenimiento</h3>
+<h4>Limpiar caché de la app</h4>
+<p>Desde el diagnóstico, <strong>“Limpiar caché de la app”</strong> libera espacio de almacenamiento eliminando los datos temporales. <strong>No toca tus listas</strong>: los números bloqueados y permitidos quedan intactos.</p>
+<h4>Vaciar las listas</h4>
+<p>Con <strong>“Vaciar listas”</strong> abres las acciones de vaciado (una "zona peligrosa") para borrar por completo los Bloqueados o los Permitidos. Antes de proceder, la app te pregunta <strong>“¿Crear copia de seguridad?”</strong>, con tres opciones:</p>
+<ul>
+  <li><strong>Copia de seguridad y vaciar</strong> — primero exporta un CSV de la lista, luego la vacía.</li>
+  <li><strong>Vaciar sin copia de seguridad</strong> — borra directamente (operación irreversible).</li>
+  <li><strong>Cancelar</strong> — no hace nada.</li>
+</ul>
+<p>Es la forma segura de empezar de cero sin perder datos por error.</p>
+
+<nav class="doc-nav">
+  <span class="current">Guía</span>
+  <a href="privacy.html">Privacidad</a>
+  <a href="changelog.html">Novedades</a>
+</nav>
+
+</div>
+<!-- ==================== /ESPAÑOL ==================== -->
+
+
+<!-- ==================== FRANÇAIS ==================== -->
+<div class="lang" data-lang="fr">
+
+<div class="app-header">
+  <img class="app-icon" src="app-icon.png" alt="Icône de Scudo Chiamate" width="76" height="76">
+  <div>
+    <h1>Scudo Chiamate</h1>
+    <p class="meta">Guide d'utilisation<br>
+    Dernière mise à jour : 28 mai 2026</p>
+  </div>
+</div>
+
+<nav class="toc">
+  <h2>Sommaire</h2>
+  <ul>
+    <li><a href="#fr-cosa-fa">Ce que fait Scudo Chiamate</a></li>
+    <li><a href="#fr-analizza"><span class="tab-icon">📊</span>Analyser</a>
+      <ul>
+        <li><a href="#fr-analisi-avvio">Lancer l'analyse</a></li>
+        <li><a href="#fr-analisi-parametri">Les paramètres</a></li>
+        <li><a href="#fr-analisi-range">Plages trouvées, écartées et existantes</a></li>
+        <li><a href="#fr-analisi-applica">Appliquer ou écarter les plages</a></li>
+        <li><a href="#fr-analisi-attivi">Lire les plages actives</a></li>
+        <li><a href="#fr-analisi-elimina">Supprimer des plages</a></li>
+        <li><a href="#fr-analisi-autoespansione">Auto-extension (Gestion automatique des plages)</a></li>
+      </ul>
+    </li>
+    <li><a href="#fr-liste"><span class="tab-icon">🛡️</span>Les listes : Bloqués et Autorisés</a>
+      <ul>
+        <li><a href="#fr-liste-bloccati">La liste des Bloqués</a></li>
+        <li><a href="#fr-liste-consentiti">La liste des Autorisés</a></li>
+        <li><a href="#fr-liste-aggiungere">Ajouter un numéro</a></li>
+        <li><a href="#fr-liste-importare">Importer des numéros (dans Réglages)</a></li>
+        <li><a href="#fr-liste-precedenza">Les numéros autorisés priment</a></li>
+        <li><a href="#fr-liste-filtri">Filtres</a></li>
+        <li><a href="#fr-liste-range">Plages</a></li>
+      </ul>
+    </li>
+    <li><a href="#fr-impostazioni"><span class="tab-icon">⚙️</span>Réglages</a>
+      <ul>
+        <li><a href="#fr-imp-attivazione">Activer le blocage dans iOS</a></li>
+        <li><a href="#fr-imp-limite">Numéros enregistrés vs numéros actifs</a></li>
+        <li><a href="#fr-imp-aggiornamento">Statut de la dernière mise à jour</a></li>
+        <li><a href="#fr-imp-icloud">Synchronisation iCloud</a></li>
+        <li><a href="#fr-imp-sms">Filtre SMS</a></li>
+        <li><a href="#fr-imp-premium">Premium</a></li>
+        <li><a href="#fr-imp-importa">Importer des numéros</a></li>
+        <li><a href="#fr-imp-condividi">Partager et exporter la liste</a></li>
+        <li><a href="#fr-imp-cache">Nettoyage et maintenance</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<h2 id="fr-cosa-fa">Ce que fait Scudo Chiamate</h2>
+<p>Scudo Chiamate vous protège des appels et des messages indésirables — démarchage téléphonique, arnaques, centres d'appels intempestifs. La différence avec une simple liste noire tient à une seule chose, mais elle change tout : <strong>l'application ne se contente pas de bloquer les numéros que vous saisissez, elle les analyse pour reconnaître le schéma de celui qui vous importune et bloque aussi, de façon proactive, les numéros similaires.</strong></p>
+
+<h3>1. Tout part des numéros que vous bloquez</h3>
+<p>Le point de départ, c'est vous : les numéros dont vous avez reçu des appels ou des messages indésirables. Vous pouvez les ajouter de plusieurs façons :</p>
+<ul>
+  <li>en les saisissant à la main, un par un ;</li>
+  <li>en les important depuis un fichier <code>CSV</code> ou <code>vCard</code> ;</li>
+  <li>en les important depuis des captures d'écran ou des photos (OCR) ;</li>
+  <li>en les sélectionnant dans vos contacts ;</li>
+  <li>en réimportant la liste des numéros que vous avez déjà bloqués dans iOS.</li>
+</ul>
+<p>C'est votre liste des bloqués : la base sur laquelle tout le reste fonctionne.</p>
+
+<h3>2. L'application recherche des corrélations entre les numéros</h3>
+<p>Les spammeurs n'appellent presque jamais depuis un seul numéro. Les centres d'appels et les sociétés de démarchage utilisent des <strong>blocs de numéros consécutifs ou très semblables</strong> : même indicatif, mêmes premiers chiffres, seuls les derniers changent. Quand un numéro est trop signalé, ils en activent un autre quasi identique et recommencent.</p>
+<p>Scudo Chiamate exploite précisément cette habitude. Il analyse les numéros que vous avez bloqués et repère ces schémas, regroupant les numéros qui se ressemblent en <strong>plages</strong> — des intervalles qui, selon toute vraisemblance, appartiennent au même émetteur.</p>
+
+<h3>3. Les numéros similaires sont bloqués automatiquement</h3>
+<p>Une fois une plage reconnue, l'application ne se contente pas de bloquer les numéros exacts que vous avez saisis, elle <strong>couvre tout l'intervalle</strong> — y compris des numéros dont vous n'avez encore reçu aucun appel. Ainsi, quand le spammeur change légèrement de numéro, vous êtes déjà protégé : vous n'avez pas à attendre l'appel, à le recevoir, puis seulement à le bloquer.</p>
+
+<div class="example">
+  <p class="label">Exemple</p>
+  <p>Vous avez reçu et bloqué trois numéros : <code>06 1234 5670</code>, <code>06 1234 5674</code> et <code>06 1234 5679</code>.</p>
+  <p>Scudo Chiamate reconnaît qu'ils appartiennent au même bloc et protège <strong>toute la plage, du numéro le plus bas au plus haut</strong> — c'est-à-dire de <code>06 1234 5670</code> jusqu'à <code>06 1234 5679</code>. Cela couvre aussi tous les numéros intermédiaires que vous n'avez jamais reçus (par exemple <code>06 1234 5672</code> ou <code>06 1234 5677</code>), car ils appartiennent très probablement au même centre d'appels.</p>
+</div>
+
+<p>Le résultat est une protection qui <strong>anticipe le spam au lieu de lui courir après</strong> : plus vous signalez de numéros, plus l'application apprend le schéma de celui qui vous importune, et mieux elle arrive à arrêter les appels avant même qu'ils n'arrivent.</p>
+
+
+<h2 id="fr-analizza"><span class="tab-icon">📊</span>Analyser</h2>
+<p>L'onglet <strong>Analyser</strong> est le cœur intelligent de l'application : c'est ici que vous examinez les numéros que vous avez bloqués pour repérer des plages et décider lesquelles activer.</p>
+
+<h3 id="fr-analisi-avvio">Lancer l'analyse</h3>
+<p>Dans l'onglet <strong>Analyser</strong>, vous trouverez la carte <strong>Analyse de la base de données</strong>. Appuyez sur le bouton <strong>Lancer l'analyse</strong> pour examiner votre liste de numéros bloqués : pendant le traitement, le bouton affiche un <strong>pourcentage de progression</strong> et, une fois terminé, il devient <strong>vert avec une coche</strong>. L'opération se déroule entièrement sur votre appareil et ne modifie rien tant que vous n'avez pas confirmé les résultats.</p>
+<p>À côté, sur sa gauche, le bouton <strong>Info</strong> ouvre — directement dans l'application — l'explication complète des <a href="#fr-analisi-parametri">paramètres</a> et des règles des plages.</p>
+
+<p>Pendant l'analyse, l'application <strong>ne regarde pas les numéros un par un</strong>, elle recherche les schémas qui les relient. Concrètement, elle traque :</p>
+<ul>
+  <li><strong>les numéros qui partagent les mêmes premiers chiffres</strong> (le même indicatif), car c'est le signe typique d'un bloc de numérotation attribué au même centre d'appels ;</li>
+  <li><strong>des groupes suffisamment grands</strong> pour ne pas être le fruit du hasard : quelques numéros épars ne suffisent pas, il faut assez de numéros similaires pour qu'il vaille la peine de les traiter comme un seul bloc ;</li>
+  <li><strong>l'étendue du bloc</strong>, c'est-à-dire le numéro le plus bas et le plus haut du groupe, afin de proposer la plage qui les englobe tous.</li>
+</ul>
+
+<p>Le résultat de l'analyse est une liste de <strong>plages proposées</strong> : des intervalles de numéros qui, d'après les schémas détectés, méritent d'être bloqués entièrement plutôt que de poursuivre des numéros individuels. L'analyse <strong>se contente de proposer</strong> — c'est vous qui décidez quelles plages appliquer et lesquelles écarter (voir <a href="#fr-analisi-applica">Appliquer ou écarter les plages</a>). Le degré d'« agressivité » de l'analyse dans le regroupement dépend des <a href="#fr-analisi-parametri">paramètres</a>, que vous pouvez ajuster avant de la lancer.</p>
+
+<h3 id="fr-analisi-parametri">Les paramètres</h3>
+<p>Avant de lancer l'analyse, vous pouvez ajuster <strong>trois paramètres</strong> qui déterminent la prudence ou l'agressivité de l'application lorsqu'elle regroupe les numéros. Ils s'appliquent aussi bien en mode manuel qu'automatique. Une explication complète de ces paramètres — et des règles selon lesquelles les plages sont créées, écartées et étendues — est disponible dans l'application : touchez le bouton <strong>Info</strong> à côté de <em>Lancer l'analyse</em>.</p>
+
+<h4>Chiffres minimum de l'indicatif</h4>
+<p>Définit <strong>combien de premiers chiffres doivent coïncider</strong> pour que deux numéros soient considérés comme « apparentés » et se retrouvent dans la même plage. Le compte inclut l'indicatif international.</p>
+<ul>
+  <li><strong>Valeurs élevées</strong> (par ex. 9–10) : de nombreux chiffres identiques sont requis → des plages <strong>plus petites et plus spécifiques</strong>, couvrant moins de numéros.</li>
+  <li><strong>Valeurs basses</strong> (par ex. 6–7) : quelques chiffres identiques suffisent → des plages <strong>plus larges</strong>, couvrant davantage de numéros.</li>
+</ul>
+
+<h4>Numéros minimum par plage</h4>
+<p>C'est le <strong>nombre minimum de numéros</strong> nécessaire pour créer une nouvelle plage : si votre liste de bloqués ne contient pas au moins ce nombre de numéros similaires, l'application ne crée pas la plage.</p>
+<ul>
+  <li><strong>Valeurs basses</strong> (par ex. 3–5) : on trouve <strong>plus de plages</strong>, mais avec une fiabilité moindre (un risque plus élevé de regroupements hasardeux).</li>
+  <li><strong>Valeurs élevées</strong> (par ex. 6–10) : on n'accepte que les groupes <strong>mieux étayés</strong> par les données, donc plus sûrs.</li>
+</ul>
+
+<h4>Activer les indicatifs plus longs</h4>
+<p>C'est l'interrupteur qui mérite le plus d'attention, car il change le <em>caractère</em> de l'analyse. Lorsque l'application examine un groupe de numéros, elle peut souvent les décrire de plusieurs manières : avec un indicatif <strong>court</strong> (peu de chiffres en commun → une plage large qui engloutit beaucoup de numéros) ou avec un indicatif <strong>long</strong> (plus de chiffres en commun → une plage étroite et ciblée). Ce paramètre décide quelle voie privilégier quand les deux sont possibles.</p>
+<ul>
+  <li><strong>Activé</strong> — l'analyse choisit les indicatifs <strong>les plus spécifiques</strong> : des plages plus ciblées qui ne bloquent que ce qui ressemble vraiment à du spam. C'est l'option qui réduit le <strong>risque de faux positifs</strong>, c'est-à-dire bloquer par accident des numéros légitimes qui ne partagent que le début.</li>
+  <li><strong>Désactivé</strong> — l'analyse penche vers des indicatifs <strong>plus courts</strong> : elle produit des plages <strong>moins nombreuses mais plus larges</strong>. Elle couvre davantage de numéros d'un coup, au prix d'un risque plus élevé d'inclure des numéros innocents.</li>
+</ul>
+<p>La différence vient de <strong>l'endroit où l'application commence à comparer les numéros</strong> :</p>
+<ul>
+  <li><strong>Activé</strong> — l'application part des <strong>derniers chiffres à droite</strong> : elle garde presque tous les chiffres fixes et ne laisse varier que les derniers. Elle recherche d'abord les groupes les plus serrés (quelques chiffres de fin de différence) et n'élargit son regard vers la gauche que si cela ne suffit pas. C'est pourquoi elle fait remonter en premier les petits blocs précis.</li>
+  <li><strong>Désactivé</strong> — l'application part des <strong>premiers chiffres à gauche</strong> : elle ne fixe que le début du numéro et laisse tout le reste varier. De larges regroupements se forment aussitôt et « revendiquent » les numéros, si bien que les plages étendues tendent à l'emporter.</li>
+</ul>
+<p>L'ordre compte aussi : <strong>celui qui regroupe un numéro en premier le revendique</strong>. C'est pourquoi partir de la droite (activé) fait remonter des plages ciblées, tandis que partir de la gauche (désactivé) fait remonter des plages étendues.</p>
+<div class="example">
+  <p class="label">Exemple</p>
+  <p>Vos numéros bloqués commencent tous par <code>06 1234 56…</code>, mais en réalité seuls ceux qui se poursuivent par <code>567X</code> sont du spam.</p>
+  <p>Avec <strong>« préférer les indicatifs plus longs » activé</strong>, l'application propose la plage étroite <code>06 1234 5670</code>–<code>5679</code>, centrée sur le bloc réellement gênant. Avec le paramètre <strong>désactivé</strong>, elle pourrait proposer une plage plus large comme <code>06 1234 5600</code>–<code>5699</code> : elle bloque davantage, mais risque d'attraper des numéros qui n'ont rien à voir.</p>
+</div>
+<p>En somme : <strong>activé = précision</strong> (recommandé si vous craignez de bloquer de bons numéros), <strong>désactivé = couverture</strong> (utile si vous voulez des filets plus larges et faites confiance au fait que la bande ne contient que du spam).</p>
+
+<p><strong>Astuce :</strong> partez des valeurs par défaut et changez <strong>un paramètre à la fois</strong>, en relançant l'analyse pour voir tout de suite l'effet sur les plages proposées.</p>
+
+<h3 id="fr-analisi-range">Plages trouvées, écartées et existantes</h3>
+<p>Une fois l'analyse terminée, les résultats sont organisés en trois listes distinctes, afin que vous distinguiez d'un coup d'œil ce que l'application propose, ce qu'elle a mis de côté et ce qui est déjà actif.</p>
+
+<h4>Plages potentielles trouvées</h4>
+<p>Ce sont les <strong>nouvelles plages que l'application propose d'activer</strong>, signalées en vert. Elles ont passé tous les contrôles et représentent des blocs qui, d'après les schémas de vos numéros, méritent d'être bloqués entièrement. Elles restent de simples propositions jusqu'à ce que vous les appliquiez (voir <a href="#fr-analisi-applica">Appliquer ou écarter les plages</a>).</p>
+<p>Certaines propositions portent une étiquette qui explique leur origine :</p>
+<ul>
+  <li><strong>FUSION</strong> (violet) — la plage proposée provient de <strong>l'union de plusieurs plages</strong> qui se chevauchaient ou se touchaient, réunies en un seul intervalle plus large.</li>
+  <li><strong>ÉTENDUE</strong> (vert) — la plage proposée est <strong>l'extension d'une plage déjà active</strong>, élargie pour inclure les numéros nouvellement trouvés.</li>
+</ul>
+
+<h4>Plages potentielles écartées</h4>
+<p>Ce sont des plages que l'application <strong>a repérées mais a décidé de ne pas proposer</strong>. Elles apparaissent dans une liste séparée par souci de transparence : vous pouvez les voir, mais elles ne sont pas activées automatiquement. L'application les écarte <strong>pour éviter les plages trompeuses</strong> — des blocs qui semblent plausibles mais risqueraient d'attraper trop de numéros innocents sur la foi de trop peu d'indices.</p>
+<p>Une plage est écartée lorsqu'elle relève de l'un de ces cas :</p>
+<ul>
+  <li><strong>Trop grande</strong> — elle couvre plus de <strong><span data-num="maxRange">10 000</span> numéros</strong>. Un intervalle aussi large ne ressemble pas au bloc d'un seul centre d'appels, mais à toute une bande de numérotation : le bloquer ferait plus de mal que de bien.</li>
+  <li><strong>Trop « clairsemée » (faible densité)</strong> — elle contient trop peu de <em>vos propres</em> numéros par rapport à sa largeur. Pour être proposée, une plage doit reposer sur au moins <strong>0,65 % de numéros réels</strong> (les sources) par rapport au nombre de numéros qu'elle couvre : plus elle est large, plus il lui faut d'indices. Si les sources ne suffisent pas pour sa largeur, la plage est écartée, car elle bloquerait un large intervalle sur trop peu d'indices — la plage trompeuse classique.</li>
+  <li><strong>Un seul numéro</strong> (en mode automatique) — l'analyse automatique ne transforme pas un numéro isolé en plage, car un seul numéro n'est pas un schéma.</li>
+</ul>
+<div class="example">
+  <p class="label">Sources minimales pour être proposée</p>
+  <table class="refs">
+    <tr><th>Largeur de la plage</th><th>Sources minimales</th></tr>
+    <tr><td>250</td><td>2</td></tr>
+    <tr><td>500</td><td>4</td></tr>
+    <tr><td>1 000</td><td>7</td></tr>
+    <tr><td>1 500</td><td>10</td></tr>
+    <tr><td>2 000</td><td>13</td></tr>
+    <tr><td>2 500</td><td>17</td></tr>
+    <tr><td>3 000</td><td>20</td></tr>
+    <tr><td>3 500</td><td>23</td></tr>
+    <tr><td>4 000</td><td>26</td></tr>
+    <tr><td>4 500</td><td>30</td></tr>
+    <tr><td>5 000</td><td>33</td></tr>
+    <tr><td>5 500</td><td>36</td></tr>
+    <tr><td>6 000</td><td>39</td></tr>
+    <tr><td>6 500</td><td>43</td></tr>
+    <tr><td>7 000</td><td>46</td></tr>
+    <tr><td>7 500</td><td>49</td></tr>
+    <tr><td>8 000</td><td>52</td></tr>
+    <tr><td>8 500</td><td>56</td></tr>
+    <tr><td>9 000</td><td>59</td></tr>
+    <tr><td>9 500</td><td>62</td></tr>
+    <tr><td>10 000</td><td>65</td></tr>
+  </table>
+</div>
+<p>Écarter ces plages est un choix prudent : mieux vaut ne pas bloquer un intervalle douteux que risquer de faire taire des numéros légitimes. Mais si vous êtes sûr qu'une plage écartée devrait être bloquée, vous pouvez toujours la gérer à la main depuis les listes.</p>
+
+<h4>Plages existantes</h4>
+<p>Ce sont les plages <strong>déjà actives</strong> dans votre protection, fruit d'analyses précédentes ou ajoutées par vous. Elles servent de référence : l'analyse en tient compte pour ne pas reproposer ce que vous avez déjà, et, au besoin, elle les <strong>étend</strong> lorsque de nouveaux numéros tombent juste avant ou juste après (voir <a href="#fr-analisi-autoespansione">Auto-extension</a>).</p>
+<p>Toucher l'icône <strong>ℹ️ info</strong> sur une ligne affiche ses <strong>détails complets</strong> — numéros couverts, sources, composition et éventuelles exceptions (voir <a href="#fr-analisi-attivi">Lire les plages actives</a>).</p>
+
+<h3 id="fr-analisi-applica">Appliquer ou écarter les plages</h3>
+<p>L'analyse <strong>propose</strong>, mais le dernier mot vous revient toujours : aucune plage ne devient active tant que vous ne l'avez pas confirmée. Chaque plage trouvée possède un <strong>interrupteur</strong> sur sa ligne, qui vous permet de la sélectionner ou de la mettre de côté.</p>
+
+<h4>Appliquer les plages trouvées</h4>
+<p>Activez l'interrupteur des plages que vous voulez bloquer — vous pouvez en sélectionner autant que vous voulez — puis appuyez sur la barre <strong>Appliquer les plages sélectionnées</strong> qui apparaît en haut, sous l'encoche. À partir de ce moment, les plages choisies entrent dans votre protection : elles passent dans les <a href="#fr-analisi-range">Plages existantes</a> et chaque numéro qu'elles contiennent est bloqué.</p>
+
+<h4>Laisser une plage de côté</h4>
+<p>Pour écarter une proposition, il suffit de <strong>ne pas la sélectionner</strong> : en laissant l'interrupteur désactivé, cette plage n'est tout simplement pas appliquée. Aucune confirmation n'est nécessaire pour « refuser » — tout ce que vous n'activez pas reste inactif.</p>
+
+<h4>Appliquer malgré tout une plage écartée</h4>
+<p>Les <a href="#fr-analisi-range">plages potentielles écartées</a> sont rassemblées dans une section dépliable séparée. L'application ne les recommande pas, mais si vous êtes sûr qu'un intervalle doit être bloqué, vous pouvez ouvrir la liste, activer l'interrupteur de celle que vous voulez et appuyer sur <strong>Appliquer les plages écartées</strong>. C'est un choix délibéré : vous dites à l'application de faire confiance à votre jugement plutôt qu'à sa propre prudence.</p>
+
+<h4>Plages trop grandes</h4>
+<p>Les plages jugées trop grandes pour être bloquées sans risque <strong>ne peuvent pas être sélectionnées</strong> : leur interrupteur est désactivé, précisément pour empêcher qu'un bloc énorme ne soit appliqué par erreur.</p>
+
+<p>À tout moment, vous pouvez relancer l'analyse, modifier les <a href="#fr-analisi-parametri">paramètres</a> et reconsidérer les propositions : appliquer des plages n'est jamais une opération définitive, et la gestion fine des numéros reste toujours disponible depuis les <a href="#fr-liste">listes</a>.</p>
+
+<h3 id="fr-analisi-attivi">Lire les plages actives</h3>
+<p>Dans la liste des <a href="#fr-analisi-range">Plages existantes</a>, chaque ligne représente une plage active. Quelques indicateurs vous disent d'un coup d'œil comment elle est faite et d'où viennent ses numéros.</p>
+
+<h4>Les pastilles colorées : comment la plage s'est formée</h4>
+<p>À côté de chaque plage, deux pastilles peuvent apparaître, indiquant l'origine des numéros qui la composent :</p>
+<ul>
+  <li><span class="dot" style="background:#f5a623"></span><strong>Pastille orange — Manuel :</strong> numéros entrés dans la plage par la <strong>gestion manuelle des plages</strong>, c'est-à-dire lorsque <strong>vous</strong> avez appliqué une plage. Ce ne sont pas des numéros saisis un par un, mais ceux dont l'application a rempli l'intervalle à la suite d'une action de votre part.</li>
+  <li><span class="dot" style="background:#3fa9f5"></span><strong>Pastille bleue — Automatique :</strong> numéros entrés dans la plage <strong>automatiquement</strong>, c'est-à-dire ajoutés par l'extension automatique des plages, sans aucune action directe de votre part.</li>
+</ul>
+<p>Une plage peut afficher <strong>les deux pastilles</strong> : cela signifie qu'elle s'est remplie en partie par vos applications manuelles et en partie par l'extension automatique. C'est le moyen le plus rapide de savoir si une plage a surtout grandi par votre choix ou par l'automatisation.</p>
+
+<h4>Les badges EXTENSIBLE et EXCEPTIONS</h4>
+<p>Sur certaines lignes, deux étiquettes colorées peuvent apparaître :</p>
+<ul>
+  <li><strong>EXTENSIBLE</strong> (vert) — la dernière analyse a repéré une <strong>proposition plus large qui englobe cette plage</strong> : en l'appliquant, la plage s'étendrait pour couvrir aussi les numéros nouvellement trouvés. C'est une invitation à y jeter un œil, pas une action automatique.</li>
+  <li><strong>EXCEPTIONS N</strong> (rouge) — à l'intérieur de l'intervalle de la plage, il y a <strong>N numéros que vous avez dans votre liste des Autorisés</strong>. Ces numéros restent libres de vous appeler — ce sont les exceptions décrites dans <a href="#fr-liste-precedenza">Les numéros autorisés priment</a> — tandis que le reste de la plage continue de bloquer.</li>
+</ul>
+
+<h4>L'icône info : la carte Détails de la plage</h4>
+<p>Toucher l'icône <strong>ℹ️ info</strong> (le cercle bleu sur la ligne) ouvre la carte <strong>Détails de la plage</strong>, avec les statistiques complètes de l'intervalle :</p>
+<ul>
+  <li><strong>Numéros bloqués</strong> — combien de numéros la plage couvre au total.</li>
+  <li><strong>Sources</strong> — combien de numéros réels ont donné naissance à la plage.</li>
+  <li><strong>Manuel</strong> et <strong>Automatique</strong> — la répartition entre les numéros entrés dans la plage par une application manuelle de votre part et ceux ajoutés par l'extension automatique, les mêmes que ceux indiqués par les pastilles.</li>
+  <li><strong>Exceptions autorisées</strong> — les éventuels numéros que vous avez mis dans votre liste des <a href="#fr-liste-consentiti">Autorisés</a> et qui restent libres bien qu'ils tombent à l'intérieur de la plage (voir <a href="#fr-liste-precedenza">Les numéros autorisés priment</a>).</li>
+</ul>
+<p>La carte est en lecture seule : elle vous aide à comprendre la composition d'une plage avant de décider de la conserver, de l'étendre ou de la supprimer.</p>
+
+<h3 id="fr-analisi-elimina">Supprimer des plages</h3>
+<p>Une plage active n'est pas éternelle : vous pouvez la retirer quand vous voulez. Dans la liste des <a href="#fr-analisi-range">Plages existantes</a>, sélectionnez une ou plusieurs plages et appuyez sur <strong>Supprimer</strong>. À ce moment-là, l'application vous demande <em>comment</em> vous voulez les supprimer, avec deux options — et la distinction compte.</p>
+
+<h4>Supprimer tous les numéros</h4>
+<p>Retire la plage <strong>et tous les numéros qu'elle contenait</strong>, y compris ceux que vous aviez bloqués ou importés et qui ont donné naissance à la plage. Après ce choix, il ne reste rien de cet intervalle : ni la plage ni les numéros à l'intérieur. À utiliser quand vous voulez un nettoyage complet, parce que ce bloc ne vous sert plus à rien.</p>
+
+<h4>Conserver les numéros sources</h4>
+<p>Retire la plage <strong>mais conserve vos numéros « sources »</strong>, c'est-à-dire ceux que vous aviez réellement bloqués ou importés et à partir desquels la plage a été construite. Ces numéros redeviennent bloqués <strong>individuellement</strong>, tandis que la couverture s'arrête sur les numéros intermédiaires que vous n'aviez jamais reçus. En pratique : vous gardez les vrais numéros que vous avez collectés, mais vous renoncez à l'extension automatique du blocage.</p>
+
+<div class="example">
+  <p class="label">Exemple</p>
+  <p>Vous avez une plage <code>06 1234 5670</code>–<code>5679</code> née de trois numéros que vous aviez bloqués : <code>5670</code>, <code>5674</code> et <code>5679</code>.</p>
+  <p><strong>Supprimer tous les numéros</strong> → tout disparaît : ni la plage ni les trois numéros ne restent bloqués.</p>
+  <p><strong>Conserver les numéros sources</strong> → la plage disparaît, les numéros intermédiaires (par ex. <code>5672</code>) ne sont plus bloqués, mais <code>5670</code>, <code>5674</code> et <code>5679</code> restent bloqués comme numéros isolés.</p>
+</div>
+
+<p>La règle pratique : choisissez <strong>Conserver les numéros sources</strong> si vous voulez seulement annuler l'élargissement du blocage sans perdre les numéros que vous avez collectés vous-même ; choisissez <strong>Supprimer tous les numéros</strong> si vous voulez effacer toute trace de cette plage.</p>
+
+<h3 id="fr-analisi-autoespansione">Auto-extension (Gestion automatique des plages)</h3>
+<p>Avec la gestion automatique activée, chaque fois que vous bloquez de nouveaux numéros, l'application refait <strong>d'elle-même</strong> le même travail que l'analyse manuelle, sans que vous ayez à ouvrir l'onglet Analyser ni à appliquer quoi que ce soit. Cela signifie que l'automatisation peut :</p>
+<ul>
+  <li><strong>étendre les plages existantes</strong>, en se raccrochant aux nouveaux numéros qui tombent près de leurs limites ;</li>
+  <li><strong>créer de nouvelles plages</strong>, lorsque les numéros tout juste bloqués forment un nouveau bloc reconnaissable.</li>
+</ul>
+<p>Les numéros que l'application ajoute automatiquement sont ceux marqués de la <a href="#fr-analisi-attivi">pastille bleue (Automatique)</a>.</p>
+
+<p><strong>C'est une fonctionnalité Premium.</strong> Vous l'activez avec l'interrupteur <strong>« Gestion automatique des plages »</strong> dans l'onglet <a href="#fr-impostazioni">Réglages</a>. Sans Premium actif, l'interrupteur reste visible mais ne peut pas être activé, et la gestion automatique est désactivée : les plages ne sont créées et n'augmentent que lorsque vous relancez l'analyse et que vous les appliquez.</p>
+
+<h4>Jusqu'où va l'extension : les <span data-num="estLato">1 000</span> numéros et l'écart de <span data-num="salto">150</span></h4>
+<p>L'extension automatique suit deux règles qui fonctionnent ensemble :</p>
+<ul>
+  <li><strong>Plafond maximal : <span data-num="estLato">1 000</span> numéros par côté.</strong> Une plage peut grandir d'au plus <strong><span data-num="estLato">1 000</span> numéros avant</strong> son début et <strong><span data-num="estLato">1 000</span> numéros après</strong> sa fin. Elle n'ira pas au-delà de cette limite, quel que soit le nombre de numéros proches.</li>
+  <li><strong>Écart maximal : <span data-num="salto">150</span>.</strong> L'extension procède « pont par pont », numéro après numéro : pour se raccrocher au numéro suivant, l'<strong>écart entre un numéro et le suivant ne doit pas dépasser <span data-num="salto">150</span></strong>. Si l'application rencontre un écart supérieur à <span data-num="salto">150</span>, elle s'arrête là, même si elle n'a pas encore atteint <span data-num="estLato">1 000</span>.</li>
+</ul>
+<p>En clair : <strong><span data-num="salto">150</span> est la distance que la plage peut « sauter »</strong> pour se raccrocher au numéro proche suivant ; <strong><span data-num="estLato">1 000</span> est le plafond total</strong> de croissance de chaque côté. Pour atteindre <span data-num="estLato">1 000</span>, il faut donc des numéros assez denses, chacun à moins de <span data-num="salto">150</span> du précédent ; si à un moment l'écart est trop grand, l'extension s'arrête plus tôt.</p>
+
+<p><strong>La limite de <span data-num="estLato">1 000</span> s'applique à chaque analyse, pas pour toujours.</strong> Ce plafond vaut pour une exécution d'analyse ; à l'analyse suivante — c'est-à-dire la prochaine fois que vous bloquez des numéros et que la gestion automatique se relance — le compte <strong>repart de zéro à partir des nouvelles limites déjà étendues</strong>. En pratique, une plage peut continuer à grandir de <span data-num="estLato">1 000</span> numéros de plus par côté à chaque passage : au fil du temps, ajout après ajout, elle peut donc dépasser de loin <span data-num="estLato">1 000</span> numéros au total, toujours en respectant l'écart maximal de <span data-num="salto">150</span> à chaque raccrochage.</p>
+
+<div class="example">
+  <p class="label">Exemple</p>
+  <p>Vous avez une plage active <code>06 1234 5670</code>–<code>5679</code> et la gestion automatique activée.</p>
+  <p>Vous bloquez <code>06 1234 5760</code> : il se trouve à un peu plus de 80 de la fin de la plage, c'est-à-dire <strong>dans l'écart de <span data-num="salto">150</span></strong> → l'application étend la plage pour l'inclure. Si vous continuez à bloquer des numéros proches, le pont se poursuit, jusqu'à un maximum de <span data-num="estLato">1 000</span> numéros au-delà des limites d'origine.</p>
+  <p>Si en revanche vous bloquez <code>06 1234 9000</code>, trop loin en un seul saut (plus de <span data-num="salto">150</span> du bord), l'application ne le raccroche <strong>pas</strong> à cette plage : il reste un numéro à part, et peut tout au plus donner naissance à une <strong>nouvelle</strong> plage avec d'autres numéros similaires.</p>
+</div>
+
+<p>En somme : avec la gestion automatique Premium activée, votre protection reste « vivante », créant de nouvelles plages et allongeant les plages existantes au fur et à mesure que vous bloquez des numéros ; sans elle, vous conservez tout de même un plein contrôle manuel grâce à l'analyse et à l'application des plages.</p>
+
+
+<h2 id="fr-liste"><span class="tab-icon">🛡️</span>Les listes : Bloqués et Autorisés</h2>
+<p>Scudo Chiamate gère deux listes complémentaires : les <strong>Bloqués</strong>, les numéros qui ne doivent pas vous atteindre, et les <strong>Autorisés</strong>, les numéros qui doivent toujours passer. Elles fonctionnent ensemble, et une règle les maintient en équilibre (voir <a href="#fr-liste-precedenza">Les numéros autorisés priment</a>).</p>
+
+<h3 id="fr-liste-bloccati">La liste des Bloqués</h3>
+<p>L'onglet <strong>Bloqués</strong> (bouclier avec le ✕) rassemble tous les numéros qui ne doivent pas vous atteindre. En haut se trouve une carte récapitulative ; dans la version gratuite, elle affiche deux chiffres distincts :</p>
+<ul>
+  <li><strong>Enregistrés</strong> — combien de numéros vous avez au total dans la liste.</li>
+  <li><strong>Actifs dans CallKit</strong> — combien d'entre eux sont réellement actifs dans le blocage iOS.</li>
+</ul>
+<p>La différence compte à cause de la <a href="#fr-imp-attivazione">limite de la version gratuite</a> : le blocage système (CallKit) en version gratuite couvre jusqu'à <strong><span data-num="limiteFree">500</span> numéros actifs</strong>. Si vous en avez davantage d'enregistrés, les numéros en trop affichent l'avertissement orange <em>« Non actif dans CallKit (limite gratuite) »</em> et ne bloquent pas tant que vous ne passez pas à Premium ou ne libérez pas de l'espace.</p>
+<p>Chaque ligne affiche :</p>
+<ul>
+  <li>un petit cercle avec le <strong>type</strong> : <strong>S</strong> (bleu) = numéro isolé, <strong>R</strong> (orange) = plage ;</li>
+  <li>le <strong>numéro</strong> au format international (avec le <code>+</code>) et le drapeau du pays ;</li>
+  <li>la <strong>date</strong> d'ajout et un <strong>badge de source</strong> coloré indiquant comment il est entré dans la liste.</li>
+</ul>
+<p>Il y a trois badges de source, les mêmes concepts que les <a href="#fr-analisi-attivi">pastilles des plages</a> :</p>
+<ul>
+  <li><span class="dot" style="background:#5fbf3a"></span><strong>Source</strong> (vert) — numéros que vous avez ajoutés <strong>directement</strong>, en les saisissant ou en les important.</li>
+  <li><span class="dot" style="background:#f5a623"></span><strong>Manuel</strong> (orange) — numéros entrés par l'<strong>application manuelle d'une plage</strong>.</li>
+  <li><span class="dot" style="background:#3fa9f5"></span><strong>Automatique</strong> (bleu) — numéros entrés par <strong>extension automatique</strong>.</li>
+</ul>
+
+<h3 id="fr-liste-consentiti">La liste des Autorisés</h3>
+<p>L'onglet <strong>Autorisés</strong> (bouclier avec le ✓) a la même apparence et les mêmes indicateurs que la liste des Bloqués, mais rassemble les numéros qui doivent <strong>toujours passer</strong>. La carte récapitulative en haut affiche <strong>Total</strong> et <strong>Total des sources</strong>.</p>
+<p>Contrairement à la liste des Bloqués, <strong>la liste des Autorisés ne contient aucune plage</strong> : les numéros que vous ajoutez sont toujours des <strong>numéros isolés</strong> (marqueur <strong>S</strong>) avec le badge <strong>Source</strong> (vert), car vous les saisissez ou les importez directement. La seule exception sont les numéros marqués <strong>R</strong> : ce sont des numéros autorisés qui tombent <strong>à l'intérieur de l'intervalle d'une plage bloquée</strong>. Ils sont marqués R pour signaler qu'ils se situent dans une bande bloquée, mais ils passent quand même — ce sont exactement les <a href="#fr-liste-precedenza">exceptions</a> décrites sous la priorité.</p>
+<p>Les numéros de cette liste ne sont jamais bloqués et <strong>priment</strong> sur tout blocage, plages comprises (voir <a href="#fr-liste-precedenza">Les numéros autorisés priment</a>). Ils servent principalement d'exception ciblée : si un numéro risque de tomber à l'intérieur d'une plage bloquée mais que vous voulez qu'il vous atteigne tout de même, vous l'ajoutez ici et il continuera de passer.</p>
+<p>En sélectionnant un numéro dans cette liste, l'application propose de le <strong>déplacer vers la liste des Bloqués</strong> : c'est le moyen rapide de changer d'avis sur un contact.</p>
+
+<h3 id="fr-liste-aggiungere">Ajouter un numéro</h3>
+<p>Pour saisir un numéro à la main, touchez le bouton <strong>+</strong> en haut à droite de la liste : le panneau d'ajout s'ouvre. En haut, vous pouvez choisir entre deux modes avec le sélecteur <strong>Isolé</strong> / <strong>Plage</strong>.</p>
+<ul>
+  <li><strong>Isolé</strong> — un champ pour l'indicatif international et un pour le numéro (juste les chiffres, sans l'indicatif). Vous pouvez aussi utiliser le bouton <strong>appareil photo</strong> (<em>« Scanner un numéro avec l'appareil photo »</em>) pour lire un numéro depuis une photo au lieu de le saisir.</li>
+  <li><strong>Plage</strong> — l'indicatif plus deux champs, <strong>début</strong> et <strong>fin</strong> de l'intervalle. Un avis vous rappelle la limite : <strong>maximum <span data-num="maxRange">10 000</span> numéros par plage</strong>.</li>
+</ul>
+<p>Appuyez sur <strong>Ajouter</strong> pour insérer (ou <strong>Fermer</strong> pour annuler). Si quelque chose ne va pas, un avis vous l'indique :</p>
+<ul>
+  <li><em>« Numéro déjà présent : marqueur mis à jour vers Source »</em> — le numéro était déjà dans cette liste ; il est marqué comme le vôtre (Source).</li>
+  <li><em>« Numéro déjà présent dans l'autre liste »</em> — le même numéro est dans l'autre liste ; il faut d'abord l'en retirer.</li>
+  <li><em>« Numéro non valide »</em> — les chiffres saisis ne forment pas un numéro valide.</li>
+</ul>
+
+<h3 id="fr-liste-importare">Importer des numéros</h3>
+<p>Outre la saisie manuelle, vous pouvez charger des numéros en masse — depuis des fichiers CSV/vCard ou depuis des captures d'écran (OCR) — dans les Bloqués comme dans les Autorisés. Les options d'import se trouvent dans l'onglet Réglages : voir <a href="#fr-imp-importa">Importer des numéros</a> dans la section Réglages.</p>
+
+<h3 id="fr-liste-precedenza">Les numéros autorisés priment</h3>
+<p>Le pilier dont tout part : <strong>un numéro n'est jamais dans les deux listes</strong>. Chaque numéro est <em>soit</em> bloqué <em>soit</em> autorisé, jamais les deux à la fois. Et quand les deux listes se « disputent » le même numéro, les <strong>Autorisés</strong> l'emportent toujours.</p>
+<p>En pratique, lors d'un import :</p>
+<ul>
+  <li>Si un numéro est déjà dans les <strong>Autorisés</strong> et que vous l'<strong>importez dans les Bloqués</strong>, il est <strong>ignoré</strong> : il reste dans les Autorisés et ne se retrouve pas parmi les bloqués.</li>
+  <li>Si un numéro est dans les <strong>Bloqués</strong> et que vous l'<strong>importez dans les Autorisés</strong>, il <strong>migre</strong> : il disparaît des Bloqués et passe dans les Autorisés (l'application vous le signale avec <em>« Retirés des bloqués : N »</em>).</li>
+</ul>
+<p>Il en va de même pour le déplacement d'un numéro entre les listes à la main, avec les actions <strong>« Débloquer (déplacer vers autorisés) »</strong> depuis les Bloqués et <strong>« Bloquer (déplacer vers bloqués) »</strong> depuis les Autorisés : le numéro change de liste, il n'est jamais dupliqué. Si en revanche vous essayez d'<em>ajouter</em> à la main un numéro déjà présent dans l'autre liste, l'application ne le déplace pas automatiquement et vous avertit avec <em>« Numéro déjà présent dans l'autre liste »</em>.</p>
+<p>La priorité s'applique aussi aux <strong>plages</strong> : si l'intervalle d'une plage bloquée inclut un numéro que vous avez dans les Autorisés, ce numéro reste libre de vous appeler — il devient une <strong>exception</strong> au sein de la plage (voir <a href="#fr-analisi-attivi">la carte de détails</a>), tandis que le reste de la plage continue de bloquer. Le numéro ne vit toujours que dans les Autorisés : la plage couvre l'intervalle mais le saute.</p>
+<p>C'est une protection délibérée : aucun import en masse ni aucune plage ne doit pouvoir faire taire par erreur un numéro que vous voulez continuer à recevoir. Pour bloquer réellement un numéro que vous avez dans les Autorisés, vous devez le déplacer explicitement vers les Bloqués.</p>
+<div class="example">
+  <p class="label">Exemple</p>
+  <p>Vous avez un numéro important dans les Autorisés, <code>06 1234 5675</code>. Plus tard, vous importez une liste de numéros de spam qui génère la plage <code>06 1234 5670</code>–<code>5679</code>, dont l'intervalle inclut aussi ce numéro.</p>
+  <p>Résultat : la plage est appliquée, mais <code>06 1234 5675</code> continue de passer en tant qu'exception, car il reste dans les Autorisés et n'est jamais bloqué.</p>
+</div>
+
+<h3 id="fr-liste-filtri">Filtres</h3>
+<p>Quand les listes s'allongent, les filtres vous aident à trouver et à gérer les numéros. C'est une <strong>fonctionnalité Premium</strong> : une fois activée, une bande de « chips » apparaît sous l'en-tête de la liste, à partir de laquelle vous réglez et combinez quatre filtres.</p>
+<ul>
+  <li><span class="tab-icon">📅</span><strong>Période</strong> — filtre par date d'ajout, en choisissant un ou plusieurs intervalles (<em>Du / Au</em>), jusqu'à 3.</li>
+  <li><span class="tab-icon">🏷️</span><strong>Source</strong> — n'affiche que les numéros <em>Manuel</em>, <em>Automatique</em> ou <em>Source (import)</em>, les mêmes badges que dans la liste.</li>
+  <li><span class="tab-icon">▦</span><strong>Type</strong> — distingue les <em>Isolés</em> et les <em>Plages</em>.</li>
+  <li><span class="tab-icon">🌐</span><strong>Pays</strong> — filtre par pays, en cherchant par nom ou par indicatif, avec sélection multiple.</li>
+</ul>
+<p>À côté des filtres, il y a aussi une chip de <strong>tri</strong> pour la liste. Chaque filtre actif peut être retiré avec le ✕ de sa chip ; si vous en avez deux ou plus, <strong>« Tout effacer »</strong> apparaît pour les supprimer d'un coup. À l'intérieur du panneau de chaque filtre, vous utilisez <strong>Appliquer</strong> pour confirmer ou <strong>Effacer</strong> pour annuler. Avec un filtre ou une recherche actifs, la carte du haut ajoute les compteurs <strong>Filtrés</strong> et <strong>Actifs filtrés</strong>.</p>
+
+<h3 id="fr-liste-range">Plages</h3>
+<p>Dans la liste, les numéros appartenant à une <strong>plage</strong> apparaissent <strong>un par ligne</strong>, comme les autres numéros, mais vous les reconnaissez d'un coup d'œil : ils ont un <strong>fond vert</strong> et le marqueur <strong>R</strong> à gauche (au lieu du <strong>S</strong> des numéros isolés). Ainsi, en faisant défiler la liste, vous repérez immédiatement quels numéros font partie d'un intervalle bloqué et lesquels sont isolés.</p>
+<p>Vous pouvez ajouter une plage à la main depuis le panneau d'ajout (voir <a href="#fr-liste-aggiungere">Ajouter un numéro</a>), ou la créer depuis l'analyse (voir <a href="#fr-analizza">Analyser</a>).</p>
+<p>La gestion complète des plages actives — les <a href="#fr-analisi-attivi">pastilles de formation et la carte de détails</a>, les badges <em>EXTENSIBLE</em> et <em>EXCEPTIONS</em>, et la <a href="#fr-analisi-elimina">suppression</a> avec ou sans les numéros sources — se trouve dans l'onglet <strong>Analyser</strong>, sous <a href="#fr-analisi-range">Plages existantes</a>.</p>
+
+
+<h2 id="fr-impostazioni"><span class="tab-icon">⚙️</span>Réglages</h2>
+<p>Depuis l'onglet <strong>Réglages</strong>, vous activez le blocage au niveau du système iOS et gérez la synchronisation, l'abonnement et la maintenance des données.</p>
+
+<h3 id="fr-imp-attivazione">Activer le blocage dans iOS</h3>
+<p>C'est l'étape <strong>essentielle</strong> : Scudo Chiamate ne peut bloquer les appels qu'après que vous avez activé son extension dans les réglages iOS. Sans cette activation, l'application fonctionne — vous gérez les listes, l'analyse et les plages — mais les numéros <strong>ne sont pas bloqués</strong> au niveau système.</p>
+<p>Pour l'activer, allez dans :</p>
+<p><strong>Réglages iOS → Apps → Téléphone → Blocage et identification d'appels</strong> et activez <strong>« Scudo Chiamate »</strong>.</p>
+<p>Tant que l'extension est désactivée, l'application affiche un <strong>avertissement persistant</strong> qui vous rappelle précisément ce chemin. Vous pouvez aussi vérifier le statut à tout moment depuis les diagnostics, avec <strong>« Statut du blocage des appels »</strong>.</p>
+<p>Il y a ensuite une distinction importante à comprendre — combien de vos numéros sont réellement bloqués : nous l'expliquons ci-dessous.</p>
+
+<h3 id="fr-imp-limite">Numéros enregistrés vs numéros actifs</h3>
+<p>Scudo Chiamate distingue deux choses différentes, que vous voyez aussi dans la carte récapitulative en haut des listes :</p>
+<ul>
+  <li><strong>Enregistrés</strong> — tous les numéros de vos listes, dans la base de données de l'application.</li>
+  <li><strong>Actifs dans CallKit</strong> — combien de ces numéros sont réellement transmis à iOS pour le blocage.</li>
+</ul>
+<p>La version gratuite ne limite pas <strong>combien de numéros vous enregistrez</strong> : vous pouvez en ajouter et en importer autant que vous voulez, ils restent tous dans la base de données. La limite de la version gratuite ne concerne que <strong>combien sont appliqués</strong> au blocage système (CallKit) :</p>
+<ul>
+  <li><strong>Gratuit</strong> — les <strong><span data-num="limiteFree">500</span> premiers</strong> numéros actifs sont appliqués ; les autres restent enregistrés mais ne bloquent pas, et dans la liste ils affichent l'avertissement <em>« Non actif dans CallKit (limite gratuite) »</em>.</li>
+  <li><strong>Premium</strong> — <strong>tous</strong> sont appliqués, sans le plafond de <span data-num="limiteFree">500</span>.</li>
+</ul>
+<p>La conséquence pratique est commode : vous pouvez <strong>importer et conserver tous vos numéros enregistrés dès maintenant</strong>, même en version gratuite. Quand vous passez à Premium, ils deviennent tous opérationnels <strong>d'un coup</strong>, sans avoir à réimporter ni à refaire le moindre travail.</p>
+<p>Même avec Premium, le blocage n'est pas infini : chaque liste peut contenir jusqu'à <strong><span data-num="maxLista">500 000</span> numéros</strong>. C'est un plafond très élevé, conçu pour couvrir tout usage réel.</p>
+
+<h3 id="fr-imp-aggiornamento">Statut de la dernière mise à jour</h3>
+<p>Quand vous modifiez les listes, l'application doit remettre à iOS — l'extension <strong>Call Directory</strong> — la liste mise à jour des numéros à bloquer. Dans les diagnostics, vous trouverez un panneau indiquant comment s'est passée la <strong>dernière mise à jour</strong>, afin de savoir si vos derniers changements sont déjà actifs dans le blocage système.</p>
+<p>La ligne de statut peut indiquer :</p>
+<ul>
+  <li><strong>Dernière mise à jour réussie</strong> — la liste a été remise correctement à iOS ;</li>
+  <li><strong>Mise à jour en cours</strong> — l'opération s'exécute en ce moment ;</li>
+  <li><strong>Dernière mise à jour échouée</strong> — quelque chose s'est mal passé (avec les détails de l'erreur) ;</li>
+  <li><strong>Aucune mise à jour effectuée</strong> — aucune mise à jour n'a encore été faite.</li>
+</ul>
+<p>Quand c'est disponible, le panneau affiche aussi quelques détails utiles :</p>
+<ul>
+  <li><strong>Numéros appliqués</strong> — combien de numéros ont réellement été remis à iOS ;</li>
+  <li><strong>Dernière exécution</strong> — date et heure de la dernière mise à jour ;</li>
+  <li><strong>Mode</strong> — <em>incrémental</em> (seules les différences sont appliquées) ou <em>rechargement complet</em> (toute la liste est réécrite).</li>
+</ul>
+<p>Si une mise à jour a échoué, l'application suggère de <strong>rouvrir l'application pour forcer une nouvelle mise à jour</strong>. C'est un panneau en lecture seule : il est là pour confirmer que votre protection reflète vos listes les plus récentes.</p>
+
+<h3 id="fr-imp-icloud">Synchronisation iCloud</h3>
+<p>Avec l'interrupteur <strong>« Synchronisation iCloud »</strong>, vos données — listes et réglages — s'alignent automatiquement entre vos appareils Apple, via iCloud. C'est disponible pour tous, même sans Premium. Les données transitent par les serveurs d'Apple et <strong>aucun serveur tiers</strong> n'y a accès (voir la <a href="privacy.html">Politique de confidentialité</a>).</p>
+<p>Lors de la <strong>première activation</strong>, vous choisissez comment initialiser la synchronisation, parmi trois modes :</p>
+<ul>
+  <li><strong>Utiliser iCloud</strong> — partir des données déjà sur iCloud (écrase les données locales).</li>
+  <li><strong>Utiliser l'iPhone</strong> — partir des données de cet appareil (les envoyer sur iCloud).</li>
+  <li><strong>Fusionner les données</strong> — combiner les deux ensembles ; à la fin, vous voyez un <strong>rapport de fusion</strong> avec les compteurs <em>Local / Cloud / Fusionnés</em> et la confirmation que <em>« les données en double ont été fusionnées automatiquement »</em>.</li>
+</ul>
+<p>Vous trouverez aussi <strong>« Vérifier le statut iCloud »</strong> pour voir le dernier statut et les dernières synchronisations, et <strong>« Réinitialiser le cache Cloud (avancé) »</strong> pour forcer une resynchronisation locale complète, si quelque chose ne colle pas.</p>
+
+<h3 id="fr-imp-sms">Filtre SMS</h3>
+<p>Outre les appels, Scudo Chiamate peut filtrer les <strong>SMS/MMS d'expéditeurs inconnus</strong>. Vous activez la fonctionnalité avec l'interrupteur <strong>« Filtre des messages »</strong> dans les préférences. La classification se fait <strong>entièrement sur l'appareil</strong>.</p>
+<p>Ici aussi, comme pour les appels, une seconde étape dans iOS est nécessaire pour que le filtre fonctionne réellement :</p>
+<p><strong>Réglages iOS → Apps → Messages → Inconnus et indésirables → Filtrage des SMS → « Scudo Chiamate »</strong>.</p>
+<p>Les numéros que vous avez dans les <a href="#fr-liste-consentiti">Autorisés</a> ne sont <strong>jamais</strong> filtrés : la liste blanche des autorisés est toujours respectée, de sorte que les messages des personnes qui vous tiennent à cœur passent quand même.</p>
+
+<h3 id="fr-imp-premium">Premium</h3>
+<p>La section <strong>Services Premium</strong> affiche votre formule actuelle — <strong>« Formule gratuite »</strong> ou <strong>« Premium actif »</strong> — et ce qu'elle implique. La principale différence concerne le blocage système :</p>
+<ul>
+  <li><strong>Gratuit</strong> — iOS applique les <strong><span data-num="limiteFree">500</span> premiers numéros actifs</strong> au blocage.</li>
+  <li><strong>Premium</strong> — <strong>tous</strong> les numéros sont appliqués à CallKit, sans la limite de <span data-num="limiteFree">500</span>.</li>
+</ul>
+<p>Premium débloque aussi :</p>
+<ul>
+  <li>la <a href="#fr-analisi-autoespansione">gestion automatique des plages</a> (auto-extension) ;</li>
+  <li>les <a href="#fr-liste-filtri">filtres de liste</a> (date, source, type, pays) ;</li>
+  <li>l'application au blocage de <strong>tous</strong> les numéros enregistrés, au-delà des <span data-num="limiteFree">500</span> de la version gratuite.</li>
+</ul>
+<p>Les interrupteurs associés — <strong>« Gestion automatique des plages »</strong> et <strong>« Afficher les filtres de liste »</strong> — restent visibles en version gratuite aussi mais désactivés ; votre choix est mémorisé et restauré si vous repassez à Premium.</p>
+<p>Pour les achats, vous utilisez <strong>« Voir les formules Premium »</strong> (choisir le forfait et finaliser l'achat) et <strong>« Restaurer les achats »</strong> pour récupérer un abonnement déjà actif, par exemple sur un autre appareil. <strong>« Actualiser le statut de l'abonnement »</strong> resynchronise le statut s'il n'était pas à jour.</p>
+
+<h3 id="fr-imp-importa">Importer des numéros</h3>
+<p>Depuis la gestion des données, vous pouvez charger des numéros en masse, dans les <a href="#fr-liste-bloccati">Bloqués</a> comme dans les <a href="#fr-liste-consentiti">Autorisés</a>. Il y a plusieurs façons de faire.</p>
+
+<h4>Depuis un fichier CSV ou vCard</h4>
+<p>Avec <strong>« Importer les bloqués »</strong> / <strong>« Importer les autorisés »</strong>, vous choisissez un fichier <code>CSV</code> ou <code>vCard</code> (.vcf). L'application l'analyse et vous montre un résumé — combien de nouveaux numéros elle a trouvés, combien étaient déjà présents, combien elle va ajouter — puis vous confirmez avec <strong>Importer</strong>.</p>
+
+<h4>Depuis des captures d'écran ou des photos (OCR)</h4>
+<p>Avec <strong>« Importer … depuis des images »</strong>, vous sélectionnez jusqu'à <strong><span data-num="maxImmagini">100</span> images</strong> et l'application en extrait les numéros automatiquement. Gardez à l'esprit que :</p>
+<ul>
+  <li>seuls les numéros au <strong>format international, avec un indicatif (+)</strong>, sont reconnus ;</li>
+  <li>les dates et le texte autour des numéros sont ignorés ;</li>
+  <li>chaque numéro doit être sur <strong>une seule ligne</strong> : si un grand texte sur votre iPhone le fait passer à la ligne, réduisez temporairement la <em>Taille du texte</em> avant de faire la capture d'écran.</li>
+</ul>
+
+<h4>Depuis vos contacts</h4>
+<p>Avec <strong>« Importer les bloqués depuis les contacts »</strong> / <strong>« Importer les autorisés depuis les contacts »</strong>, le sélecteur de contacts iOS s'ouvre : choisissez les contacts à bloquer (ou à autoriser) et l'application importe leurs numéros de téléphone. Seuls les numéros au <strong>format international, avec un indicatif (+)</strong>, sont pris ; si les contacts choisis n'en ont aucun, l'application vous le signale et n'importe rien.</p>
+
+<h4>Récupérer la liste des bloqués d'iOS</h4>
+<p>L'élément <strong>« Récupérer la liste des bloqués d'iOS »</strong> ouvre un guide pas à pas pour réimporter les contacts que vous aviez déjà bloqués dans iOS : en bref, allez dans <em>Réglages iPhone → Téléphone → Contacts bloqués</em>, faites une ou plusieurs captures d'écran de la liste, puis revenez ici et chargez-les avec <strong>« Importer les bloqués depuis des images »</strong>. Les numéros sont extraits par OCR comme ci-dessus.</p>
+
+<p><strong>Note :</strong> l'import n'est jamais limité par les <span data-num="limiteFree">500</span> de la version gratuite — tous les numéros sont enregistrés. Cette limite ne concerne que combien de numéros sont <em>appliqués</em> au blocage iOS : voir <a href="#fr-imp-limite">Numéros enregistrés vs numéros actifs</a>.</p>
+
+<h3 id="fr-imp-condividi">Partager et exporter la liste</h3>
+<p>Avec <strong>« Exporter les bloqués »</strong> / <strong>« Exporter les autorisés »</strong>, vous créez un <strong>fichier CSV</strong> de la liste, à enregistrer ou à partager via la feuille de partage iOS (pour faire une sauvegarde, la transmettre à un autre appareil, l'ouvrir ailleurs).</p>
+<p>Lors de l'export, vous pouvez choisir <strong>ce qu'il faut</strong> inclure :</p>
+<ul>
+  <li><strong>Tout exporter</strong> — tous les numéros de la liste, y compris ceux générés automatiquement par les plages.</li>
+  <li><strong>Sources uniquement</strong> — seulement les numéros que vous avez ajoutés manuellement ou importés, en excluant ceux générés par l'extension des plages.</li>
+</ul>
+
+<h3 id="fr-imp-cache">Nettoyage et maintenance</h3>
+<h4>Vider le cache de l'application</h4>
+<p>Depuis les diagnostics, <strong>« Vider le cache de l'application »</strong> libère de l'espace de stockage en supprimant les données temporaires. <strong>Cela ne touche pas à vos listes</strong> : les numéros bloqués et autorisés restent intacts.</p>
+<h4>Vider les listes</h4>
+<p>Avec <strong>« Vider les listes »</strong>, vous ouvrez les actions de vidage (une « zone de danger ») pour effacer entièrement les Bloqués ou les Autorisés. Avant de poursuivre, l'application demande <strong>« Créer une sauvegarde ? »</strong>, avec trois choix :</p>
+<ul>
+  <li><strong>Sauvegarder et vider</strong> — exporte d'abord un CSV de la liste, puis la vide.</li>
+  <li><strong>Vider sans sauvegarde</strong> — supprime directement (opération irréversible).</li>
+  <li><strong>Annuler</strong> — ne fait rien.</li>
+</ul>
+<p>C'est la manière sûre de repartir de zéro sans perdre de données par erreur.</p>
+
+<nav class="doc-nav">
+  <span class="current">Guide</span>
+  <a href="privacy.html">Confidentialité</a>
+  <a href="changelog.html">Nouveautés</a>
+</nav>
+
+</div>
+<!-- ==================== /FRANÇAIS ==================== -->
+
+
+<!-- ==================== DEUTSCH ==================== -->
+<div class="lang" data-lang="de">
+
+<div class="app-header">
+  <img class="app-icon" src="app-icon.png" alt="Scudo Chiamate Symbol" width="76" height="76">
+  <div>
+    <h1>Scudo Chiamate</h1>
+    <p class="meta">Anleitung<br>
+    Zuletzt aktualisiert: 28. Mai 2026</p>
+  </div>
+</div>
+
+<nav class="toc">
+  <h2>Inhalt</h2>
+  <ul>
+    <li><a href="#de-cosa-fa">Was Scudo Chiamate leistet</a></li>
+    <li><a href="#de-analizza"><span class="tab-icon">📊</span>Analysieren</a>
+      <ul>
+        <li><a href="#de-analisi-avvio">Die Analyse ausführen</a></li>
+        <li><a href="#de-analisi-parametri">Die Parameter</a></li>
+        <li><a href="#de-analisi-range">Gefundene, verworfene und bestehende Bereiche</a></li>
+        <li><a href="#de-analisi-applica">Bereiche anwenden oder verwerfen</a></li>
+        <li><a href="#de-analisi-attivi">Aktive Bereiche lesen</a></li>
+        <li><a href="#de-analisi-elimina">Bereiche löschen</a></li>
+        <li><a href="#de-analisi-autoespansione">Automatische Erweiterung (Automatische Bereichsverwaltung)</a></li>
+      </ul>
+    </li>
+    <li><a href="#de-liste"><span class="tab-icon">🛡️</span>Die Listen: Blockiert und Erlaubt</a>
+      <ul>
+        <li><a href="#de-liste-bloccati">Die Liste Blockiert</a></li>
+        <li><a href="#de-liste-consentiti">Die Liste Erlaubt</a></li>
+        <li><a href="#de-liste-aggiungere">Eine Nummer hinzufügen</a></li>
+        <li><a href="#de-liste-importare">Nummern importieren (in den Einstellungen)</a></li>
+        <li><a href="#de-liste-precedenza">Erlaubte Nummern haben Vorrang</a></li>
+        <li><a href="#de-liste-filtri">Filter</a></li>
+        <li><a href="#de-liste-range">Bereiche</a></li>
+      </ul>
+    </li>
+    <li><a href="#de-impostazioni"><span class="tab-icon">⚙️</span>Einstellungen</a>
+      <ul>
+        <li><a href="#de-imp-attivazione">Blockierung in iOS aktivieren</a></li>
+        <li><a href="#de-imp-limite">Gespeicherte vs. aktive Nummern</a></li>
+        <li><a href="#de-imp-aggiornamento">Status der letzten Aktualisierung</a></li>
+        <li><a href="#de-imp-icloud">iCloud-Synchronisierung</a></li>
+        <li><a href="#de-imp-sms">SMS-Filter</a></li>
+        <li><a href="#de-imp-premium">Premium</a></li>
+        <li><a href="#de-imp-importa">Nummern importieren</a></li>
+        <li><a href="#de-imp-condividi">Die Liste teilen und exportieren</a></li>
+        <li><a href="#de-imp-cache">Bereinigung und Wartung</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<h2 id="de-cosa-fa">Was Scudo Chiamate leistet</h2>
+<p>Scudo Chiamate schützt Sie vor unerwünschten Anrufen und Nachrichten – Telemarketing, Betrug, lästige Callcenter. Der Unterschied zu einer einfachen Sperrliste ist nur eine einzige Sache, doch sie ändert alles: <strong>die App blockiert nicht nur die Nummern, die Sie eingeben, sondern analysiert sie, um das Muster derjenigen zu erkennen, die Sie belästigen, und blockiert auch ähnliche Nummern proaktiv.</strong></p>
+
+<h3>1. Sie beginnt bei den Nummern, die Sie blockieren</h3>
+<p>Der Ausgangspunkt sind Sie: die Nummern, von denen Sie unerwünschte Anrufe oder Nachrichten erhalten haben. Sie können sie auf mehrere Arten hinzufügen:</p>
+<ul>
+  <li>indem Sie sie von Hand eingeben, eine nach der anderen;</li>
+  <li>indem Sie sie aus einer <code>CSV</code>- oder <code>vCard</code>-Datei importieren;</li>
+  <li>indem Sie sie aus Screenshots oder Fotos importieren (OCR);</li>
+  <li>indem Sie sie aus Ihren Kontakten auswählen;</li>
+  <li>indem Sie die Liste der Nummern, die Sie bereits in iOS blockiert haben, erneut importieren.</li>
+</ul>
+<p>Das ist Ihre Liste Blockiert: die Grundlage, auf der alles andere aufbaut.</p>
+
+<h3>2. Die App sucht nach Zusammenhängen zwischen Nummern</h3>
+<p>Spammer rufen fast nie von einer einzigen Nummer an. Callcenter und Telemarketing-Unternehmen verwenden <strong>Blöcke aufeinanderfolgender oder sehr ähnlicher Nummern</strong>: gleiche Vorwahl, gleiche Anfangsziffern, bei denen sich nur die letzten ändern. Wenn eine Nummer zu oft gemeldet wird, schalten sie eine andere, fast identische ein und fangen von vorne an.</p>
+<p>Scudo Chiamate nutzt genau diese Gewohnheit aus. Es analysiert die Nummern, die Sie blockiert haben, erkennt diese Muster und gruppiert die einander ähnelnden Nummern zu <strong>Bereichen</strong> – Intervalle, die aller Wahrscheinlichkeit nach demselben Absender gehören.</p>
+
+<h3>3. Ähnliche Nummern werden automatisch blockiert</h3>
+<p>Sobald ein Bereich erkannt ist, blockiert die App nicht nur die genauen Nummern, die Sie eingegeben haben, sondern <strong>deckt das gesamte Intervall ab</strong> – einschließlich Nummern, von denen Sie noch keinen einzigen Anruf erhalten haben. So sind Sie bereits geschützt, wenn der Spammer seine Nummer leicht ändert: Sie müssen nicht erst auf den Anruf warten, ihn entgegennehmen und ihn dann blockieren.</p>
+
+<div class="example">
+  <p class="label">Beispiel</p>
+  <p>Sie haben drei Nummern erhalten und blockiert: <code>06 1234 5670</code>, <code>06 1234 5674</code> und <code>06 1234 5679</code>.</p>
+  <p>Scudo Chiamate erkennt, dass sie zum selben Block gehören, und schützt den <strong>gesamten Bereich von der niedrigsten bis zur höchsten Nummer</strong> – also von <code>06 1234 5670</code> bis <code>06 1234 5679</code>. Damit sind auch alle dazwischenliegenden Nummern abgedeckt, die Sie nie erhalten haben (zum Beispiel <code>06 1234 5672</code> oder <code>06 1234 5677</code>), da sie höchstwahrscheinlich demselben Callcenter gehören.</p>
+</div>
+
+<p>Das Ergebnis ist ein Schutz, der <strong>Spam vorwegnimmt, statt ihm hinterherzulaufen</strong>: je mehr Nummern Sie melden, desto besser lernt die App das Muster derjenigen, die Sie belästigen, und desto besser gelingt es ihr, Anrufe zu stoppen, noch bevor sie überhaupt eintreffen.</p>
+
+
+<h2 id="de-analizza"><span class="tab-icon">📊</span>Analysieren</h2>
+<p>Der Tab <strong>Analysieren</strong> ist das smarte Herzstück der App: Hier untersuchen Sie die Nummern, die Sie blockiert haben, um Bereiche zu erkennen und zu entscheiden, welche Sie aktivieren.</p>
+
+<h3 id="de-analisi-avvio">Die Analyse ausführen</h3>
+<p>Im Tab <strong>Analysieren</strong> finden Sie die Karte <strong>Datenbankanalyse</strong>. Drücken Sie die Schaltfläche <strong>Analyse ausführen</strong>, um Ihre Liste der blockierten Nummern zu untersuchen: Während sie arbeitet, zeigt die Schaltfläche einen <strong>Fortschrittsprozentsatz</strong> und färbt sich nach Abschluss <strong>grün mit einem Häkchen</strong>. Der Vorgang läuft vollständig auf Ihrem Gerät und ändert nichts, bis Sie die Ergebnisse bestätigen.</p>
+<p>Daneben, links davon, öffnet die Schaltfläche <strong>Info</strong> – direkt in der App – die vollständige Erläuterung der <a href="#de-analisi-parametri">Parameter</a> und der Bereichsregeln.</p>
+
+<p>Während der Analyse betrachtet die App <strong>die Nummern nicht einzeln</strong>, sondern sucht nach den Mustern, die sie verbinden. Konkret fahndet sie nach:</p>
+<ul>
+  <li><strong>Nummern, die dieselben Anfangsziffern teilen</strong> (dieselbe Vorwahl), da dies das typische Zeichen eines Nummernblocks ist, der demselben Callcenter zugewiesen wurde;</li>
+  <li><strong>Gruppen, die groß genug sind</strong>, um kein Zufall zu sein: ein paar verstreute Nummern reichen nicht, man braucht genügend ähnliche Nummern, damit es sich lohnt, sie als einen einzigen Block zu behandeln;</li>
+  <li><strong>der Ausdehnung des Blocks</strong>, also der niedrigsten und der höchsten Nummer der Gruppe, um den Bereich vorzuschlagen, der sie alle umschließt.</li>
+</ul>
+
+<p>Das Ergebnis der Analyse ist eine Liste <strong>vorgeschlagener Bereiche</strong>: Intervalle von Nummern, die sich aufgrund der gefundenen Muster lohnen, vollständig blockiert zu werden, statt einzelnen Nummern hinterherzulaufen. Die Analyse <strong>schlägt nur vor</strong> – Sie entscheiden, welche Bereiche angewendet und welche verworfen werden (siehe <a href="#de-analisi-applica">Bereiche anwenden oder verwerfen</a>). Wie „aggressiv“ die Analyse beim Gruppieren ist, hängt von den <a href="#de-analisi-parametri">Parametern</a> ab, die Sie vor dem Ausführen anpassen können.</p>
+
+<h3 id="de-analisi-parametri">Die Parameter</h3>
+<p>Bevor Sie die Analyse ausführen, können Sie <strong>drei Parameter</strong> anpassen, die festlegen, wie vorsichtig oder aggressiv die App beim Gruppieren von Nummern vorgeht. Sie gelten sowohl im manuellen als auch im automatischen Modus. Eine vollständige Erläuterung dieser Parameter – und der Regeln, nach denen Bereiche erstellt, verworfen und erweitert werden – finden Sie in der App: Tippen Sie auf die Schaltfläche <strong>Info</strong> neben <em>Analyse ausführen</em>.</p>
+
+<h4>Mindestanzahl Vorwahlziffern</h4>
+<p>Legt fest, <strong>wie viele Anfangsziffern übereinstimmen müssen</strong>, damit zwei Nummern als „verwandt“ gelten und in denselben Bereich gelangen. Die Zählung umfasst die internationale Vorwahl.</p>
+<ul>
+  <li><strong>Hohe Werte</strong> (z. B. 9–10): viele übereinstimmende Ziffern sind erforderlich → <strong>kleinere, spezifischere</strong> Bereiche, die weniger Nummern abdecken.</li>
+  <li><strong>Niedrige Werte</strong> (z. B. 6–7): wenige übereinstimmende Ziffern genügen → <strong>breitere</strong> Bereiche, die mehr Nummern abdecken.</li>
+</ul>
+
+<h4>Mindestanzahl Nummern pro Bereich</h4>
+<p>Das ist die <strong>Mindestanzahl an Nummern</strong>, die nötig ist, um einen neuen Bereich zu erstellen: Wenn Ihre Liste Blockiert nicht mindestens so viele ähnliche Nummern enthält, erstellt die App den Bereich nicht.</p>
+<ul>
+  <li><strong>Niedrige Werte</strong> (z. B. 3–5): finden <strong>mehr Bereiche</strong>, aber mit geringerer Zuverlässigkeit (höheres Risiko gewagter Gruppierungen).</li>
+  <li><strong>Hohe Werte</strong> (z. B. 6–10): akzeptieren nur Gruppen, die <strong>besser durch die Daten gestützt</strong> sind, also sicherer.</li>
+</ul>
+
+<h4>Längere Vorwahlen aktivieren</h4>
+<p>Das ist der Schalter, der die meiste Aufmerksamkeit verdient, denn er ändert den <em>Charakter</em> der Analyse. Wenn die App eine Gruppe von Nummern untersucht, kann sie sie oft auf mehr als eine Weise beschreiben: mit einer <strong>kurzen</strong> Vorwahl (wenige gemeinsame Ziffern → ein breiter Bereich, der viele Nummern verschlingt) oder mit einer <strong>langen</strong> Vorwahl (mehr gemeinsame Ziffern → ein enger, gezielter Bereich). Dieser Parameter entscheidet, welchen Weg man bevorzugt, wenn beide möglich sind.</p>
+<ul>
+  <li><strong>An</strong> – die Analyse wählt die <strong>spezifischeren</strong> Vorwahlen: gezieltere Bereiche, die nur das blockieren, was wirklich nach Spam aussieht. Es ist die Option, die das <strong>Risiko von Fehlalarmen</strong> verringert, also das versehentliche Blockieren legitimer Nummern, die nur den Anfang teilen.</li>
+  <li><strong>Aus</strong> – die Analyse neigt zu <strong>kürzeren</strong> Vorwahlen: Sie erzeugt <strong>weniger, aber breitere</strong> Bereiche. Sie deckt mehr Nummern auf einmal ab, zum Preis eines höheren Risikos, unschuldige Nummern einzuschließen.</li>
+</ul>
+<p>Der Unterschied ergibt sich daraus, <strong>wo die App mit dem Vergleich der Nummern beginnt</strong>:</p>
+<ul>
+  <li><strong>An</strong> – die App beginnt bei den <strong>letzten Ziffern rechts</strong>: Sie hält fast alle Ziffern fest und lässt nur die letzten variieren. Sie sucht zuerst nach den engsten Gruppen (wenige abweichende Endziffern) und weitet ihren Blick erst dann nach links aus, wenn diese nicht ausreichen. Deshalb bringt sie zuerst die kleinen, präzisen Blöcke zum Vorschein.</li>
+  <li><strong>Aus</strong> – die App beginnt bei den <strong>ersten Ziffern links</strong>: Sie fixiert nur den Anfang der Nummer und lässt alles andere variieren. Breite Gruppierungen bilden sich sofort und „beanspruchen“ die Nummern, sodass breite Bereiche tendenziell überwiegen.</li>
+</ul>
+<p>Auch die Reihenfolge zählt: <strong>wer eine Nummer zuerst gruppiert, beansprucht sie</strong>. Deshalb bringt der Start von rechts (an) gezielte Bereiche hervor, während der Start von links (aus) ausgedehnte hervorbringt.</p>
+<div class="example">
+  <p class="label">Beispiel</p>
+  <p>Ihre blockierten Nummern beginnen alle mit <code>06 1234 56…</code>, doch in Wirklichkeit sind nur diejenigen Spam, die mit <code>567X</code> weitergehen.</p>
+  <p>Mit <strong>„längere Vorwahlen bevorzugen“ an</strong> schlägt die App den engen Bereich <code>06 1234 5670</code>–<code>5679</code> vor, fokussiert auf den tatsächlichen Belästigungsblock. Mit dem Parameter <strong>aus</strong> könnte sie einen breiteren Bereich wie <code>06 1234 5600</code>–<code>5699</code> vorschlagen: Er blockiert mehr, riskiert aber, Nummern zu erwischen, die nichts damit zu tun haben.</p>
+</div>
+<p>Kurz gesagt: <strong>an = Präzision</strong> (empfohlen, wenn Sie befürchten, gute Nummern zu blockieren), <strong>aus = Abdeckung</strong> (nützlich, wenn Sie breitere Netze wollen und darauf vertrauen, dass das Band nur Spam enthält).</p>
+
+<p><strong>Tipp:</strong> Beginnen Sie mit den Standardwerten und ändern Sie <strong>einen Parameter nach dem anderen</strong>, indem Sie die Analyse erneut ausführen, um die Auswirkung auf die vorgeschlagenen Bereiche sofort zu sehen.</p>
+
+<h3 id="de-analisi-range">Gefundene, verworfene und bestehende Bereiche</h3>
+<p>Wenn die Analyse abgeschlossen ist, werden die Ergebnisse in drei getrennte Listen gegliedert, sodass Sie auf einen Blick erkennen, was die App vorschlägt, was sie beiseitegelegt hat und was bereits aktiv ist.</p>
+
+<h4>Gefundene potenzielle Bereiche</h4>
+<p>Das sind die <strong>neuen Bereiche, die die App zur Aktivierung vorschlägt</strong>, grün markiert. Sie haben alle Prüfungen bestanden und stellen Blöcke dar, die sich aufgrund der Muster in Ihren Nummern lohnen, vollständig blockiert zu werden. Sie bleiben bloße Vorschläge, bis Sie sie anwenden (siehe <a href="#de-analisi-applica">Bereiche anwenden oder verwerfen</a>).</p>
+<p>Einige Vorschläge tragen eine Kennzeichnung, die erklärt, wie sie entstanden sind:</p>
+<ul>
+  <li><strong>ZUSAMMENGEFÜHRT</strong> (violett) – der vorgeschlagene Bereich entsteht aus der <strong>Vereinigung mehrerer Bereiche</strong>, die sich überlappten oder berührten und zu einem einzigen, breiteren Intervall zusammengeführt wurden.</li>
+  <li><strong>ERWEITERT</strong> (grün) – der vorgeschlagene Bereich ist die <strong>Erweiterung eines bereits aktiven Bereichs</strong>, verbreitert, um die neu gefundenen Nummern einzuschließen.</li>
+</ul>
+
+<h4>Verworfene potenzielle Bereiche</h4>
+<p>Das sind Bereiche, die die App <strong>erkannt, aber entschieden hat, nicht vorzuschlagen</strong>. Sie erscheinen aus Transparenzgründen in einer separaten Liste: Sie können sie sehen, aber sie werden nicht automatisch aktiviert. Die App verwirft sie, <strong>um irreführende Bereiche zu vermeiden</strong> – Blöcke, die plausibel aussehen, aber riskieren würden, auf zu wenig Belegen basierend zu viele unschuldige Nummern zu erwischen.</p>
+<p>Ein Bereich wird verworfen, wenn er in einen dieser Fälle fällt:</p>
+<ul>
+  <li><strong>Zu groß</strong> – er deckt mehr als <strong><span data-num="maxRange">10.000</span> Nummern</strong> ab. Ein so breites Intervall sieht nicht nach dem Block eines einzelnen Callcenters aus, sondern nach einem ganzen Nummernband: Es zu blockieren würde mehr schaden als nützen.</li>
+  <li><strong>Zu „spärlich“ (geringe Dichte)</strong> – er enthält zu wenige <em>Ihrer eigenen</em> Nummern im Verhältnis zu seiner Breite. Um vorgeschlagen zu werden, muss ein Bereich auf mindestens <strong>0,65 % echten Nummern</strong> (den Quellen) ruhen, gemessen an der Anzahl der Nummern, die er abdeckt: je breiter er ist, desto mehr Belege braucht er. Reichen die Quellen für seine Breite nicht aus, wird der Bereich verworfen, da er ein großes Intervall auf zu wenig Belegen blockieren würde – der klassische irreführende Bereich.</li>
+  <li><strong>Eine einzelne Nummer</strong> (im automatischen Modus) – die automatische Analyse macht aus einer isolierten Nummer keinen Bereich, da eine einzelne Nummer kein Muster ist.</li>
+</ul>
+<div class="example">
+  <p class="label">Mindestanzahl Quellen, um vorgeschlagen zu werden</p>
+  <table class="refs">
+    <tr><th>Breite des Bereichs</th><th>Mindestanzahl Quellen</th></tr>
+    <tr><td>250</td><td>2</td></tr>
+    <tr><td>500</td><td>4</td></tr>
+    <tr><td>1.000</td><td>7</td></tr>
+    <tr><td>1.500</td><td>10</td></tr>
+    <tr><td>2.000</td><td>13</td></tr>
+    <tr><td>2.500</td><td>17</td></tr>
+    <tr><td>3.000</td><td>20</td></tr>
+    <tr><td>3.500</td><td>23</td></tr>
+    <tr><td>4.000</td><td>26</td></tr>
+    <tr><td>4.500</td><td>30</td></tr>
+    <tr><td>5.000</td><td>33</td></tr>
+    <tr><td>5.500</td><td>36</td></tr>
+    <tr><td>6.000</td><td>39</td></tr>
+    <tr><td>6.500</td><td>43</td></tr>
+    <tr><td>7.000</td><td>46</td></tr>
+    <tr><td>7.500</td><td>49</td></tr>
+    <tr><td>8.000</td><td>52</td></tr>
+    <tr><td>8.500</td><td>56</td></tr>
+    <tr><td>9.000</td><td>59</td></tr>
+    <tr><td>9.500</td><td>62</td></tr>
+    <tr><td>10.000</td><td>65</td></tr>
+  </table>
+</div>
+<p>Diese Bereiche zu verwerfen ist eine vorsichtige Entscheidung: besser ein zweifelhaftes Intervall nicht blockieren, als zu riskieren, legitime Nummern zum Schweigen zu bringen. Wenn Sie aber sicher sind, dass ein verworfener Bereich blockiert werden sollte, können Sie ihn jederzeit von Hand über die Listen handhaben.</p>
+
+<h4>Bestehende Bereiche</h4>
+<p>Das sind die Bereiche, die <strong>in Ihrem Schutz bereits aktiv</strong> sind, das Ergebnis vorheriger Analysen oder von Ihnen hinzugefügt. Sie dienen als Referenz: Die Analyse berücksichtigt sie, damit sie nicht erneut vorschlägt, was Sie bereits haben, und bei Bedarf <strong>erweitert</strong> sie sie, wenn neue Nummern knapp davor oder knapp danach fallen (siehe <a href="#de-analisi-autoespansione">Automatische Erweiterung</a>).</p>
+<p>Beim Tippen auf das Symbol <strong>ℹ️ Info</strong> einer Zeile werden ihre <strong>vollständigen Details</strong> angezeigt – abgedeckte Nummern, Quellen, Zusammensetzung und etwaige Ausnahmen (siehe <a href="#de-analisi-attivi">Aktive Bereiche lesen</a>).</p>
+
+<h3 id="de-analisi-applica">Bereiche anwenden oder verwerfen</h3>
+<p>Die Analyse <strong>schlägt vor</strong>, aber das letzte Wort haben immer Sie: Kein Bereich wird aktiv, bis Sie ihn bestätigen. Jeder gefundene Bereich hat einen <strong>Schalter</strong> in seiner Zeile, mit dem Sie ihn auswählen oder beiseitelegen können.</p>
+
+<h4>Die gefundenen Bereiche anwenden</h4>
+<p>Aktivieren Sie den Schalter der Bereiche, die Sie blockieren möchten – Sie können beliebig viele auswählen – und drücken Sie dann die Leiste <strong>Ausgewählte Bereiche anwenden</strong>, die oben unter der Notch erscheint. Von diesem Moment an treten die gewählten Bereiche in Ihren Schutz ein: Sie wandern in die <a href="#de-analisi-range">Bestehenden Bereiche</a>, und jede Nummer darin wird blockiert.</p>
+
+<h4>Einen Bereich in Ruhe lassen</h4>
+<p>Um einen Vorschlag zu verwerfen, <strong>wählen Sie ihn einfach nicht aus</strong>: Indem Sie den Schalter aus lassen, wird dieser Bereich schlicht nicht angewendet. Zum „Ablehnen“ ist keine Bestätigung nötig – was Sie nicht aktivieren, bleibt inaktiv.</p>
+
+<h4>Einen verworfenen Bereich dennoch anwenden</h4>
+<p>Die <a href="#de-analisi-range">verworfenen potenziellen Bereiche</a> sind in einem separaten, einklappbaren Abschnitt versammelt. Die App empfiehlt sie nicht, aber wenn Sie sicher sind, dass ein Intervall blockiert werden sollte, können Sie die Liste öffnen, den Schalter des gewünschten aktivieren und <strong>Verworfene Bereiche anwenden</strong> drücken. Es ist eine bewusste Entscheidung: Sie sagen der App, dass sie Ihrem Urteil mehr vertrauen soll als ihrer eigenen Vorsicht.</p>
+
+<h4>Bereiche, die zu groß sind</h4>
+<p>Bereiche, die als zu groß eingestuft werden, um sicher blockiert zu werden, <strong>können nicht ausgewählt werden</strong>: Ihr Schalter ist deaktiviert, gerade um zu verhindern, dass ein riesiger Block versehentlich angewendet wird.</p>
+
+<p>Sie können jederzeit erneut analysieren, die <a href="#de-analisi-parametri">Parameter</a> ändern und die Vorschläge überdenken: Bereiche anzuwenden ist nie ein endgültiger Vorgang, und die feingranulare Verwaltung von Nummern bleibt stets über die <a href="#de-liste">Listen</a> verfügbar.</p>
+
+<h3 id="de-analisi-attivi">Aktive Bereiche lesen</h3>
+<p>In der Liste <a href="#de-analisi-range">Bestehende Bereiche</a> stellt jede Zeile einen aktiven Bereich dar. Einige Indikatoren sagen Ihnen auf einen Blick, wie er aufgebaut ist und woher seine Nummern stammen.</p>
+
+<h4>Die farbigen Punkte: wie der Bereich entstanden ist</h4>
+<p>Neben jedem Bereich können zwei Punkte erscheinen, die die Herkunft der Nummern angeben, aus denen er besteht:</p>
+<ul>
+  <li><span class="dot" style="background:#f5a623"></span><strong>Oranger Punkt – Manuell:</strong> Nummern, die durch <strong>manuelle Bereichsverwaltung</strong> in den Bereich gelangt sind, also als <strong>Sie</strong> einen Bereich angewendet haben. Das sind keine einzeln eingetippten Nummern, sondern diejenigen, mit denen die App das Intervall infolge einer von Ihnen ausgelösten Aktion gefüllt hat.</li>
+  <li><span class="dot" style="background:#3fa9f5"></span><strong>Blauer Punkt – Automatisch:</strong> Nummern, die <strong>automatisch</strong> in den Bereich gelangt sind, also durch die automatische Bereichserweiterung hinzugefügt, ohne ein direktes Zutun Ihrerseits.</li>
+</ul>
+<p>Ein Bereich kann <strong>beide Punkte</strong> zeigen: Das bedeutet, dass er sich teils durch Ihre manuellen Anwendungen und teils durch automatische Erweiterung gefüllt hat. Es ist die schnellste Art zu erkennen, ob ein Bereich überwiegend durch Ihre Wahl oder durch Automatisierung gewachsen ist.</p>
+
+<h4>Die Badges ERWEITERBAR und AUSNAHMEN</h4>
+<p>In einigen Zeilen können zwei farbige Kennzeichnungen erscheinen:</p>
+<ul>
+  <li><strong>ERWEITERBAR</strong> (grün) – die jüngste Analyse hat einen <strong>breiteren Vorschlag erkannt, der diesen Bereich umfasst</strong>: Durch Anwenden würde sich der Bereich erweitern, um auch die neu gefundenen Nummern abzudecken. Es ist eine Einladung, einen Blick zu werfen, keine automatische Aktion.</li>
+  <li><strong>AUSNAHMEN N</strong> (rot) – innerhalb des Intervalls des Bereichs gibt es <strong>N Nummern, die Sie in Ihrer Liste Erlaubt haben</strong>. Diese Nummern dürfen Sie weiterhin anrufen – sie sind die Ausnahmen, die unter <a href="#de-liste-precedenza">Erlaubte Nummern haben Vorrang</a> beschrieben werden – während der Rest des Bereichs weiterhin blockiert.</li>
+</ul>
+
+<h4>Das Info-Symbol: die Karte Bereichsdetails</h4>
+<p>Beim Tippen auf das Symbol <strong>ℹ️ Info</strong> (der blaue Kreis in der Zeile) öffnet sich die Karte <strong>Bereichsdetails</strong> mit den vollständigen Statistiken des Intervalls:</p>
+<ul>
+  <li><strong>Blockierte Nummern</strong> – wie viele Nummern der Bereich insgesamt abdeckt.</li>
+  <li><strong>Quellen</strong> – wie viele echte Nummern den Bereich hervorgebracht haben.</li>
+  <li><strong>Manuell</strong> und <strong>Automatisch</strong> – die Aufteilung zwischen Nummern, die durch eine manuelle Anwendung von Ihnen in den Bereich gelangt sind, und denen, die durch automatische Erweiterung hinzugefügt wurden, dieselben, die die Punkte anzeigen.</li>
+  <li><strong>Erlaubte Ausnahmen</strong> – etwaige Nummern, die Sie in Ihre Liste <a href="#de-liste-consentiti">Erlaubt</a> gesetzt haben und die frei bleiben, obwohl sie in den Bereich fallen (siehe <a href="#de-liste-precedenza">Erlaubte Nummern haben Vorrang</a>).</li>
+</ul>
+<p>Die Karte ist schreibgeschützt: Sie hilft Ihnen, die Zusammensetzung eines Bereichs zu verstehen, bevor Sie entscheiden, ob Sie ihn behalten, erweitern oder löschen.</p>
+
+<h3 id="de-analisi-elimina">Bereiche löschen</h3>
+<p>Ein aktiver Bereich ist nicht für immer: Sie können ihn jederzeit entfernen. Wählen Sie in der Liste <a href="#de-analisi-range">Bestehende Bereiche</a> einen oder mehrere Bereiche aus und drücken Sie <strong>Löschen</strong>. Dann fragt die App Sie, <em>wie</em> Sie sie löschen möchten, mit zwei Optionen – und der Unterschied ist wichtig.</p>
+
+<h4>Alle Nummern löschen</h4>
+<p>Entfernt den Bereich <strong>und alle Nummern, die er enthielt</strong>, einschließlich derer, die Sie blockiert oder importiert hatten und die den Bereich hervorgebracht haben. Nach dieser Wahl bleibt von diesem Intervall nichts übrig: weder der Bereich noch die Nummern darin. Verwenden Sie sie, wenn Sie eine vollständige Bereinigung wünschen, weil dieser Block für Sie keinen Nutzen mehr hat.</p>
+
+<h4>Quellnummern behalten</h4>
+<p>Entfernt den Bereich, <strong>behält aber Ihre „Quellnummern“</strong>, also diejenigen, die Sie tatsächlich blockiert oder importiert hatten und aus denen der Bereich aufgebaut wurde. Diese Nummern werden wieder <strong>einzeln</strong> blockiert, während die Abdeckung der dazwischenliegenden Nummern, die Sie nie erhalten hatten, endet. In der Praxis: Sie behalten die echten Nummern, die Sie gesammelt haben, geben aber die automatische Erweiterung des Blocks auf.</p>
+
+<div class="example">
+  <p class="label">Beispiel</p>
+  <p>Sie haben einen Bereich <code>06 1234 5670</code>–<code>5679</code>, entstanden aus drei Nummern, die Sie blockiert hatten: <code>5670</code>, <code>5674</code> und <code>5679</code>.</p>
+  <p><strong>Alle Nummern löschen</strong> → alles verschwindet: weder der Bereich noch die drei Nummern bleiben blockiert.</p>
+  <p><strong>Quellnummern behalten</strong> → der Bereich verschwindet, die dazwischenliegenden Nummern (z. B. <code>5672</code>) sind nicht mehr blockiert, aber <code>5670</code>, <code>5674</code> und <code>5679</code> bleiben als Einzelnummern blockiert.</p>
+</div>
+
+<p>Die praktische Regel: Wählen Sie <strong>Quellnummern behalten</strong>, wenn Sie nur die Ausweitung des Blocks rückgängig machen möchten, ohne die Nummern zu verlieren, die Sie selbst gesammelt haben; wählen Sie <strong>Alle Nummern löschen</strong>, wenn Sie jede Spur dieses Bereichs tilgen möchten.</p>
+
+<h3 id="de-analisi-autoespansione">Automatische Erweiterung (Automatische Bereichsverwaltung)</h3>
+<p>Bei eingeschalteter automatischer Verwaltung wiederholt die App jedes Mal, wenn Sie neue Nummern blockieren, <strong>von selbst</strong> dieselbe Arbeit wie die manuelle Analyse, ohne dass Sie den Tab Analysieren öffnen und etwas anwenden müssen. Das bedeutet, dass die Automatik kann:</p>
+<ul>
+  <li><strong>bestehende Bereiche erweitern</strong>, indem sie sich an neue Nummern hängt, die nahe ihren Grenzen fallen;</li>
+  <li><strong>neue Bereiche erstellen</strong>, wenn die gerade blockierten Nummern einen neuen erkennbaren Block bilden.</li>
+</ul>
+<p>Die Nummern, die die App automatisch hinzufügt, sind die mit dem <a href="#de-analisi-attivi">blauen Punkt (Automatisch)</a> markierten.</p>
+
+<p><strong>Es ist eine Premium-Funktion.</strong> Sie schalten sie mit dem Schalter <strong>„Automatische Bereichsverwaltung“</strong> im Tab <a href="#de-impostazioni">Einstellungen</a> ein. Ohne aktives Premium bleibt der Schalter sichtbar, kann aber nicht eingeschaltet werden, und die automatische Verwaltung ist aus: Bereiche werden nur dann erstellt und wachsen nur dann, wenn Sie die Analyse erneut ausführen und sie anwenden.</p>
+
+<h4>Wie weit die Erweiterung reicht: die <span data-num="estLato">1.000</span> Nummern und der Abstand von <span data-num="salto">150</span></h4>
+<p>Die automatische Erweiterung folgt zwei Regeln, die zusammenwirken:</p>
+<ul>
+  <li><strong>Maximale Obergrenze: <span data-num="estLato">1.000</span> Nummern pro Seite.</strong> Ein Bereich kann um höchstens <strong><span data-num="estLato">1.000</span> Nummern vor</strong> seinem Anfang und <strong><span data-num="estLato">1.000</span> Nummern nach</strong> seinem Ende wachsen. Er geht nicht über dieses Limit hinaus, egal wie viele nahe gelegene Nummern es gibt.</li>
+  <li><strong>Maximaler Abstand: <span data-num="salto">150</span>.</strong> Die Erweiterung schreitet „Brücke um Brücke“ voran, Nummer um Nummer: Um sich an die nächste Nummer zu hängen, darf der <strong>Abstand zwischen einer Nummer und der nächsten <span data-num="salto">150</span> nicht überschreiten</strong>. Stößt die App auf einen Abstand größer als <span data-num="salto">150</span>, hält sie dort an, selbst wenn sie die <span data-num="estLato">1.000</span> noch nicht erreicht hat.</li>
+</ul>
+<p>Einfach ausgedrückt: <strong><span data-num="salto">150</span> ist, wie weit der Bereich „springen“ kann</strong>, um sich an die nächste nahe gelegene Nummer zu hängen; <strong><span data-num="estLato">1.000</span> ist die Gesamtobergrenze</strong> dafür, wie weit er auf jeder Seite wachsen kann. Um die <span data-num="estLato">1.000</span> zu erreichen, brauchen Sie daher recht dichte Nummern, jede innerhalb von <span data-num="salto">150</span> zur vorherigen; gibt es an einem Punkt einen zu großen Abstand, hält die Erweiterung früher an.</p>
+
+<p><strong>Das Limit von <span data-num="estLato">1.000</span> gilt für jeden einzelnen Durchlauf, nicht für immer.</strong> Diese Obergrenze gilt für einen Analysedurchlauf; beim nächsten Durchlauf – also wenn Sie das nächste Mal Nummern blockieren und die automatische Verwaltung erneut läuft – <strong>beginnt die Zählung von Null auf Basis der neuen, bereits erweiterten Grenzen</strong>. In der Praxis kann ein Bereich bei jedem Durchgang um weitere <span data-num="estLato">1.000</span> Nummern pro Seite wachsen: Im Laufe der Zeit, Hinzufügung um Hinzufügung, kann er daher insgesamt weit über <span data-num="estLato">1.000</span> Nummern hinausgehen, wobei bei jedem Anhängen stets der maximale Abstand von <span data-num="salto">150</span> eingehalten wird.</p>
+
+<div class="example">
+  <p class="label">Beispiel</p>
+  <p>Sie haben einen aktiven Bereich <code>06 1234 5670</code>–<code>5679</code> und die automatische Verwaltung an.</p>
+  <p>Sie blockieren <code>06 1234 5760</code>: Sie ist etwas über 80 vom Ende des Bereichs entfernt, also <strong>innerhalb des Abstands von <span data-num="salto">150</span></strong> → die App erweitert den Bereich, um sie einzuschließen. Wenn Sie weiterhin nahe gelegene Nummern blockieren, geht die Brücke weiter, bis zu maximal <span data-num="estLato">1.000</span> Nummern über die ursprünglichen Grenzen hinaus.</p>
+  <p>Wenn Sie stattdessen <code>06 1234 9000</code> blockieren, in einem einzigen Sprung zu weit entfernt (mehr als <span data-num="salto">150</span> vom Rand), hängt die App sie <strong>nicht</strong> an diesen Bereich an: Sie bleibt eine Nummer für sich und kann höchstens zusammen mit anderen ähnlichen Nummern einen <strong>neuen</strong> Bereich hervorbringen.</p>
+</div>
+
+<p>Kurz gesagt: Mit eingeschalteter automatischer Premium-Verwaltung bleibt Ihr Schutz „lebendig“, erstellt neue Bereiche und verlängert bestehende, während Sie Nummern blockieren; ohne sie behalten Sie weiterhin die volle manuelle Kontrolle über die Analyse und die Anwendung von Bereichen.</p>
+
+
+<h2 id="de-liste"><span class="tab-icon">🛡️</span>Die Listen: Blockiert und Erlaubt</h2>
+<p>Scudo Chiamate verwaltet zwei sich ergänzende Listen: die <strong>Blockiert</strong>, die Nummern, die Sie nicht erreichen dürfen, und die <strong>Erlaubt</strong>, die Nummern, die immer durchkommen müssen. Sie arbeiten zusammen, und eine Regel hält sie im Gleichgewicht (siehe <a href="#de-liste-precedenza">Erlaubte Nummern haben Vorrang</a>).</p>
+
+<h3 id="de-liste-bloccati">Die Liste Blockiert</h3>
+<p>Der Tab <strong>Blockiert</strong> (Schild mit dem ✕) versammelt alle Nummern, die Sie nicht erreichen dürfen. Oben gibt es eine Übersichtskarte; in der kostenlosen Version zeigt sie zwei verschiedene Werte:</p>
+<ul>
+  <li><strong>Gespeichert</strong> – wie viele Nummern Sie insgesamt in der Liste haben.</li>
+  <li><strong>Aktiv in CallKit</strong> – wie viele davon tatsächlich in der iOS-Blockierung aktiv sind.</li>
+</ul>
+<p>Der Unterschied ist wegen des <a href="#de-imp-attivazione">Limits der kostenlosen Version</a> wichtig: Die Systemblockierung (CallKit) deckt in der Gratis-Version bis zu <strong><span data-num="limiteFree">500</span> aktive Nummern</strong> ab. Wenn Sie mehr gespeichert haben, zeigen die zusätzlichen die orange Warnung <em>„Nicht aktiv in CallKit (Gratis-Limit)“</em> und blockieren nicht, bis Sie zu Premium wechseln oder Platz schaffen.</p>
+<p>Jede Zeile zeigt:</p>
+<ul>
+  <li>einen kleinen Kreis mit dem <strong>Typ</strong>: <strong>S</strong> (blau) = Einzelnummer, <strong>R</strong> (orange) = Bereich;</li>
+  <li>die <strong>Nummer</strong> im internationalen Format (mit dem <code>+</code>) und die Landesflagge;</li>
+  <li>das <strong>Datum</strong> des Hinzufügens und ein farbiges <strong>Quelle-Badge</strong>, das angibt, wie sie in die Liste gelangt ist.</li>
+</ul>
+<p>Es gibt drei Quelle-Badges, dieselben Konzepte wie die <a href="#de-analisi-attivi">Bereichspunkte</a>:</p>
+<ul>
+  <li><span class="dot" style="background:#5fbf3a"></span><strong>Quelle</strong> (grün) – Nummern, die Sie <strong>direkt</strong> hinzugefügt haben, durch Eintippen oder Importieren.</li>
+  <li><span class="dot" style="background:#f5a623"></span><strong>Manuell</strong> (orange) – Nummern, die durch die <strong>manuelle Anwendung eines Bereichs</strong> hineingelangt sind.</li>
+  <li><span class="dot" style="background:#3fa9f5"></span><strong>Automatisch</strong> (blau) – Nummern, die durch <strong>automatische Erweiterung</strong> hineingelangt sind.</li>
+</ul>
+
+<h3 id="de-liste-consentiti">Die Liste Erlaubt</h3>
+<p>Der Tab <strong>Erlaubt</strong> (Schild mit dem ✓) hat dasselbe Aussehen und dieselben Indikatoren wie die Liste Blockiert, versammelt aber die Nummern, die <strong>immer durchkommen müssen</strong>. Die Übersichtskarte oben zeigt <strong>Gesamt</strong> und <strong>Quellen gesamt</strong>.</p>
+<p>Anders als die Liste Blockiert <strong>enthält die Liste Erlaubt keine Bereiche</strong>: Die Nummern, die Sie hinzufügen, sind immer <strong>Einzelnummern</strong> (Markierung <strong>S</strong>) mit dem Badge <strong>Quelle</strong> (grün), weil Sie sie direkt eingeben oder importieren. Die einzige Ausnahme sind die mit <strong>R</strong> markierten Nummern: Das sind erlaubte Nummern, die <strong>in das Intervall eines blockierten Bereichs</strong> fallen. Sie sind mit R markiert, um zu signalisieren, dass sie innerhalb eines blockierten Bandes liegen, kommen aber trotzdem durch – sie sind genau die <a href="#de-liste-precedenza">Ausnahmen</a>, die unter dem Vorrang beschrieben werden.</p>
+<p>Nummern in dieser Liste werden nie blockiert und haben <strong>Vorrang</strong> vor jeder Blockierung, Bereiche eingeschlossen (siehe <a href="#de-liste-precedenza">Erlaubte Nummern haben Vorrang</a>). Sie dienen hauptsächlich als gezielte Ausnahme: Wenn eine Nummer Gefahr läuft, in einen blockierten Bereich zu fallen, Sie aber wollen, dass sie Sie dennoch erreicht, fügen Sie sie hier hinzu, und sie wird weiterhin durchkommen.</p>
+<p>Wenn Sie eine Nummer in dieser Liste auswählen, bietet die App an, sie <strong>in die Liste Blockiert zu verschieben</strong>: Es ist der schnelle Weg, um es sich bei einem Kontakt anders zu überlegen.</p>
+
+<h3 id="de-liste-aggiungere">Eine Nummer hinzufügen</h3>
+<p>Um eine Nummer von Hand einzugeben, tippen Sie oben rechts in der Liste auf die Schaltfläche <strong>+</strong>: Das Hinzufügen-Panel öffnet sich. Oben können Sie mit dem Wählschalter <strong>Einzeln</strong> / <strong>Bereich</strong> zwischen zwei Modi wählen.</p>
+<ul>
+  <li><strong>Einzeln</strong> – ein Feld für die internationale Vorwahl und eines für die Nummer (nur die Ziffern, ohne die Vorwahl). Sie können auch die <strong>Kamera</strong>-Schaltfläche (<em>„Nummer mit der Kamera scannen“</em>) verwenden, um eine Nummer aus einem Foto zu lesen, statt sie einzutippen.</li>
+  <li><strong>Bereich</strong> – die Vorwahl plus zwei Felder, <strong>Anfang</strong> und <strong>Ende</strong> des Intervalls. Ein Hinweis erinnert Sie an das Limit: <strong>maximal <span data-num="maxRange">10.000</span> Nummern pro Bereich</strong>.</li>
+</ul>
+<p>Drücken Sie <strong>Hinzufügen</strong> zum Einfügen (oder <strong>Schließen</strong> zum Abbrechen). Wenn etwas nicht stimmt, weist ein Hinweis Sie darauf hin:</p>
+<ul>
+  <li><em>„Nummer bereits vorhanden: Kennzeichnung auf Quelle aktualisiert“</em> – die Nummer war bereits in dieser Liste; sie wird als Ihre eigene markiert (Quelle).</li>
+  <li><em>„Nummer bereits in der anderen Liste vorhanden“</em> – dieselbe Nummer ist in der anderen Liste; sie muss zuerst von dort entfernt werden.</li>
+  <li><em>„Ungültige Nummer“</em> – die eingegebenen Ziffern bilden keine gültige Nummer.</li>
+</ul>
+
+<h3 id="de-liste-importare">Nummern importieren</h3>
+<p>Neben der manuellen Eingabe können Sie Nummern in großen Mengen laden – aus CSV/vCard-Dateien oder aus Screenshots (OCR) – sowohl in Blockiert als auch in Erlaubt. Die Importoptionen befinden sich im Tab Einstellungen: siehe <a href="#de-imp-importa">Nummern importieren</a> im Abschnitt Einstellungen.</p>
+
+<h3 id="de-liste-precedenza">Erlaubte Nummern haben Vorrang</h3>
+<p>Der Grundpfeiler, von dem alles ausgeht: <strong>eine Nummer steht nie in beiden Listen</strong>. Jede Nummer ist <em>entweder</em> blockiert <em>oder</em> erlaubt, nie beides zugleich. Und wenn die beiden Listen um dieselbe Nummer „streiten“, gewinnt immer die <strong>Erlaubt</strong>.</p>
+<p>In der Praxis, während eines Imports:</p>
+<ul>
+  <li>Wenn eine Nummer bereits in <strong>Erlaubt</strong> ist und Sie sie <strong>in Blockiert importieren</strong>, wird sie <strong>ignoriert</strong>: Sie bleibt in Erlaubt und landet nicht unter den blockierten.</li>
+  <li>Wenn eine Nummer in <strong>Blockiert</strong> ist und Sie sie <strong>in Erlaubt importieren</strong>, <strong>verschiebt</strong> sie sich: Sie verschwindet aus Blockiert und geht in Erlaubt (die App teilt Ihnen das mit <em>„Aus blockiert entfernt: N“</em> mit).</li>
+</ul>
+<p>Dasselbe gilt für das Verschieben einer Nummer zwischen den Listen von Hand, mit den Aktionen <strong>„Entsperren (nach Erlaubt verschieben)“</strong> aus Blockiert und <strong>„Blockieren (nach Blockiert verschieben)“</strong> aus Erlaubt: Die Nummer wechselt die Liste, sie wird nie dupliziert. Wenn Sie hingegen versuchen, von Hand eine Nummer <em>hinzuzufügen</em>, die bereits in der anderen Liste ist, verschiebt die App sie nicht automatisch und warnt Sie mit <em>„Nummer bereits in der anderen Liste vorhanden“</em>.</p>
+<p>Der Vorrang gilt auch bei <strong>Bereichen</strong>: Wenn das Intervall eines blockierten Bereichs eine Nummer einschließt, die Sie in Erlaubt haben, bleibt diese Nummer frei, Sie anzurufen – sie wird zu einer <strong>Ausnahme</strong> innerhalb des Bereichs (siehe <a href="#de-analisi-attivi">die Detailkarte</a>), während der Rest des Bereichs weiterhin blockiert. Die Nummer lebt weiterhin nur in Erlaubt: Der Bereich deckt das Intervall ab, überspringt sie aber.</p>
+<p>Es ist ein bewusster Schutz: Kein Massenimport und kein Bereich soll versehentlich eine Nummer zum Schweigen bringen können, die Sie weiterhin empfangen möchten. Um eine Nummer, die Sie in Erlaubt haben, tatsächlich zu blockieren, müssen Sie sie ausdrücklich nach Blockiert verschieben.</p>
+<div class="example">
+  <p class="label">Beispiel</p>
+  <p>Sie haben eine wichtige Nummer in Erlaubt, <code>06 1234 5675</code>. Später importieren Sie eine Liste von Spam-Nummern, die den Bereich <code>06 1234 5670</code>–<code>5679</code> erzeugt, dessen Intervall auch diese Nummer einschließt.</p>
+  <p>Ergebnis: Der Bereich wird angewendet, aber <code>06 1234 5675</code> kommt weiterhin als Ausnahme durch, weil sie in Erlaubt bleibt und nie blockiert wird.</p>
+</div>
+
+<h3 id="de-liste-filtri">Filter</h3>
+<p>Wenn die Listen lang werden, helfen Filter Ihnen, Nummern zu finden und zu verwalten. Sie sind eine <strong>Premium-Funktion</strong>: Sobald sie aktiviert sind, erscheint unter der Listenüberschrift eine Leiste mit „Chips“, über die Sie vier Filter setzen und kombinieren.</p>
+<ul>
+  <li><span class="tab-icon">📅</span><strong>Zeitraum</strong> – filtert nach Hinzufügedatum, indem Sie ein oder mehrere Intervalle (<em>Von / Bis</em>) wählen, bis zu 3.</li>
+  <li><span class="tab-icon">🏷️</span><strong>Quelle</strong> – zeigt nur Nummern vom Typ <em>Manuell</em>, <em>Automatisch</em> oder <em>Quelle (Import)</em>, dieselben Badges wie in der Liste.</li>
+  <li><span class="tab-icon">▦</span><strong>Typ</strong> – unterscheidet zwischen <em>Einzelnummern</em> und <em>Bereichen</em>.</li>
+  <li><span class="tab-icon">🌐</span><strong>Land</strong> – filtert nach Land, mit Suche nach Name oder Vorwahl, mit Mehrfachauswahl.</li>
+</ul>
+<p>Neben den Filtern gibt es auch einen <strong>Sortier-Chip</strong> für die Liste. Jeder aktive Filter lässt sich mit dem ✕ auf seinem Chip entfernen; wenn Sie zwei oder mehr haben, erscheint <strong>„Alle löschen“</strong>, um sie auf einen Schlag zu entfernen. Innerhalb des Panels jedes Filters verwenden Sie <strong>Anwenden</strong> zum Bestätigen oder <strong>Löschen</strong> zum Abbrechen. Bei aktivem Filter oder aktiver Suche ergänzt die obere Karte die Zähler <strong>Gefiltert</strong> und <strong>Aktiv gefiltert</strong>.</p>
+
+<h3 id="de-liste-range">Bereiche</h3>
+<p>In der Liste erscheinen die Nummern, die zu einem <strong>Bereich</strong> gehören, <strong>eine pro Zeile</strong>, wie die anderen Nummern, doch Sie erkennen sie auf einen Blick: Sie haben einen <strong>grünen Hintergrund</strong> und die Markierung <strong>R</strong> links (statt des <strong>S</strong> der Einzelnummern). So erkennen Sie beim Scrollen der Liste sofort, welche Nummern Teil eines blockierten Intervalls sind und welche Einzelnummern sind.</p>
+<p>Sie können einen Bereich von Hand über das Hinzufügen-Panel hinzufügen (siehe <a href="#de-liste-aggiungere">Eine Nummer hinzufügen</a>) oder ihn aus der Analyse erstellen (siehe <a href="#de-analizza">Analysieren</a>).</p>
+<p>Die vollständige Verwaltung aktiver Bereiche – die <a href="#de-analisi-attivi">Entstehungspunkte und die Detailkarte</a>, die Badges <em>ERWEITERBAR</em> und <em>AUSNAHMEN</em> und das <a href="#de-analisi-elimina">Löschen</a> mit oder ohne die Quellnummern – befindet sich im Tab <strong>Analysieren</strong>, unter <a href="#de-analisi-range">Bestehende Bereiche</a>.</p>
+
+
+<h2 id="de-impostazioni"><span class="tab-icon">⚙️</span>Einstellungen</h2>
+<p>Über den Tab <strong>Einstellungen</strong> schalten Sie die Blockierung auf iOS-Systemebene ein und verwalten Synchronisierung, Abonnement und Datenwartung.</p>
+
+<h3 id="de-imp-attivazione">Blockierung in iOS aktivieren</h3>
+<p>Das ist der <strong>wesentliche</strong> Schritt: Scudo Chiamate kann Anrufe erst blockieren, nachdem Sie seine Erweiterung in den iOS-Einstellungen aktiviert haben. Ohne diese Aktivierung funktioniert die App – Sie verwalten Listen, Analyse und Bereiche –, aber Nummern werden auf Systemebene <strong>nicht blockiert</strong>.</p>
+<p>Zum Einschalten gehen Sie zu:</p>
+<p><strong>iOS-Einstellungen → Apps → Telefon → Anrufblockierung &amp; Identifikation</strong> und aktivieren Sie <strong>„Scudo Chiamate“</strong>.</p>
+<p>Solange die Erweiterung aus ist, zeigt die App eine <strong>dauerhafte Warnung</strong>, die Sie genau an diesen Pfad erinnert. Sie können den Status auch jederzeit über die Diagnose prüfen, mit <strong>„Status der Anrufblockierung“</strong>.</p>
+<p>Es gibt dann eine wichtige Unterscheidung zu verstehen – wie viele Ihrer Nummern tatsächlich blockiert werden: Das erklären wir unten.</p>
+
+<h3 id="de-imp-limite">Gespeicherte vs. aktive Nummern</h3>
+<p>Scudo Chiamate unterscheidet zwischen zwei verschiedenen Dingen, die Sie auch in der Übersichtskarte oben in den Listen sehen:</p>
+<ul>
+  <li><strong>Gespeichert</strong> – alle Nummern in Ihren Listen, in der Datenbank der App.</li>
+  <li><strong>Aktiv in CallKit</strong> – wie viele dieser Nummern tatsächlich zur Blockierung an iOS übergeben wurden.</li>
+</ul>
+<p>Die kostenlose Version begrenzt nicht, <strong>wie viele Nummern Sie speichern</strong>: Sie können beliebig viele hinzufügen und importieren, sie bleiben alle in der Datenbank. Das Gratis-Limit betrifft nur, <strong>wie viele auf</strong> die Systemblockierung (CallKit) angewendet werden:</p>
+<ul>
+  <li><strong>Gratis</strong> – die <strong>ersten <span data-num="limiteFree">500</span></strong> aktiven Nummern werden angewendet; die übrigen bleiben gespeichert, blockieren aber nicht, und in der Liste zeigen sie die Warnung <em>„Nicht aktiv in CallKit (Gratis-Limit)“</em>.</li>
+  <li><strong>Premium</strong> – <strong>alle</strong> werden angewendet, ohne die Obergrenze von <span data-num="limiteFree">500</span>.</li>
+</ul>
+<p>Das praktische Fazit ist bequem: Sie können <strong>alle Ihre Nummern sofort importieren und gespeichert behalten</strong>, auch in der Gratis-Version. Wenn Sie zu Premium wechseln, werden sie alle <strong>auf einmal</strong> einsatzbereit, ohne dass Sie erneut importieren oder Arbeit wiederholen müssen.</p>
+<p>Auch mit Premium ist die Blockierung nicht unbegrenzt: Jede Liste kann bis zu <strong><span data-num="maxLista">500.000</span> Nummern</strong> fassen. Es ist eine sehr hohe Obergrenze, ausgelegt, um jede praktische Nutzung abzudecken.</p>
+
+<h3 id="de-imp-aggiornamento">Status der letzten Aktualisierung</h3>
+<p>Wenn Sie die Listen ändern, muss die App iOS – der Erweiterung <strong>Call Directory</strong> – die aktualisierte Liste der zu blockierenden Nummern übergeben. In der Diagnose finden Sie ein Panel, das zeigt, wie die <strong>letzte Aktualisierung</strong> verlief, damit Sie wissen, ob Ihre jüngsten Änderungen in der Systemblockierung bereits aktiv sind.</p>
+<p>Die Statuszeile kann lauten:</p>
+<ul>
+  <li><strong>Letzte Aktualisierung erfolgreich</strong> – die Liste wurde korrekt an iOS übergeben;</li>
+  <li><strong>Aktualisierung läuft</strong> – der Vorgang läuft gerade;</li>
+  <li><strong>Letzte Aktualisierung fehlgeschlagen</strong> – etwas ist schiefgelaufen (mit den Fehlerdetails);</li>
+  <li><strong>Aktualisierung nie ausgeführt</strong> – es wurde noch keine Aktualisierung durchgeführt.</li>
+</ul>
+<p>Sofern verfügbar, zeigt das Panel auch einige nützliche Details:</p>
+<ul>
+  <li><strong>Angewendete Nummern</strong> – wie viele Nummern tatsächlich an iOS übergeben wurden;</li>
+  <li><strong>Letzter Durchlauf</strong> – Datum und Uhrzeit der letzten Aktualisierung;</li>
+  <li><strong>Modus</strong> – <em>inkrementell</em> (nur die Unterschiede werden angewendet) oder <em>vollständiges Neuladen</em> (die gesamte Liste wird neu geschrieben).</li>
+</ul>
+<p>Wenn eine Aktualisierung fehlgeschlagen ist, schlägt die App vor, <strong>die App erneut zu öffnen, um eine neue Aktualisierung zu erzwingen</strong>. Es ist ein schreibgeschütztes Panel: Es dient dazu, zu bestätigen, dass Ihr Schutz Ihre jüngsten Listen widerspiegelt.</p>
+
+<h3 id="de-imp-icloud">iCloud-Synchronisierung</h3>
+<p>Mit dem Schalter <strong>„iCloud-Synchronisierung“</strong> gleichen sich Ihre Daten – Listen und Einstellungen – automatisch über Ihre Apple-Geräte hinweg ab, via iCloud. Sie steht jedem zur Verfügung, auch ohne Premium. Die Daten laufen über die Server von Apple, und <strong>kein Drittanbieter-Server</strong> hat Zugriff darauf (siehe <a href="privacy.html">Datenschutzrichtlinie</a>).</p>
+<p>Bei der <strong>ersten Aktivierung</strong> wählen Sie, wie die Synchronisierung initialisiert werden soll, aus drei Modi:</p>
+<ul>
+  <li><strong>iCloud verwenden</strong> – mit den bereits in iCloud befindlichen Daten beginnen (überschreibt die lokalen).</li>
+  <li><strong>iPhone verwenden</strong> – mit den Daten dieses Geräts beginnen (sie nach iCloud hochladen).</li>
+  <li><strong>Daten zusammenführen</strong> – die beiden Datensätze kombinieren; am Ende sehen Sie einen <strong>Zusammenführungsbericht</strong> mit den Zählern <em>Lokal / Cloud / Zusammengeführt</em> und der Bestätigung, dass <em>„doppelte Daten automatisch zusammengeführt wurden“</em>.</li>
+</ul>
+<p>Sie finden außerdem <strong>„iCloud-Status prüfen“</strong>, um den neuesten Status und die letzten Synchronisierungen zu sehen, und <strong>„Cloud-Cache zurücksetzen (erweitert)“</strong>, um eine vollständige lokale Neusynchronisierung zu erzwingen, falls etwas nicht stimmt.</p>
+
+<h3 id="de-imp-sms">SMS-Filter</h3>
+<p>Neben Anrufen kann Scudo Chiamate <strong>SMS/MMS von unbekannten Absendern</strong> filtern. Sie schalten die Funktion mit dem Schalter <strong>„Nachrichtenfilter“</strong> in den Einstellungen ein. Die Klassifizierung erfolgt <strong>vollständig auf dem Gerät</strong>.</p>
+<p>Auch hier ist, wie bei Anrufen, ein zweiter Schritt in iOS nötig, damit der Filter tatsächlich funktioniert:</p>
+<p><strong>iOS-Einstellungen → Apps → Nachrichten → Unbekannt &amp; Spam → SMS-Filterung → „Scudo Chiamate“</strong>.</p>
+<p>Die Nummern, die Sie in <a href="#de-liste-consentiti">Erlaubt</a> haben, werden <strong>nie</strong> gefiltert: Die Whitelist der erlaubten Nummern wird stets respektiert, sodass Nachrichten von den Menschen, die Ihnen wichtig sind, weiterhin durchkommen.</p>
+
+<h3 id="de-imp-premium">Premium</h3>
+<p>Der Abschnitt <strong>Premium-Dienste</strong> zeigt Ihren aktuellen Tarif – <strong>„Gratis-Tarif“</strong> oder <strong>„Premium aktiv“</strong> – und was er umfasst. Der Hauptunterschied betrifft die Systemblockierung:</p>
+<ul>
+  <li><strong>Gratis</strong> – iOS wendet die <strong>ersten <span data-num="limiteFree">500</span> aktiven Nummern</strong> auf die Blockierung an.</li>
+  <li><strong>Premium</strong> – <strong>alle</strong> Nummern werden auf CallKit angewendet, ohne das Limit von <span data-num="limiteFree">500</span>.</li>
+</ul>
+<p>Premium schaltet außerdem frei:</p>
+<ul>
+  <li><a href="#de-analisi-autoespansione">Automatische Bereichsverwaltung</a> (automatische Erweiterung);</li>
+  <li>die <a href="#de-liste-filtri">Listenfilter</a> (Datum, Quelle, Typ, Land);</li>
+  <li>das Anwenden <strong>aller</strong> gespeicherten Nummern auf die Blockierung, über die <span data-num="limiteFree">500</span> der kostenlosen Version hinaus.</li>
+</ul>
+<p>Die zugehörigen Schalter – <strong>„Automatische Bereichsverwaltung“</strong> und <strong>„Listenfilter anzeigen“</strong> – bleiben auch in der Gratis-Version sichtbar, aber deaktiviert; Ihre Wahl wird gemerkt und wiederhergestellt, wenn Sie erneut zu Premium wechseln.</p>
+<p>Für Käufe verwenden Sie <strong>„Premium-Tarife ansehen“</strong> (Paket wählen und Kauf abschließen) und <strong>„Käufe wiederherstellen“</strong>, um ein bereits aktives Abonnement wiederzubekommen, zum Beispiel auf einem anderen Gerät. <strong>„Abonnementstatus aktualisieren“</strong> synchronisiert den Status neu, falls er nicht aktuell sein sollte.</p>
+
+<h3 id="de-imp-importa">Nummern importieren</h3>
+<p>Über die Datenverwaltung können Sie Nummern in großen Mengen laden, sowohl in <a href="#de-liste-bloccati">Blockiert</a> als auch in <a href="#de-liste-consentiti">Erlaubt</a>. Es gibt mehrere Wege.</p>
+
+<h4>Aus einer CSV- oder vCard-Datei</h4>
+<p>Mit <strong>„Blockierte importieren“</strong> / <strong>„Erlaubte importieren“</strong> wählen Sie eine <code>CSV</code>- oder <code>vCard</code>-Datei (.vcf). Die App analysiert sie und zeigt Ihnen eine Zusammenfassung – wie viele neue Nummern sie gefunden hat, wie viele bereits vorhanden waren, wie viele sie hinzufügen wird – dann bestätigen Sie mit <strong>Importieren</strong>.</p>
+
+<h4>Aus Screenshots oder Fotos (OCR)</h4>
+<p>Mit <strong>„… aus Bildern importieren“</strong> wählen Sie bis zu <strong><span data-num="maxImmagini">100</span> Bilder</strong>, und die App extrahiert die Nummern automatisch. Beachten Sie, dass:</p>
+<ul>
+  <li>nur Nummern im <strong>internationalen Format, mit Vorwahl (+)</strong>, erkannt werden;</li>
+  <li>Daten und Text um die Nummern herum ignoriert werden;</li>
+  <li>jede Nummer auf <strong>einer einzigen Zeile</strong> stehen muss: Wenn ein großer Text auf Ihrem iPhone sie umbricht, verringern Sie vorübergehend die <em>Textgröße</em>, bevor Sie den Screenshot machen.</li>
+</ul>
+
+<h4>Aus Ihren Kontakten</h4>
+<p>Mit <strong>„Blockierte aus Kontakten importieren“</strong> / <strong>„Erlaubte aus Kontakten importieren“</strong> öffnet sich die iOS-Kontaktauswahl: Wählen Sie die zu blockierenden (oder zu erlaubenden) Kontakte, und die App importiert deren Telefonnummern. Es werden nur Nummern im <strong>internationalen Format, mit Vorwahl (+)</strong>, übernommen; haben die gewählten Kontakte keine, teilt die App Ihnen das mit und importiert nichts.</p>
+
+<h4>Die iOS-Blockierliste wiederherstellen</h4>
+<p>Der Eintrag <strong>„Die iOS-Blockierliste wiederherstellen“</strong> öffnet eine Schritt-für-Schritt-Anleitung, um die Kontakte erneut zu importieren, die Sie bereits in iOS blockiert hatten: Kurz gesagt, gehen Sie zu <em>iPhone-Einstellungen → Telefon → Blockierte Kontakte</em>, machen Sie einen oder mehrere Screenshots der Liste, kehren Sie dann hierher zurück und laden Sie sie mit <strong>„Blockierte aus Bildern importieren“</strong>. Die Nummern werden wie oben per OCR extrahiert.</p>
+
+<p><strong>Hinweis:</strong> Der Import wird nie durch die <span data-num="limiteFree">500</span> der kostenlosen Version begrenzt – alle Nummern werden gespeichert. Dieses Limit betrifft nur, wie viele Nummern auf die iOS-Blockierung <em>angewendet</em> werden: siehe <a href="#de-imp-limite">Gespeicherte vs. aktive Nummern</a>.</p>
+
+<h3 id="de-imp-condividi">Die Liste teilen und exportieren</h3>
+<p>Mit <strong>„Blockierte exportieren“</strong> / <strong>„Erlaubte exportieren“</strong> erstellen Sie eine <strong>CSV-Datei</strong> der Liste, um sie zu speichern oder über das iOS-Teilen-Menü zu teilen (um ein Backup zu erstellen, sie an ein anderes Gerät weiterzugeben, sie anderswo zu öffnen).</p>
+<p>Beim Exportieren können Sie wählen, <strong>was</strong> Sie einbeziehen:</p>
+<ul>
+  <li><strong>Alle exportieren</strong> – alle Nummern der Liste, einschließlich der durch Bereiche automatisch erzeugten.</li>
+  <li><strong>Nur Quellen</strong> – nur die Nummern, die Sie manuell hinzugefügt oder importiert haben, ausgenommen die durch Bereichserweiterung erzeugten.</li>
+</ul>
+
+<h3 id="de-imp-cache">Bereinigung und Wartung</h3>
+<h4>App-Cache leeren</h4>
+<p>Über die Diagnose gibt <strong>„App-Cache leeren“</strong> Speicherplatz frei, indem temporäre Daten entfernt werden. <strong>Ihre Listen werden nicht angetastet</strong>: blockierte und erlaubte Nummern bleiben unversehrt.</p>
+<h4>Die Listen leeren</h4>
+<p>Mit <strong>„Listen leeren“</strong> öffnen Sie die Leerungsaktionen (eine „Gefahrenzone“), um Blockiert oder Erlaubt vollständig zu löschen. Bevor sie fortfährt, fragt die App <strong>„Ein Backup erstellen?“</strong>, mit drei Auswahlmöglichkeiten:</p>
+<ul>
+  <li><strong>Backup erstellen und leeren</strong> – exportiert zuerst eine CSV der Liste und leert sie dann.</li>
+  <li><strong>Ohne Backup leeren</strong> – löscht direkt (unumkehrbarer Vorgang).</li>
+  <li><strong>Abbrechen</strong> – tut nichts.</li>
+</ul>
+<p>Es ist der sichere Weg, neu zu beginnen, ohne versehentlich Daten zu verlieren.</p>
+
+<nav class="doc-nav">
+  <span class="current">Anleitung</span>
+  <a href="privacy.html">Datenschutz</a>
+  <a href="changelog.html">Neuigkeiten</a>
+</nav>
+
+</div>
+<!-- ==================== /DEUTSCH ==================== -->
+
 </main>
 
 <script>
@@ -1078,7 +2533,8 @@
   };
 
   function formatNumbers(lang) {
-    var nf = new Intl.NumberFormat(lang === 'en' ? 'en-US' : 'it-IT');
+    var locMap = { it: 'it-IT', en: 'en-US', es: 'es-ES', fr: 'fr-FR', de: 'de-DE' };
+    var nf = new Intl.NumberFormat(locMap[lang] || 'it-IT');
     var els = document.querySelectorAll('[data-num]');
     for (var i = 0; i < els.length; i++) {
       var key = els[i].getAttribute('data-num');
@@ -1089,7 +2545,7 @@
   }
 
   // ---- Switch lingua (opzione A) ----
-  var SUPPORTED = ['it', 'en'];
+  var SUPPORTED = ['it', 'en', 'es', 'fr', 'de'];
 
   function pickLang() {
     try {
