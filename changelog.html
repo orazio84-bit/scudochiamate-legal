@@ -35,6 +35,8 @@
   main { max-width: 720px; margin: 0 auto; }
   h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 8px; }
   h2 { font-size: 1.4rem; margin: 40px 0 4px; padding-top: 24px; border-top: 1px solid var(--rule); }
+  h3 { font-size: 1.05rem; font-weight: 600; margin: 26px 0 2px; }
+  h3 + ul { margin-top: 6px; }
   p, ul { margin: 8px 0; }
   ul { padding-left: 22px; }
   li { margin: 10px 0; }
@@ -84,6 +86,66 @@
   </div>
 </div>
 
+<h2>Versione 1.3</h2>
+
+<h3>Attività e cronologia</h3>
+<ul>
+  <li><strong>Nuova scheda "Attività":</strong> una cronologia delle modifiche fatte alle liste — aggiunte, importazioni, cancellazioni e range applicati.</li>
+  <li><strong>Annulla e ripeti le azioni:</strong> dalla scheda Attività puoi annullare un'operazione o ripristinarla, con una conferma che mostra i numeri interessati.</li>
+  <li><strong>Personalizzazione dell'aspetto:</strong> nuovo strumento "Aspetto" per scegliere colori e dimensione delle icone della cronologia, con una palette personalizzabile.</li>
+  <li><strong>Statistiche della cronologia:</strong> un riepilogo delle attività con il dettaglio per tipo di movimento.</li>
+</ul>
+
+<h3>Sincronizzazione iCloud</h3>
+<ul>
+  <li><strong>Sincronizzazione iCloud rinnovata:</strong> liste e cronologia si sincronizzano tra i tuoi dispositivi e, all'attivazione, i dati vengono uniti automaticamente.</li>
+  <li><strong>Sincronizzazione più chiara:</strong> niente più richiesta di scelta dispositivo/iCloud quando uno dei due lati è vuoto — i dati vengono allineati automaticamente.</li>
+</ul>
+
+<h3>Importazione ed esportazione</h3>
+<ul>
+  <li><strong>Flusso di importazione ed esportazione rivisto:</strong> le schermate (overlay) di import ed export sono state ridisegnate per un'esperienza più chiara, coerente e fluida.</li>
+  <li>Aggiunta una barra di avanzamento durante l'importazione, che mostra il progresso dell'operazione.</li>
+  <li><strong>Importazione annullabile:</strong> puoi interrompere un'importazione in corso, con una percentuale di avanzamento più precisa e affidabile.</li>
+  <li>Corretto un problema per cui, nella funzione <strong>Importa numeri da immagini</strong>, con i caratteri di grandi dimensioni (Dynamic Type) il relativo pulsante poteva risultare nascosto.</li>
+  <li>Corretto un problema per cui i numeri incollati dai messaggi potevano contenere caratteri invisibili che ne impedivano la ricerca e l'importazione.</li>
+</ul>
+
+<h3>Analisi</h3>
+<ul>
+  <li><strong>Nuovo layout delle righe dei range:</strong> chip con l'indice, intervallo in evidenza e un connettore visivo dal numero iniziale a quello finale.</li>
+  <li><strong>Analisi dei range più accurata:</strong> corretti alcuni casi in cui range sovrapposti potevano essere conteggiati due volte e migliorata la gestione al raggiungimento del limite del database.</li>
+  <li><strong>Analisi più veloce</strong> sui database di grandi dimensioni.</li>
+  <li>Se il database non è leggibile, l'app ora lo segnala con un messaggio chiaro invece di mostrare una lista vuota generica.</li>
+</ul>
+
+<h3>Liste e blocco</h3>
+<ul>
+  <li>La lista si aggiorna automaticamente al ritorno nell'app dopo modifiche fatte da altre estensioni (es. condivisione).</li>
+  <li><strong>Conferma a schermo intero dopo l'aggiunta di un numero:</strong> un segno di spunta animato conferma subito che l'operazione è andata a buon fine.</li>
+  <li>Aggiunto un pulsante per <strong>riprovare l'aggiornamento del blocco di iOS</strong>, visibile quando l'ultima operazione non è andata a buon fine.</li>
+</ul>
+
+<h3>Impostazioni e Premium</h3>
+<ul>
+  <li><strong>Premium rinnovato nelle Impostazioni:</strong> nuova card di presentazione (nascosta se hai già Premium) che evidenzia anche lo sblocco oltre i 500 numeri bloccati, e schermata di conferma dell'acquisto ridisegnata.</li>
+  <li><strong>Premium sblocca filtri e annullamento:</strong> con Premium, i filtri di liste e Attività e l'annullamento delle azioni sono attivi automaticamente, senza un'opzione dedicata da abilitare.</li>
+  <li>Nelle Impostazioni, il dettaglio sullo spazio occupato dal database ora distingue <strong>Numeri, Cronologia e Altro</strong>, in un riquadro scorrevole.</li>
+</ul>
+
+<h3>Interfaccia e accessibilità</h3>
+<ul>
+  <li>Rimosso l'avviso "Estensione attiva" che compariva all'avvio.</li>
+  <li>Diversi riquadri ora scorrono correttamente con i caratteri di grandi dimensioni (Dynamic Type).</li>
+  <li>La riga "Novità" nelle Impostazioni mostra la versione attualmente in uso.</li>
+</ul>
+
+<h3>Stabilità e prestazioni</h3>
+<ul>
+  <li>Corretto un raro arresto anomalo che poteva verificarsi all'avvio dell'app quando il dispositivo era bloccato.</li>
+  <li><strong>Maggiore stabilità e affidabilità:</strong> revisione approfondita della gestione del database e del meccanismo di blocco di iOS per prestazioni solide anche con liste molto grandi, grazie a tre policy centralizzate: una per le scritture (write), una per il ricaricamento del blocco di iOS (reload) e una per lo schema del database (SQLite).</li>
+</ul>
+
 <h2>Versione 1.2</h2>
 <ul>
   <li><strong>Migliorie all'interfaccia</strong> e correzione di un fastidioso bug che poteva causare il crash dell'app in background.</li>
@@ -118,6 +180,66 @@
     <p class="meta">Release notes (Changelog)</p>
   </div>
 </div>
+
+<h2>Version 1.3</h2>
+
+<h3>Activity &amp; history</h3>
+<ul>
+  <li><strong>New "Activity" tab:</strong> a history of the changes made to your lists — additions, imports, deletions and applied ranges.</li>
+  <li><strong>Undo and redo actions:</strong> from the Activity tab you can undo an operation or restore it, with a confirmation showing the affected numbers.</li>
+  <li><strong>Appearance customization:</strong> a new "Appearance" tool to choose the colors and size of the history icons, with a customizable palette.</li>
+  <li><strong>History statistics:</strong> a summary of activity broken down by type of change.</li>
+</ul>
+
+<h3>iCloud sync</h3>
+<ul>
+  <li><strong>Redesigned iCloud sync:</strong> lists and history sync across your devices and, on activation, the data is merged automatically.</li>
+  <li><strong>Clearer sync:</strong> no more device/iCloud choice prompt when one of the two sides is empty — the data is aligned automatically.</li>
+</ul>
+
+<h3>Import &amp; export</h3>
+<ul>
+  <li><strong>Reworked import and export flow:</strong> the import and export overlays have been redesigned for a clearer, more consistent and smoother experience.</li>
+  <li>Added a progress bar during import, showing the progress of the operation.</li>
+  <li><strong>Cancelable import:</strong> you can stop an import in progress, with a more precise and reliable progress percentage.</li>
+  <li>Fixed an issue where, in the <strong>Import numbers from images</strong> feature, the related button could be hidden at large text sizes (Dynamic Type).</li>
+  <li>Fixed an issue where numbers pasted from messages could contain invisible characters that prevented them from being searched and imported.</li>
+</ul>
+
+<h3>Analysis</h3>
+<ul>
+  <li><strong>New layout for range rows:</strong> a chip with the index, the interval highlighted and a visual connector from the first number to the last.</li>
+  <li><strong>More accurate range analysis:</strong> fixed some cases where overlapping ranges could be counted twice, and improved handling when the database limit is reached.</li>
+  <li><strong>Faster analysis</strong> on large databases.</li>
+  <li>If the database is not readable, the app now reports it with a clear message instead of showing a generic empty list.</li>
+</ul>
+
+<h3>Lists &amp; blocking</h3>
+<ul>
+  <li>The list updates automatically when you return to the app after changes made by other extensions (e.g. sharing).</li>
+  <li><strong>Full-screen confirmation after adding a number:</strong> an animated checkmark immediately confirms that the operation succeeded.</li>
+  <li>Added a button to <strong>retry the iOS blocking update</strong>, shown when the last operation did not succeed.</li>
+</ul>
+
+<h3>Settings &amp; Premium</h3>
+<ul>
+  <li><strong>Refreshed Premium in Settings:</strong> a new intro card (hidden if you already have Premium) that also highlights unlocking beyond 500 blocked numbers, and a redesigned purchase confirmation screen.</li>
+  <li><strong>Premium unlocks filters and undo:</strong> with Premium, the Lists and Activity filters and action undo are enabled automatically, with no dedicated option to turn on.</li>
+  <li>In Settings, the breakdown of the space used by the database now distinguishes <strong>Numbers, History and Other</strong>, in a scrollable box.</li>
+</ul>
+
+<h3>Interface &amp; accessibility</h3>
+<ul>
+  <li>Removed the "Extension active" notice that appeared at launch.</li>
+  <li>Several boxes now scroll correctly at large text sizes (Dynamic Type).</li>
+  <li>The "What's new" row in Settings shows the version currently in use.</li>
+</ul>
+
+<h3>Stability &amp; performance</h3>
+<ul>
+  <li>Fixed a rare crash that could occur at app launch when the device was locked.</li>
+  <li><strong>Greater stability and reliability:</strong> a thorough review of database handling and the iOS blocking mechanism for solid performance even with very large lists, thanks to three centralized policies: one for writes, one for reloading the iOS block (reload) and one for the database schema (SQLite).</li>
+</ul>
 
 <h2>Version 1.2</h2>
 <ul>
@@ -154,6 +276,66 @@
   </div>
 </div>
 
+<h2>Versión 1.3</h2>
+
+<h3>Actividad e historial</h3>
+<ul>
+  <li><strong>Nueva pestaña "Actividad":</strong> un historial de los cambios realizados en las listas: adiciones, importaciones, eliminaciones y rangos aplicados.</li>
+  <li><strong>Deshacer y rehacer acciones:</strong> desde la pestaña Actividad puedes deshacer una operación o restaurarla, con una confirmación que muestra los números afectados.</li>
+  <li><strong>Personalización del aspecto:</strong> nueva herramienta "Apariencia" para elegir los colores y el tamaño de los iconos del historial, con una paleta personalizable.</li>
+  <li><strong>Estadísticas del historial:</strong> un resumen de la actividad con el detalle por tipo de movimiento.</li>
+</ul>
+
+<h3>Sincronización con iCloud</h3>
+<ul>
+  <li><strong>Sincronización con iCloud renovada:</strong> las listas y el historial se sincronizan entre tus dispositivos y, al activarla, los datos se combinan automáticamente.</li>
+  <li><strong>Sincronización más clara:</strong> ya no se pide elegir entre dispositivo/iCloud cuando uno de los dos lados está vacío: los datos se alinean automáticamente.</li>
+</ul>
+
+<h3>Importación y exportación</h3>
+<ul>
+  <li><strong>Flujo de importación y exportación renovado:</strong> las pantallas (overlays) de importación y exportación se han rediseñado para una experiencia más clara, coherente y fluida.</li>
+  <li>Añadida una barra de progreso durante la importación, que muestra el avance de la operación.</li>
+  <li><strong>Importación cancelable:</strong> puedes interrumpir una importación en curso, con un porcentaje de avance más preciso y fiable.</li>
+  <li>Corregido un problema por el que, en la función <strong>Importar números desde imágenes</strong>, con texto de gran tamaño (Dynamic Type) el botón correspondiente podía quedar oculto.</li>
+  <li>Corregido un problema por el que los números pegados desde los mensajes podían contener caracteres invisibles que impedían su búsqueda e importación.</li>
+</ul>
+
+<h3>Análisis</h3>
+<ul>
+  <li><strong>Nuevo diseño de las filas de rangos:</strong> un chip con el índice, el intervalo destacado y un conector visual desde el número inicial hasta el final.</li>
+  <li><strong>Análisis de rangos más preciso:</strong> corregidos algunos casos en los que rangos superpuestos podían contarse dos veces y mejorada la gestión al alcanzar el límite de la base de datos.</li>
+  <li><strong>Análisis más rápido</strong> en bases de datos de gran tamaño.</li>
+  <li>Si la base de datos no es legible, la app ahora lo indica con un mensaje claro en lugar de mostrar una lista vacía genérica.</li>
+</ul>
+
+<h3>Listas y bloqueo</h3>
+<ul>
+  <li>La lista se actualiza automáticamente al volver a la app tras cambios hechos por otras extensiones (p. ej. compartir).</li>
+  <li><strong>Confirmación a pantalla completa tras añadir un número:</strong> una marca de verificación animada confirma de inmediato que la operación se completó correctamente.</li>
+  <li>Añadido un botón para <strong>reintentar la actualización del bloqueo de iOS</strong>, visible cuando la última operación no se completó correctamente.</li>
+</ul>
+
+<h3>Ajustes y Premium</h3>
+<ul>
+  <li><strong>Premium renovado en Ajustes:</strong> nueva tarjeta de presentación (oculta si ya tienes Premium) que destaca también el desbloqueo más allá de 500 números bloqueados, y pantalla de confirmación de compra rediseñada.</li>
+  <li><strong>Premium desbloquea filtros y deshacer:</strong> con Premium, los filtros de Listas y Actividad y el deshacer acciones se activan automáticamente, sin una opción dedicada que habilitar.</li>
+  <li>En Ajustes, el detalle del espacio ocupado por la base de datos ahora distingue <strong>Números, Historial y Otros</strong>, en un recuadro desplazable.</li>
+</ul>
+
+<h3>Interfaz y accesibilidad</h3>
+<ul>
+  <li>Eliminado el aviso "Extensión activa" que aparecía al iniciar.</li>
+  <li>Varios recuadros ahora se desplazan correctamente con texto de gran tamaño (Dynamic Type).</li>
+  <li>La fila "Novedades" en Ajustes muestra la versión que se está usando.</li>
+</ul>
+
+<h3>Estabilidad y rendimiento</h3>
+<ul>
+  <li>Corregido un cierre inesperado poco frecuente que podía producirse al iniciar la app con el dispositivo bloqueado.</li>
+  <li><strong>Mayor estabilidad y fiabilidad:</strong> revisión a fondo de la gestión de la base de datos y del mecanismo de bloqueo de iOS para un rendimiento sólido incluso con listas muy grandes, gracias a tres políticas centralizadas: una para las escrituras (write), una para la recarga del bloqueo de iOS (reload) y una para el esquema de la base de datos (SQLite).</li>
+</ul>
+
 <h2>Versión 1.2</h2>
 <ul>
   <li><strong>Mejoras en la interfaz</strong> y corrección de un molesto error que podía provocar el cierre inesperado de la app en segundo plano.</li>
@@ -189,6 +371,66 @@
   </div>
 </div>
 
+<h2>Version 1.3</h2>
+
+<h3>Activité et historique</h3>
+<ul>
+  <li><strong>Nouvel onglet « Activité » :</strong> un historique des modifications apportées aux listes — ajouts, importations, suppressions et plages appliquées.</li>
+  <li><strong>Annuler et rétablir les actions :</strong> depuis l'onglet Activité, vous pouvez annuler une opération ou la rétablir, avec une confirmation indiquant les numéros concernés.</li>
+  <li><strong>Personnalisation de l'apparence :</strong> nouvel outil « Apparence » pour choisir les couleurs et la taille des icônes de l'historique, avec une palette personnalisable.</li>
+  <li><strong>Statistiques de l'historique :</strong> un récapitulatif de l'activité avec le détail par type de mouvement.</li>
+</ul>
+
+<h3>Synchronisation iCloud</h3>
+<ul>
+  <li><strong>Synchronisation iCloud repensée :</strong> les listes et l'historique se synchronisent entre vos appareils et, à l'activation, les données sont fusionnées automatiquement.</li>
+  <li><strong>Synchronisation plus claire :</strong> plus de demande de choix appareil/iCloud lorsqu'un des deux côtés est vide — les données sont alignées automatiquement.</li>
+</ul>
+
+<h3>Importation et exportation</h3>
+<ul>
+  <li><strong>Flux d'importation et d'exportation revu :</strong> les écrans (overlays) d'importation et d'exportation ont été redessinés pour une expérience plus claire, cohérente et fluide.</li>
+  <li>Ajout d'une barre de progression pendant l'importation, qui montre l'avancement de l'opération.</li>
+  <li><strong>Importation annulable :</strong> vous pouvez interrompre une importation en cours, avec un pourcentage d'avancement plus précis et fiable.</li>
+  <li>Correction d'un problème où, dans la fonction <strong>Importer des numéros depuis des images</strong>, le bouton correspondant pouvait être masqué avec les grandes tailles de texte (Dynamic Type).</li>
+  <li>Correction d'un problème où les numéros collés depuis les messages pouvaient contenir des caractères invisibles empêchant leur recherche et leur importation.</li>
+</ul>
+
+<h3>Analyse</h3>
+<ul>
+  <li><strong>Nouvelle disposition des lignes de plages :</strong> une puce avec l'indice, l'intervalle mis en évidence et un connecteur visuel du premier au dernier numéro.</li>
+  <li><strong>Analyse des plages plus précise :</strong> correction de certains cas où des plages qui se chevauchent pouvaient être comptées deux fois, et meilleure gestion à l'atteinte de la limite de la base de données.</li>
+  <li><strong>Analyse plus rapide</strong> sur les bases de données volumineuses.</li>
+  <li>Si la base de données est illisible, l'app le signale désormais par un message clair au lieu d'afficher une liste vide générique.</li>
+</ul>
+
+<h3>Listes et blocage</h3>
+<ul>
+  <li>La liste se met à jour automatiquement au retour dans l'app après des modifications faites par d'autres extensions (p. ex. partage).</li>
+  <li><strong>Confirmation en plein écran après l'ajout d'un numéro :</strong> une coche animée confirme aussitôt que l'opération a réussi.</li>
+  <li>Ajout d'un bouton pour <strong>réessayer la mise à jour du blocage iOS</strong>, visible lorsque la dernière opération n'a pas abouti.</li>
+</ul>
+
+<h3>Réglages et Premium</h3>
+<ul>
+  <li><strong>Premium repensé dans les Réglages :</strong> nouvelle carte de présentation (masquée si vous avez déjà Premium) qui met aussi en avant le déblocage au-delà de 500 numéros bloqués, et écran de confirmation d'achat redessiné.</li>
+  <li><strong>Premium débloque les filtres et l'annulation :</strong> avec Premium, les filtres des Listes et de l'Activité ainsi que l'annulation des actions sont activés automatiquement, sans option dédiée à activer.</li>
+  <li>Dans les Réglages, le détail de l'espace occupé par la base de données distingue désormais <strong>Numéros, Historique et Autre</strong>, dans un encadré défilant.</li>
+</ul>
+
+<h3>Interface et accessibilité</h3>
+<ul>
+  <li>Suppression de l'avis « Extension active » qui apparaissait au démarrage.</li>
+  <li>Plusieurs encadrés défilent désormais correctement avec les grandes tailles de texte (Dynamic Type).</li>
+  <li>La ligne « Nouveautés » dans les Réglages affiche la version actuellement utilisée.</li>
+</ul>
+
+<h3>Stabilité et performances</h3>
+<ul>
+  <li>Correction d'un rare plantage pouvant survenir au démarrage de l'app lorsque l'appareil était verrouillé.</li>
+  <li><strong>Stabilité et fiabilité accrues :</strong> révision approfondie de la gestion de la base de données et du mécanisme de blocage iOS pour des performances solides même avec de très grandes listes, grâce à trois politiques centralisées : une pour les écritures (write), une pour le rechargement du blocage iOS (reload) et une pour le schéma de la base de données (SQLite).</li>
+</ul>
+
 <h2>Version 1.2</h2>
 <ul>
   <li><strong>Améliorations de l'interface</strong> et correction d'un bug gênant qui pouvait provoquer le plantage de l'app en arrière-plan.</li>
@@ -223,6 +465,66 @@
     <p class="meta">Versionshinweise (Änderungsprotokoll)</p>
   </div>
 </div>
+
+<h2>Version 1.3</h2>
+
+<h3>Aktivität und Verlauf</h3>
+<ul>
+  <li><strong>Neuer Tab „Aktivität“:</strong> ein Verlauf der an den Listen vorgenommenen Änderungen – Hinzufügungen, Importe, Löschungen und angewendete Bereiche.</li>
+  <li><strong>Aktionen rückgängig machen und wiederholen:</strong> Im Tab „Aktivität“ kannst du einen Vorgang rückgängig machen oder wiederherstellen, mit einer Bestätigung, die die betroffenen Nummern anzeigt.</li>
+  <li><strong>Anpassung der Darstellung:</strong> neues Werkzeug „Darstellung“, um Farben und Größe der Verlaufssymbole zu wählen, mit einer anpassbaren Farbpalette.</li>
+  <li><strong>Verlaufsstatistiken:</strong> eine Übersicht der Aktivität mit Aufschlüsselung nach Bewegungsart.</li>
+</ul>
+
+<h3>iCloud-Synchronisierung</h3>
+<ul>
+  <li><strong>Überarbeitete iCloud-Synchronisierung:</strong> Listen und Verlauf werden zwischen deinen Geräten synchronisiert und bei der Aktivierung automatisch zusammengeführt.</li>
+  <li><strong>Klarere Synchronisierung:</strong> keine Geräte-/iCloud-Abfrage mehr, wenn eine der beiden Seiten leer ist – die Daten werden automatisch abgeglichen.</li>
+</ul>
+
+<h3>Import und Export</h3>
+<ul>
+  <li><strong>Überarbeiteter Import- und Exportablauf:</strong> die Import- und Export-Overlays wurden für ein klareres, einheitlicheres und flüssigeres Erlebnis neu gestaltet.</li>
+  <li>Eine Fortschrittsanzeige während des Imports hinzugefügt, die den Fortschritt des Vorgangs zeigt.</li>
+  <li><strong>Abbrechbarer Import:</strong> du kannst einen laufenden Import abbrechen, mit einer genaueren und zuverlässigeren Fortschrittsanzeige.</li>
+  <li>Ein Problem behoben, bei dem in der Funktion <strong>Nummern aus Bildern importieren</strong> die zugehörige Schaltfläche bei großen Schriftgrößen (Dynamic Type) verdeckt sein konnte.</li>
+  <li>Ein Problem behoben, bei dem aus Nachrichten eingefügte Nummern unsichtbare Zeichen enthalten konnten, die ihre Suche und ihren Import verhinderten.</li>
+</ul>
+
+<h3>Analyse</h3>
+<ul>
+  <li><strong>Neues Layout der Bereichszeilen:</strong> ein Chip mit dem Index, das hervorgehobene Intervall und ein visueller Verbinder von der ersten zur letzten Nummer.</li>
+  <li><strong>Genauere Bereichsanalyse:</strong> einige Fälle behoben, in denen sich überschneidende Bereiche doppelt gezählt werden konnten, und die Handhabung beim Erreichen des Datenbanklimits verbessert.</li>
+  <li><strong>Schnellere Analyse</strong> bei großen Datenbanken.</li>
+  <li>Wenn die Datenbank nicht lesbar ist, weist die App jetzt mit einer klaren Meldung darauf hin, statt eine generische leere Liste anzuzeigen.</li>
+</ul>
+
+<h3>Listen und Blockierung</h3>
+<ul>
+  <li>Die Liste aktualisiert sich automatisch bei der Rückkehr in die App nach Änderungen durch andere Erweiterungen (z. B. Teilen).</li>
+  <li><strong>Vollbild-Bestätigung nach dem Hinzufügen einer Nummer:</strong> ein animiertes Häkchen bestätigt sofort, dass der Vorgang erfolgreich war.</li>
+  <li>Eine Schaltfläche hinzugefügt, um <strong>die Aktualisierung der iOS-Sperre erneut zu versuchen</strong>, sichtbar, wenn der letzte Vorgang nicht erfolgreich war.</li>
+</ul>
+
+<h3>Einstellungen und Premium</h3>
+<ul>
+  <li><strong>Überarbeitetes Premium in den Einstellungen:</strong> neue Vorstellungskarte (ausgeblendet, wenn du bereits Premium hast), die auch die Freischaltung über 500 blockierte Nummern hinaus hervorhebt, und ein neu gestalteter Kaufbestätigungsbildschirm.</li>
+  <li><strong>Premium schaltet Filter und Rückgängig frei:</strong> mit Premium sind die Filter für Listen und Aktivität sowie das Rückgängigmachen von Aktionen automatisch aktiv, ohne eine eigene Option zum Aktivieren.</li>
+  <li>In den Einstellungen unterscheidet die Aufschlüsselung des von der Datenbank belegten Speichers jetzt <strong>Nummern, Verlauf und Sonstiges</strong>, in einem scrollbaren Feld.</li>
+</ul>
+
+<h3>Oberfläche und Barrierefreiheit</h3>
+<ul>
+  <li>Der beim Start angezeigte Hinweis „Erweiterung aktiv“ wurde entfernt.</li>
+  <li>Mehrere Felder lassen sich jetzt bei großen Schriftgrößen (Dynamic Type) korrekt scrollen.</li>
+  <li>Die Zeile „Neuigkeiten“ in den Einstellungen zeigt die aktuell verwendete Version an.</li>
+</ul>
+
+<h3>Stabilität und Leistung</h3>
+<ul>
+  <li>Ein seltener Absturz behoben, der beim Start der App auftreten konnte, wenn das Gerät gesperrt war.</li>
+  <li><strong>Mehr Stabilität und Zuverlässigkeit:</strong> gründliche Überarbeitung der Datenbankverwaltung und des iOS-Sperrmechanismus für solide Leistung auch bei sehr großen Listen, dank dreier zentralisierter Richtlinien: eine für Schreibvorgänge (write), eine für das Neuladen der iOS-Sperre (reload) und eine für das Datenbankschema (SQLite).</li>
+</ul>
 
 <h2>Version 1.2</h2>
 <ul>
