@@ -111,9 +111,9 @@
   #miniToc { display: none; }
   @media (min-width: 1280px) {
     #miniToc {
-      display: block; position: fixed; top: 92px;
-      left: calc(50% - 602px); width: 214px;
-      max-height: 76vh; overflow-y: auto;
+      display: block; position: fixed; top: 50%; transform: translateY(-50%);
+      left: calc(50% + 388px); width: 214px;
+      max-height: 80vh; overflow-y: auto;
       border-left: 2px solid var(--rule); padding-left: 18px;
       font-size: 0.9rem; line-height: 1.4;
     }
