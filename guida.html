@@ -109,17 +109,18 @@
   .lang { display: none; }
   .lang.active { display: block; }
   #miniToc { display: none; }
-  @media (min-width: 1160px) {
+  @media (min-width: 1280px) {
     #miniToc {
-      display: block; position: fixed; top: 96px;
-      left: calc(50% - 540px); width: 168px;
-      max-height: 72vh; overflow-y: auto;
-      border-left: 2px solid var(--rule); padding-left: 14px;
-      font-size: 0.85rem; line-height: 1.35;
+      display: block; position: fixed; top: 92px;
+      left: calc(50% - 602px); width: 214px;
+      max-height: 76vh; overflow-y: auto;
+      border-left: 2px solid var(--rule); padding-left: 18px;
+      font-size: 0.9rem; line-height: 1.4;
     }
-    #miniToc a { display: block; color: var(--fg-secondary); padding: 4px 0; border: 0; }
+    #miniToc .mt-head { color: var(--fg-secondary); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; margin: 0 0 10px; }
+    #miniToc a { display: block; color: var(--fg-secondary); padding: 6px 0; border: 0; }
     #miniToc a:hover { color: var(--accent); text-decoration: none; }
-    #miniToc a.active { color: var(--accent); font-weight: 600; }
+    #miniToc a.active { color: var(--accent); font-weight: 600; border-left: 2px solid var(--accent); margin-left: -20px; padding-left: 18px; }
   }
 </style>
 </head>
@@ -3425,6 +3426,12 @@
     var active = document.querySelector('.lang.active') || document;
     var heads = active.querySelectorAll('h2[id]');
     miniToc.innerHTML = '';
+    var mtLang = (active.getAttribute ? active.getAttribute('data-lang') : null) || 'it';
+    var mtHeadLabels = { it: 'In questa pagina', en: 'On this page', es: 'En esta página', fr: 'Sur cette page', de: 'Auf dieser Seite' };
+    var mtHead = document.createElement('div');
+    mtHead.className = 'mt-head';
+    mtHead.textContent = mtHeadLabels[mtLang] || mtHeadLabels.it;
+    miniToc.appendChild(mtHead);
     var links = [];
     for (var i = 0; i < heads.length; i++) {
       var a = document.createElement('a');
